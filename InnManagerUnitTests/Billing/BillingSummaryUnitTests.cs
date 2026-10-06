@@ -4,6 +4,9 @@ namespace InnManagerTests.Billing
 {
     public class BillingSummaryUnitTests
     {
+        /// <summary>
+        /// Tests BillingSummary default values
+        /// </summary>
         [Fact]
         public void BillingSummaryDefaultValuesAreSetCorrectly()
         {
@@ -13,6 +16,12 @@ namespace InnManagerTests.Billing
             Assert.Equal(0, b.TotalPayments);
             Assert.Equal(0, b.NetBalance);
         }
+        /// <summary>
+        /// Tests BillingSummary's TotalCharges calculation
+        /// </summary>
+        /// <param name="a">First Charge</param>
+        /// <param name="b">Second Charge</param>
+        /// <param name="e">Expected value</param>
         [Theory]
         [InlineData(0, 0, 0)]
         [InlineData(1, 5, 6)]
@@ -25,6 +34,12 @@ namespace InnManagerTests.Billing
             BillingSummary bill = new BillingSummary(i);
             Assert.Equal(e, bill.TotalCharges);
         }
+        /// <summary>
+        /// Ensures BillingSummary calculates TotalPayments correctly
+        /// </summary>
+        /// <param name="a">First Payment</param>
+        /// <param name="b">Second Payment</param>
+        /// <param name="e">Expected Value</param>
         [Theory]
         [InlineData(0, 0, 0)]
         [InlineData(1, 5, 6)]
@@ -37,6 +52,14 @@ namespace InnManagerTests.Billing
             BillingSummary bill = new BillingSummary(i);
             Assert.Equal(-e, bill.TotalPayments);
         }
+        /// <summary>
+        /// Ensures BillingSummary Net Balance is calculated correctly
+        /// </summary>
+        /// <param name="a">first charge</param>
+        /// <param name="b">second charge</param>
+        /// <param name="c">first payment</param>
+        /// <param name="d">second payment</param>
+        /// <param name="e">expected result</param>
         [Theory]
         [InlineData(1, 2, 3, 0, 0)]
         [InlineData(3, 4, 5, 1, 1)]
@@ -52,6 +75,16 @@ namespace InnManagerTests.Billing
             BillingSummary bill = new BillingSummary(i);
             Assert.Equal(e, bill.NetBalance);
         }
+        /// <summary>
+        /// Ensures Unprocessed Charges Don't Change the results
+        /// </summary>
+        /// <param name="a">Number of Processed Charges</param>
+        /// <param name="b">Number of Processed Payments</param>
+        /// <param name="c">Number of Unprocessed Charges</param>
+        /// <param name="d">Number of Unprocessed Payments</param>
+        /// <param name="e1">Expected Total Charges</param>
+        /// <param name="e2">Expected Total Payments</param>
+        /// <param name="e3">Expected Net Balance</param>
         [Theory]
         [InlineData(1, 1, 1, 1, 1, -1, 0)]
         [InlineData(0, 0, 12, 13, 0, 0, 0)]

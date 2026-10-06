@@ -5,6 +5,9 @@ namespace InnManagerTests.Billing
 {
     public class ChargeUnitTests
     {
+        /// <summary>
+        /// Ensures Charge Default values are set correctly
+        /// </summary>
         [Fact]
         public void ChargeDefaultValuesAreSetCorrectly()
         {
@@ -16,6 +19,11 @@ namespace InnManagerTests.Billing
             Assert.Equal(ChargeCategory.Miscellaneous, c.Category);
             Assert.Equal(0, c.SignedAmount);
         }
+        /// <summary>
+        /// Ensures Charge Signed amount is calculated correctly
+        /// </summary>
+        /// <param name="v">Amount</param>
+        /// <param name="e">Expected Signed Amount</param>
         [Theory]
         [InlineData(0, 0)]
         [InlineData(1, 1)]
@@ -26,6 +34,11 @@ namespace InnManagerTests.Billing
             c.Amount = v;
             Assert.Equal(e, c.SignedAmount);
         }
+        /// <summary>
+        /// Ensures the charge signed amount is equal to the amount
+        /// </summary>
+        /// <param name="v">The amount</param>
+        /// <param name="e">The expected amount</param>
         [Theory]
         [InlineData(0, 0)]
         [InlineData(25, 25)]
@@ -41,6 +54,9 @@ namespace InnManagerTests.Billing
             c.Amount = v;
             Assert.Equal(v, c.SignedAmount);
         }
+        /// <summary>
+        /// Ensures Charge Inhereits from BillingRecord and IBillingRecord
+        /// </summary>
         [Fact]
         public void ChargeInheritsFromBillingRecord()
         {
