@@ -4,7 +4,13 @@ using System.Text;
 
 namespace InnManager.Enums
 {
-    internal class EmployeePosition
+    //enum for possible employee positions
+    public enum EmployeePosition
     {
+        Manager,
+        FrontDesk,
+        Housekeeper,
+        Maintenance,
+        Concierge,
     }
 }

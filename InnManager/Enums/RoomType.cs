@@ -4,7 +4,15 @@ using System.Text;
 
 namespace InnManager.Enums
 {
-    internal class RoomType
+    //enum for possible room types
+    public enum RoomType
     {
+        Standard,
+        Deluxe,
+        Suite,
+        Executive,
+        Family,
+        Accessible,
+        Penthouse,
     }
 }

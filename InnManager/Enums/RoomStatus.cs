@@ -4,7 +4,13 @@ using System.Text;
 
 namespace InnManager.Enums
 {
-    internal class RoomStatus
+    //enum for potential room statuses
+    public enum RoomStatus
     {
+        Available,
+        Occupied,
+        Reserved,
+        Maintenance,
+
     }
 }
