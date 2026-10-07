@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InnManager.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -26,5 +27,21 @@ namespace InnManager.Guests
         /// Checked in property
         /// </summary>
         public bool IsCheckedIn { get; set; } = false;
+        /// <summary>
+        /// unique ID for the guest
+        /// </summary>
+        public string GuestID { get; set; } = "";
+        /// <summary>
+        /// Address of the guest
+        /// </summary>
+        public string Address { get; set; } = "";
+        /// <summary>
+        /// The type of ID the guest has
+        /// </summary>
+        public IDType IDType { get; set; } = IDType.Other;
+        /// <summary>
+        /// The ID number of the guest
+        /// </summary>
+        public string IDNumber { get; set; } = "";
     }
 }
