@@ -14,6 +14,7 @@
             Assert.Equal(DateTime.Today, h.ScheduledDate);
             Assert.False(h.IsCompleted);
             Assert.Equal("Not Completed", h.Status);
+            Assert.Equal("", h.AssignedStaff);
         }
         /// <summary>
         /// Ensures Housekeeping statuses alter correctly

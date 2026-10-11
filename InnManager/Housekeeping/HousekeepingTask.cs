@@ -22,6 +22,7 @@ namespace InnManager.Housekeeping
         /// is completed boolean property
         /// </summary>
         public bool IsCompleted { get; set; } = false;
+        public string AssignedStaff { get; set; } = "";
         /// <summary>
         /// status property
         /// </summary>

@@ -19,6 +19,18 @@ namespace InnManager.Billing
         /// </summary>
         public List<BillingRecord> BillingRecords { get; } = new List<BillingRecord>();
         /// <summary>
+        /// The unique number of the invoice
+        /// </summary>
+        public string InvoiceNumber { get; set; } = "";
+        /// <summary>
+        /// The date of the invoice
+        /// </summary>
+        public DateTime InvoiceDate { get; set; } = DateTime.Today;
+        /// <summary>
+        /// The due date of the invoice
+        /// </summary>
+        public DateTime DueDate { get; set; } = DateTime.Today;
+        /// <summary>
         /// Adds up all processed charges
         /// </summary>
         public decimal TotalCharges
