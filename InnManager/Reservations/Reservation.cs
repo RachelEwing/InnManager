@@ -42,6 +42,10 @@ namespace InnManager.Reservations
         /// </summary>
         public bool IsConfirmed { get; set; } = false;
         /// <summary>
+        /// Unique number assigned to the reservation
+        /// </summary>
+        public string ReservationNumber { get; set; } = "";
+        /// <summary>
         /// active boolean property
         /// </summary>
         public bool IsActive

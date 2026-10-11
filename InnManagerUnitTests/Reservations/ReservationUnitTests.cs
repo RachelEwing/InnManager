@@ -10,6 +10,7 @@
         {
             Reservation r = new Reservation();
             Assert.Equal("", r.GuestName);
+            Assert.Equal("", r.ReservationNumber);
             Assert.Equal("", r.RoomNumber);
             Assert.Equal(DateTime.Today, r.CheckInDate);
             Assert.Equal(DateTime.Today, r.CheckOutDate);
