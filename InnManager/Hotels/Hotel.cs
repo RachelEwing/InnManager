@@ -6,9 +6,6 @@ using InnManager.Housekeeping;
 using InnManager.Reservations;
 using InnManager.Rooms;
 using InnManager.Services;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace InnManager.Hotels
 {

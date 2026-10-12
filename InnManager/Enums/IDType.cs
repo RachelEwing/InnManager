@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace InnManager.Enums
+﻿namespace InnManager.Enums
 {
     /// <summary>
     /// Types of IDs available to guests

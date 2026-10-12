@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace InnManager.Housekeeping
+﻿namespace InnManager.Housekeeping
 {
     /// <summary>
     /// A class for keeping track of housekeeping tasks

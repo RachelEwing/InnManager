@@ -1,7 +1,4 @@
 ﻿using InnManager.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace InnManager.Employees
 {
@@ -42,6 +39,6 @@ namespace InnManager.Employees
         /// <summary>
         /// Whether the employee is currently working
         /// </summary>
-        public string Status { get { if (IsActive) return "Active"; else return "Inactive"; }}
+        public string Status { get { if (IsActive) return "Active"; else return "Inactive"; } }
     }
 }

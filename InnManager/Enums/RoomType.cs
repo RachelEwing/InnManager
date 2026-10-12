@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace InnManager.Enums
+﻿namespace InnManager.Enums
 {
     //enum for possible room types
     public enum RoomType

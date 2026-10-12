@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace InnManager.Reservations
+﻿namespace InnManager.Reservations
 {
     /// <summary>
     /// Class for keeping track of hotel reservations

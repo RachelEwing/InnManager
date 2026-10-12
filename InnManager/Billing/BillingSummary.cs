@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace InnManager.Billing
+﻿namespace InnManager.Billing
 {
     /// <summary>
     /// Provides a summary of the bills
