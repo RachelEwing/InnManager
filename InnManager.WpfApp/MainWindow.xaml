@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InnManager.WpfApp"
+        xmlns:navigation="clr-namespace:InnManager.WpfApp.Controls"
         mc:Ignorable="d"
         Title="InnManager" Height="460" Width="800">
     <Grid>
@@ -45,7 +46,7 @@
 
             </Border>
             <Grid Grid.Column="1">
-
+                <navigation:DashboardControl/>
             </Grid>
         </Grid>
     </Grid>
