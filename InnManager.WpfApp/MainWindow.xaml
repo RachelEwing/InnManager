@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InnManager.WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="460" Width="800">
+        Title="InnManager" Height="460" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height = "55" />

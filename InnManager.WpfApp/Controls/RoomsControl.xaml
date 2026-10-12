@@ -5,8 +5,59 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InnManager.WpfApp.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="395" d:DesignWidth="640">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "55" />
+            <RowDefinition Height="55"/>
+            <RowDefinition Height = "auto"/>
+            <RowDefinition Height = "*"/>
+            <RowDefinition Height = "45"/>
+        </Grid.RowDefinitions>
+            <Border Grid.Row="0" Background="LightSteelBlue">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" FontSize="35" FontWeight="Bold" Margin="5">Rooms</TextBlock>
+            </Grid>
+            </Border>
+        <Grid Grid.Row=" 1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" VerticalAlignment="Center">
+                    <WrapPanel>
+                        <Button Content="  Add Room  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
+                        <Button Content="  Edit  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
+                        <Button Content="  Delete  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
+                        <Button Content="  Refresh  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
+                    </WrapPanel>
+                </Border>
+                <Border Grid.Column="1" VerticalAlignment="Center">
+                    <TextBox HorizontalContentAlignment="Left" Text="Search room number..." Height="30" Width="160" HorizontalAlignment="Right" Margin=" 5"/>
+                </Border>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" VerticalAlignment="Center">
+            <Border BorderThickness =" 5">
+                <WrapPanel Background="LightSteelBlue" VerticalAlignment="Center">
+                    <TextBlock Text="  Room Number  " Height="25" Margin="5" FontWeight="Bold" FontSize="12"/>
+                    <TextBlock Text="  Room Type  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
+                    <TextBlock Text="  Floor  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
+                    <TextBlock Text="  Capacity  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
+                    <TextBlock Text="  Rate ($)  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
+                    <TextBlock Text="  Status  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
+                    <TextBlock Text="  Is Clean  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
+                    <TextBlock Text="  Has Balcony  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
+                </WrapPanel>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="4">
+            <TextBlock Text="Total Rooms: 0" Height="25" Margin="5" FontWeight="Bold" FontSize="15" />
+        </Grid>
     </Grid>
 </UserControl>
