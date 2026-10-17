@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:InnManager.WpfApp"
         xmlns:navigation="clr-namespace:InnManager.WpfApp.Controls"
         mc:Ignorable="d"
-        Title="InnManager" Height="460" Width="800">
+        Title="InnManager" Height="475" Width="875">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height = "55" />
@@ -31,21 +31,21 @@
             </Grid.ColumnDefinitions>
             <Border Grid.Column="0" Background="LightPink">
                 <StackPanel>
-                    <Button Content="Dashboard" Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                    <Button Content="Rooms" Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                    <Button Content="Reservation" Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                    <Button Content="Guests" Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                    <Button Content="Services" Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                    <Button Content="Invoices" Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                    <Button Content="Payments" Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                    <Button Content="Employees" Height=" 25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                    <Button Content="Housekeeping" Height=" 25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                    <Button Content="Reports" Height=" 25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                    <Button Content="Settings" Height=" 25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
+                    <Button Content="Dashboard" Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="DashboardNavClick"/>
+                    <Button Content="Rooms" Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="RoomsNavClick"/>
+                    <Button Content="Reservation" Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="ReservationNavClick"/>
+                    <Button Content="Guests" Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="GuestsNavClick"/>
+                    <Button Content="Services" Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="ServicesNavClick"/>
+                    <Button Content="Invoices" Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="InvoicesNavClick"/>
+                    <Button Content="Payments" Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="PaymentsNavClick"/>
+                    <Button Content="Employees" Height=" 25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="EmployeesNavClick"/>
+                    <Button Content="Housekeeping" Height=" 25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="HousekeepingNavClick"/>
+                    <Button Content="Reports" Height=" 25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="ReportsNavClick"/>
+                    <Button Content="Settings" Height=" 25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="SettingsNavClick"/>
                 </StackPanel>
 
             </Border>
-            <Grid Grid.Column="1">
+            <Grid Grid.Column="1" Name="DisplayGrid">
                 <navigation:DashboardControl/>
             </Grid>
         </Grid>
