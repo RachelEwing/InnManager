@@ -1,4 +1,5 @@
 ﻿using InnManager.Enums;
+using System.ComponentModel;
 
 namespace InnManager.Rooms
 {
@@ -8,7 +9,7 @@ namespace InnManager.Rooms
     /// <remarks>
     /// The Room class stores identifying information about a hotel room, including its room number, room type, nightly rate and current availability.
     /// </remarks>
-    public class Room
+    public class Room : INotifyPropertyChanged
     {
         // Keeps track of the next ID to assign to a room
         private static long _nextID = 0;
@@ -27,23 +28,47 @@ namespace InnManager.Rooms
         }
 
         //The ID for the individual room
-        public static long RoomID { get; set; } = NextID;
+        public long RoomID { get; set
+            {
+                RoomID = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomID)));
+            }
+        } = NextID;
 
         //The Room Number
-        public string RoomNumber { get; set; } = "";
+        public string RoomNumber { get; set
+            {
+                RoomNumber = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomNumber)));
+            }
+        } = "";
 
         //The Type of Room (Single, Double, etc.)
-        public RoomType RoomType { get; set; } = RoomType.Standard;
+        public RoomType RoomType { get; set
+            {
+                RoomType = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomType)));
+            }
+        } = RoomType.Standard;
 
         //Whether or not the room is available
-        public bool IsAvailable { get; set; } = true;
+        public bool IsAvailable { get; set
+            {
+                IsAvailable = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsAvailable)));
+            }
+        } = true;
         //property for floor
         public int Floor
         {
             get; set
             {
                 if (value > 0)
+                {
                     this.Floor = value;
+                    Floor = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Floor)));
+                }
             }
         } = 0;
         //property for capacity
@@ -52,14 +77,35 @@ namespace InnManager.Rooms
             get; set
             {
                 if (value > 0)
+                {
                     this.Capacity = value;
+                    Capacity = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Capacity)));
+                }
             }
         } = 1;
         //property for whether or not the room has a balcony
-        public bool HasBalcony { get; set; } = false;
+        public bool HasBalcony { get; set
+            {
+                HasBalcony = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(HasBalcony)));
+            }
+        } = false;
         //property for whether or not the room is clean
-        public bool IsClean { get; set; } = true;
+        public bool IsClean { get; set
+            {
+                IsClean = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsClean)));
+            }
+        } = true;
         //property for the status of the room
-        public RoomStatus Status { get; set; } = RoomStatus.Available;
+        public RoomStatus Status { get; set
+            {
+                Status = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
+            }
+        } = RoomStatus.Available;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
     }
 }
