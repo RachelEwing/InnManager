@@ -1,4 +1,5 @@
 ﻿using InnManager.Enums;
+using System.ComponentModel;
 
 namespace InnManager.Billing
 
@@ -11,7 +12,10 @@ namespace InnManager.Billing
         /// <summary>
         /// The category that is being charged for
         /// </summary>
-        public ChargeCategory Category { get; set; } = ChargeCategory.Miscellaneous;
+        public ChargeCategory Category { get; set {
+                Category = value;
+                OnPropertyChanged((nameof(Category))); 
+            } } = ChargeCategory.Miscellaneous;
         /// <summary>
         /// The signed amount (positive) added to the bill
         /// </summary>

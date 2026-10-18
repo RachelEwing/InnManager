@@ -1,4 +1,5 @@
 ﻿using InnManager.Enums;
+using System.ComponentModel;
 
 namespace InnManager.Billing
 {
@@ -10,7 +11,12 @@ namespace InnManager.Billing
         /// <summary>
         /// How the bill is being paid
         /// </summary>
-        public PaymentMethod PaymentMethod { get; set; } = PaymentMethod.Cash;
+        public PaymentMethod PaymentMethod { get; set
+            {
+                PaymentMethod = value;
+                OnPropertyChanged(nameof(PaymentMethod));
+            }
+        } = PaymentMethod.Cash;
         /// <summary>
         /// The amount added to the bill (amount is converted to negative to indicate a payment)
         /// </summary>
@@ -18,6 +24,11 @@ namespace InnManager.Billing
         /// <summary>
         /// The unique reference number of this payment
         /// </summary>
-        public string ReferenceNumber { get; set; } = "";
+        public string ReferenceNumber { get; set
+            {
+                ReferenceNumber = value;
+                OnPropertyChanged(nameof(ReferenceNumber));
+            }
+        } = "";
     }
 }

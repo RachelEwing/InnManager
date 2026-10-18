@@ -1,15 +1,27 @@
-﻿namespace InnManager.Billing
+﻿using System.ComponentModel;
+
+namespace InnManager.Billing
 {
     /// <summary>
     /// A class to represent the invoice
     /// </summary>
-    public class Invoice
+    public class Invoice : INotifyPropertyChanged
     {
-        public string GuestName { get; set; } = "";
+        public string GuestName { get; set
+            {
+                GuestName = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GuestName)));
+            }
+        } = "";
         /// <summary>
         /// room number property
         /// </summary>
-        public string RoomNumber { get; set; } = "";
+        public string RoomNumber { get; set
+            {
+                RoomNumber = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomNumber)));
+            }
+        } = "";
         /// <summary>
         /// A list of the billing records (payments and charges)
         /// </summary>
@@ -17,15 +29,30 @@
         /// <summary>
         /// The unique number of the invoice
         /// </summary>
-        public string InvoiceNumber { get; set; } = "";
+        public string InvoiceNumber { get; set
+            {
+                InvoiceNumber = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(InvoiceNumber)));
+            }
+        } = "";
         /// <summary>
         /// The date of the invoice
         /// </summary>
-        public DateTime InvoiceDate { get; set; } = DateTime.Today;
+        public DateTime InvoiceDate { get; set
+            {
+                InvoiceDate = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(InvoiceDate)));
+            }
+        } = DateTime.Today;
         /// <summary>
         /// The due date of the invoice
         /// </summary>
-        public DateTime DueDate { get; set; } = DateTime.Today;
+        public DateTime DueDate { get; set
+            {
+                DueDate = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(DueDate)));
+            }
+        } = DateTime.Today;
         /// <summary>
         /// Adds up all processed charges
         /// </summary>
@@ -83,5 +110,7 @@
                 else return "Unpaid";
             }
         }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
     }
 }
