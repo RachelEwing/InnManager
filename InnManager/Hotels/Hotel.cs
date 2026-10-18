@@ -6,6 +6,7 @@ using InnManager.Housekeeping;
 using InnManager.Reservations;
 using InnManager.Rooms;
 using InnManager.Services;
+using System.Collections.ObjectModel;
 
 namespace InnManager.Hotels
 {
@@ -16,21 +17,21 @@ namespace InnManager.Hotels
         //type of hotel
         public HotelType Type { get; init; }
         //list of rooms in the hotel
-        public List<Room> Rooms { get; } = new List<Room>();
+        public ObservableCollection<Room> Rooms { get; } = new ObservableCollection<Room>();
         //list of guests
-        public List<Guest> Guests { get; } = new List<Guest>();
+        public ObservableCollection<Guest> Guests { get; } = new ObservableCollection<Guest>();
         //list of reservations
-        public List<Reservation> Reservations { get; } = new List<Reservation>();
+        public ObservableCollection<Reservation> Reservations { get; } = new ObservableCollection<Reservation>();
         //list of services
-        public List<Service> Services { get; } = new List<Service>();
+        public ObservableCollection<Service> Services { get; } = new ObservableCollection<Service>();
         //list of invoices
-        public List<Invoice> Invoices { get; } = new List<Invoice>();
+        public ObservableCollection<Invoice> Invoices { get; } = new ObservableCollection<Invoice>();
         //list of payments
-        public List<Payment> Payments { get; } = new List<Payment>();
+        public ObservableCollection<Payment> Payments { get; } = new ObservableCollection<Payment>();
         //list of employees
-        public List<Employee> Employees { get; } = new List<Employee>();
+        public ObservableCollection<Employee> Employees { get; } = new ObservableCollection<Employee>();
         //list of housekeeping tasks
-        public List<HousekeepingTask> HouseKeepingTasks { get; } = new List<HousekeepingTask>();
+        public ObservableCollection<HousekeepingTask> HouseKeepingTasks { get; } = new ObservableCollection<HousekeepingTask>();
         //number of rooms available
         public int AvailableRoomCount
         {
