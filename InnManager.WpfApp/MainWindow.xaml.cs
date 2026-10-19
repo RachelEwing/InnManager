@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InnManager.Employees;
 
 namespace InnManager.WpfApp
 {
@@ -20,10 +21,10 @@ namespace InnManager.WpfApp
     {
         public MainWindow()
         {
-
-            Hotel h = new Hotel();
-            this.DataContext = h;
             InitializeComponent();
+            Hotel h = new Hotel();
+            h.Employees.Add(new Employee());
+            this.DataContext = h;
         }
         /// <summary>
         /// Displays Dashboard Panel when the Dashboard navigation is clicked

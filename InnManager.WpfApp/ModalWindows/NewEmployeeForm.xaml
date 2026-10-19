@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InnManager.WpfApp.ModalWindows"
         mc:Ignorable="d"
-        Title="New Employee Form" Height="auto" Width="200">
+        Title="New Employee Form" Height="325" Width="200">
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
