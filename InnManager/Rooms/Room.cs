@@ -30,7 +30,6 @@ namespace InnManager.Rooms
         //The ID for the individual room
         public long RoomID { get; set
             {
-                RoomID = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomID)));
             }
         } = NextID;
@@ -38,7 +37,6 @@ namespace InnManager.Rooms
         //The Room Number
         public string RoomNumber { get; set
             {
-                RoomNumber = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomNumber)));
             }
         } = "";
@@ -46,7 +44,6 @@ namespace InnManager.Rooms
         //The Type of Room (Single, Double, etc.)
         public RoomType RoomType { get; set
             {
-                RoomType = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomType)));
             }
         } = RoomType.Standard;
@@ -64,7 +61,6 @@ namespace InnManager.Rooms
             {
                 if (value > 0)
                 {
-                    this.Floor = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Floor)));
                 }
             }
@@ -76,7 +72,6 @@ namespace InnManager.Rooms
             {
                 if (value > 0)
                 {
-                    this.Capacity = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Capacity)));
                 }
             }

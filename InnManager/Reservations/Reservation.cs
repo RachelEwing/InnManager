@@ -9,7 +9,6 @@ namespace InnManager.Reservations
     {
         public string GuestName { get; set
             {
-                GuestName = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GuestName)));
             }
         } = "";
@@ -18,7 +17,6 @@ namespace InnManager.Reservations
         /// </summary>
         public string RoomNumber { get; set
             {
-                RoomNumber = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomNumber)));
             }
         } = "";
@@ -27,7 +25,6 @@ namespace InnManager.Reservations
         /// </summary>
         public DateTime CheckInDate { get; set
             {
-                CheckInDate = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CheckInDate)));
             }
         } = DateTime.Today;
@@ -36,7 +33,6 @@ namespace InnManager.Reservations
         /// </summary>
         public DateTime CheckOutDate { get; set
             {
-                CheckOutDate = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CheckOutDate)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCheckedOutOverdue)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
@@ -47,7 +43,6 @@ namespace InnManager.Reservations
         /// </summary>
         public bool IsCheckedOut { get; set
             {
-                IsCheckedOut = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCheckedOut)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCheckedOutOverdue)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsActive)));
@@ -70,7 +65,6 @@ namespace InnManager.Reservations
         /// </summary>
         public bool IsConfirmed { get; set
             {
-                IsConfirmed = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsConfirmed)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsActive)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
@@ -81,7 +75,6 @@ namespace InnManager.Reservations
         /// </summary>
         public string ReservationNumber { get; set
             {
-                ReservationNumber = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ReservationNumber)));
             }
         } = "";

@@ -10,7 +10,6 @@ namespace InnManager.Employees
     {
         public string EmployeeID { get; set
             {
-                EmployeeID = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(EmployeeID)));
             }
         } = "";
@@ -19,7 +18,6 @@ namespace InnManager.Employees
         /// </summary>
         public string FirstName { get; set
             {
-                FirstName = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(FirstName)));
             }
         } = "";
@@ -28,7 +26,6 @@ namespace InnManager.Employees
         /// </summary>
         public string LastName { get; set
             {
-                LastName = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LastName)));
             }
         } = "";
@@ -37,7 +34,6 @@ namespace InnManager.Employees
         /// </summary>
         public EmployeePosition Position { get; set
             {
-                Position = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Position)));
             }
         } = EmployeePosition.FrontDesk;
@@ -46,7 +42,6 @@ namespace InnManager.Employees
         /// </summary>
         public bool IsActive { get; set
             {
-                IsActive = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsActive)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
             }
@@ -56,7 +51,6 @@ namespace InnManager.Employees
         /// </summary>
         public string Email { get; set
             {
-                Email = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Email)));
             }
         } = "";
@@ -65,7 +59,6 @@ namespace InnManager.Employees
         /// </summary>
         public string PhoneNumber { get; set
             {
-                PhoneNumber = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PhoneNumber)));
             }
         } = "";

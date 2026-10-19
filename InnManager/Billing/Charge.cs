@@ -13,7 +13,7 @@ namespace InnManager.Billing
         /// The category that is being charged for
         /// </summary>
         public ChargeCategory Category { get; set {
-                Category = value;
+              
                 OnPropertyChanged((nameof(Category))); 
             } } = ChargeCategory.Miscellaneous;
         /// <summary>

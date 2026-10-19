@@ -9,7 +9,6 @@ namespace InnManager.Billing
     {
         public string GuestName { get; set
             {
-                GuestName = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GuestName)));
             }
         } = "";
@@ -18,7 +17,6 @@ namespace InnManager.Billing
         /// </summary>
         public string RoomNumber { get; set
             {
-                RoomNumber = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomNumber)));
             }
         } = "";
@@ -31,7 +29,6 @@ namespace InnManager.Billing
         /// </summary>
         public string InvoiceNumber { get; set
             {
-                InvoiceNumber = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(InvoiceNumber)));
             }
         } = "";
@@ -40,7 +37,6 @@ namespace InnManager.Billing
         /// </summary>
         public DateTime InvoiceDate { get; set
             {
-                InvoiceDate = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(InvoiceDate)));
             }
         } = DateTime.Today;
@@ -49,7 +45,6 @@ namespace InnManager.Billing
         /// </summary>
         public DateTime DueDate { get; set
             {
-                DueDate = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(DueDate)));
             }
         } = DateTime.Today;

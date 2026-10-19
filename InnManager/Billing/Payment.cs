@@ -13,7 +13,6 @@ namespace InnManager.Billing
         /// </summary>
         public PaymentMethod PaymentMethod { get; set
             {
-                PaymentMethod = value;
                 OnPropertyChanged(nameof(PaymentMethod));
             }
         } = PaymentMethod.Cash;
@@ -26,7 +25,7 @@ namespace InnManager.Billing
         /// </summary>
         public string ReferenceNumber { get; set
             {
-                ReferenceNumber = value;
+               
                 OnPropertyChanged(nameof(ReferenceNumber));
             }
         } = "";

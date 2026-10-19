@@ -1,6 +1,7 @@
 ﻿using InnManager.Employees;
 using InnManager.Enums;
 using System.ComponentModel;
+using System.Text;
 
 namespace InnManager.Guests
 {
@@ -11,7 +12,6 @@ namespace InnManager.Guests
     {
         public string FirstName { get; set
             {
-                FirstName = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(FirstName)));
             }
         } = "";
@@ -20,7 +20,6 @@ namespace InnManager.Guests
         /// </summary>
         public string LastName { get; set
             {
-                LastName = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LastName)));
             }
         } = "";
@@ -29,7 +28,6 @@ namespace InnManager.Guests
         /// </summary>
         public string Email { get; set
             {
-                Email = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Email)));
             }
         } = "";
@@ -38,7 +36,6 @@ namespace InnManager.Guests
         /// </summary>
         public string PhoneNumber { get; set
             {
-                PhoneNumber = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PhoneNumber)));
             }
         } = "";
@@ -47,25 +44,36 @@ namespace InnManager.Guests
         /// </summary>
         public bool IsCheckedIn { get; set
             {
-                IsCheckedIn = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCheckedIn)));
             }
         } = false;
         /// <summary>
         /// unique ID for the guest
         /// </summary>
-        public string GuestID { get; set
+        public string GuestID {
+            get
             {
-                GuestID = value;
+                try { 
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("GST-");
+                    sb.Append(LastName[0]);
+                    sb.Append(LastName[1]);
+                    sb.Append("-");
+                    sb.Append(IDNumber.Substring(IDNumber.Length - 3));
+                    return sb.ToString();
+                } catch {
+                    return "Unavailable";
+                }
+            } set
+            {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GuestID)));
             }
-        } = "";
+        }
         /// <summary>
         /// Address of the guest
         /// </summary>
         public string Address { get; set
             {
-                Address = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Address)));
             }
         } = "";
@@ -74,7 +82,6 @@ namespace InnManager.Guests
         /// </summary>
         public IDType IDType { get; set
             {
-                IDType = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IDType)));
             }
         } = IDType.Other;
@@ -83,7 +90,6 @@ namespace InnManager.Guests
         /// </summary>
         public string IDNumber { get; set
             {
-                IDNumber = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IDNumber)));
             }
         } = "";

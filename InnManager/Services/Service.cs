@@ -14,7 +14,6 @@ namespace InnManager.Services
         /// </summary>
         public string ServiceName { get; set
             {
-                ServiceName = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ServiceName)));
             }
         } = "";
@@ -23,7 +22,6 @@ namespace InnManager.Services
         /// </summary>
         public string Description { get; set
             {
-                Description = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Description)));
             }
         } = "";
@@ -32,7 +30,6 @@ namespace InnManager.Services
         /// </summary>
         public decimal Price { get; set
             {
-                Price = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Price)));
             }
         } = 0;
@@ -41,7 +38,6 @@ namespace InnManager.Services
         /// </summary>
         public bool IsAvailable { get; set
             {
-                IsAvailable = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsAvailable)));
             }
         } = true;
@@ -50,7 +46,6 @@ namespace InnManager.Services
         /// </summary>
         public ServiceCategory Category { get; set
             {
-                Category = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Category)));
             }
         } = ServiceCategory.Miscellaneous;
