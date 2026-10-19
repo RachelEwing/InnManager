@@ -7,47 +7,27 @@ namespace InnManager.Reservations
     /// </summary>
     public class Reservation : INotifyPropertyChanged
     {
-        public string GuestName { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GuestName)));
-            }
+        public string GuestName { get; set;
         } = "";
         /// <summary>
         /// room number property
         /// </summary>
-        public string RoomNumber { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomNumber)));
-            }
+        public string RoomNumber { get; set;
         } = "";
         /// <summary>
         /// check in date property
         /// </summary>
-        public DateTime CheckInDate { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CheckInDate)));
-            }
+        public DateTime CheckInDate { get; set;
         } = DateTime.Today;
         /// <summary>
         /// check out date property
         /// </summary>
-        public DateTime CheckOutDate { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CheckOutDate)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCheckedOutOverdue)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
-            }
+        public DateTime CheckOutDate { get; set;
         } = DateTime.Today;
         /// <summary>
         /// checked out boolean property
         /// </summary>
-        public bool IsCheckedOut { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCheckedOut)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCheckedOutOverdue)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsActive)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
-            }
+        public bool IsCheckedOut { get; set;
         } = false;
         /// <summary>
         /// checked out overdue boolean property
@@ -63,20 +43,12 @@ namespace InnManager.Reservations
         /// <summary>
         /// confirmation property
         /// </summary>
-        public bool IsConfirmed { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsConfirmed)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsActive)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
-            }
+        public bool IsConfirmed { get; set;
         } = false;
         /// <summary>
         /// Unique number assigned to the reservation
         /// </summary>
-        public string ReservationNumber { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ReservationNumber)));
-            }
+        public string ReservationNumber { get; set;
         } = "";
         /// <summary>
         /// active boolean property

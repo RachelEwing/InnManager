@@ -28,17 +28,11 @@ namespace InnManager.Rooms
         }
 
         //The ID for the individual room
-        public long RoomID { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomID)));
-            }
+        public long RoomID { get; set;
         } = NextID;
 
         //The Room Number
-        public string RoomNumber { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomNumber)));
-            }
+        public string RoomNumber { get; set;
         } = "";
 
         //The Type of Room (Single, Double, etc.)
@@ -49,10 +43,7 @@ namespace InnManager.Rooms
         } = RoomType.Standard;
 
         //Whether or not the room is available
-        public bool IsAvailable { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsAvailable)));
-            }
+        public bool IsAvailable { get; set;
         } = true;
         //property for floor
         public int Floor
@@ -89,10 +80,7 @@ namespace InnManager.Rooms
             }
         } = true;
         //property for the status of the room
-        public RoomStatus Status { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
-            }
+        public RoomStatus Status { get; set;
         } = RoomStatus.Available;
 
         public event PropertyChangedEventHandler? PropertyChanged;

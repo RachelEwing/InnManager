@@ -7,40 +7,24 @@ namespace InnManager.Housekeeping
     /// </summary>
     public class HousekeepingTask : INotifyPropertyChanged
     {
-        public string RoomNumber { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomNumber)));
-            }
+        public string RoomNumber { get; set;
         } = "";
         /// <summary>
         /// description of task property
         /// </summary>
-        public string Description { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Description)));
-            }
+        public string Description { get; set;
         } = "";
         /// <summary>
         /// scheduled date for task property
         /// </summary>
-        public DateTime ScheduledDate { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ScheduledDate)));
-            }
+        public DateTime ScheduledDate { get; set;
         } = DateTime.Today;
         /// <summary>
         /// is completed boolean property
         /// </summary>
-        public bool IsCompleted { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCompleted)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
-            }
+        public bool IsCompleted { get; set;
         } = false;
-        public string AssignedStaff { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AssignedStaff)));
-            }
+        public string AssignedStaff { get; set;
         } = "";
         /// <summary>
         /// status property

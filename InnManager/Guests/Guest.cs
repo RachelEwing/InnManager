@@ -10,42 +10,27 @@ namespace InnManager.Guests
     /// </summary>
     public class Guest : INotifyPropertyChanged
     {
-        public string FirstName { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(FirstName)));
-            }
+        public string FirstName { get; set;
         } = "";
         /// <summary>
         /// last name property
         /// </summary>
-        public string LastName { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LastName)));
-            }
+        public string LastName { get; set;
         } = "";
         /// <summary>
         /// email property
         /// </summary>
-        public string Email { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Email)));
-            }
+        public string Email { get; set;
         } = "";
         /// <summary>
         /// phone number property
         /// </summary>
-        public string PhoneNumber { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PhoneNumber)));
-            }
+        public string PhoneNumber { get; set;
         } = "";
         /// <summary>
         /// Checked in property
         /// </summary>
-        public bool IsCheckedIn { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCheckedIn)));
-            }
+        public bool IsCheckedIn { get; set;
         } = false;
         /// <summary>
         /// unique ID for the guest
@@ -64,34 +49,22 @@ namespace InnManager.Guests
                 } catch {
                     return "Unavailable";
                 }
-            } set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GuestID)));
-            }
+            } set;
         }
         /// <summary>
         /// Address of the guest
         /// </summary>
-        public string Address { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Address)));
-            }
+        public string Address { get; set;
         } = "";
         /// <summary>
         /// The type of ID the guest has
         /// </summary>
-        public IDType IDType { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IDType)));
-            }
+        public IDType IDType { get; set;
         } = IDType.Other;
         /// <summary>
         /// The ID number of the guest
         /// </summary>
-        public string IDNumber { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IDNumber)));
-            }
+        public string IDNumber { get; set;
         } = "";
 
         public event PropertyChangedEventHandler? PropertyChanged;

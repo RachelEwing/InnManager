@@ -8,68 +8,42 @@ namespace InnManager.Employees
     /// </summary>
     public class Employee : INotifyPropertyChanged
     {
-        public string EmployeeID { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(EmployeeID)));
-            }
+        public string EmployeeID { get; set;
         } = "";
         /// <summary>
         /// first name property
         /// </summary>
-        public string FirstName { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(FirstName)));
-            }
+        public string FirstName { get; set;
         } = "";
         /// <summary>
         /// last name property
         /// </summary>
-        public string LastName { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LastName)));
-            }
+        public string LastName { get; set;
         } = "";
         /// <summary>
         /// employee position property
         /// </summary>
-        public EmployeePosition Position { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Position)));
-            }
+        public EmployeePosition Position { get; set;
         } = EmployeePosition.FrontDesk;
         /// <summary>
         /// is active boolean property
         /// </summary>
-        public bool IsActive { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsActive)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
-            }
+        public bool IsActive { get; set;
         } = true;
         /// <summary>
         /// The employee's email
         /// </summary>
-        public string Email { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Email)));
-            }
+        public string Email { get; set;
         } = "";
         /// <summary>
         /// The employee's phone number
         /// </summary>
-        public string PhoneNumber { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PhoneNumber)));
-            }
+        public string PhoneNumber { get; set;
         } = "";
         /// <summary>
         /// The date the employee was hired
         /// </summary>
-        public DateTime HireDate { get; set
-            {
-                HireDate = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(HireDate)));
-            }
+        public DateTime HireDate { get; set;
         } = DateTime.Today;
         /// <summary>
         /// Whether the employee is currently working

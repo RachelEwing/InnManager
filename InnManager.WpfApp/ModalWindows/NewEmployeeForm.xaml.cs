@@ -9,6 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InnManager.Employees;
+using InnManager.Hotels;
 
 namespace InnManager.WpfApp.ModalWindows
 {
@@ -27,6 +29,11 @@ namespace InnManager.WpfApp.ModalWindows
         /// <param name="sender"></param>
         /// <param name="e"></param>
         public void AddEmployeeClick(object sender, RoutedEventArgs e) {
+            Employee employee = new Employee();
+            var data = this.DataContext;
+            if (data is Hotel h) {
+                h.Employees.Add(employee);
+            }
             DialogResult = true;
             this.Close();
         }

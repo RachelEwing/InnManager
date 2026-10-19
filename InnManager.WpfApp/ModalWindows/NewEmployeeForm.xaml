@@ -10,31 +10,31 @@
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="First Name:  "/>
-                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left"/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name ="FirstNameText"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Last Name:  "/>
-                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left"/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="LastNameText"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Position:  "/>
-                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left"/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="PositionText"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Email:  "/>
-                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left"/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="EmailText"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Phone:  "/>
-                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left"/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="PhoneText"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Hire Date:  "/>
-                <DatePicker/>
+                <DatePicker Name="HireDatePicker"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Status:  "/>
-                <ComboBox Width="100"/>
+                <ComboBox Width="100" Name="StatusPicker"/>
             </StackPanel>
             <TextBlock/>
             <StackPanel Orientation="Horizontal" Margin="5">

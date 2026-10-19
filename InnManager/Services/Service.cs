@@ -12,42 +12,27 @@ namespace InnManager.Services
         /// <summary>
         /// name of service property
         /// </summary>
-        public string ServiceName { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ServiceName)));
-            }
+        public string ServiceName { get; set;
         } = "";
         /// <summary>
         /// description property
         /// </summary>
-        public string Description { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Description)));
-            }
+        public string Description { get; set;
         } = "";
         /// <summary>
         /// price property
         /// </summary>
-        public decimal Price { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Price)));
-            }
+        public decimal Price { get; set;
         } = 0;
         /// <summary>
         /// availability property
         /// </summary>
-        public bool IsAvailable { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsAvailable)));
-            }
+        public bool IsAvailable { get; set;
         } = true;
         /// <summary>
         /// service category property
         /// </summary>
-        public ServiceCategory Category { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Category)));
-            }
+        public ServiceCategory Category { get; set;
         } = ServiceCategory.Miscellaneous;
 
         public event PropertyChangedEventHandler? PropertyChanged;

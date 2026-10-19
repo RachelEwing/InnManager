@@ -15,11 +15,7 @@ namespace InnManager.Billing
         /// <summary>
         /// room number property
         /// </summary>
-        public string RoomNumber { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomNumber)));
-            }
-        } = "";
+        public string RoomNumber { get; set;} = "";
         /// <summary>
         /// A list of the billing records (payments and charges)
         /// </summary>
@@ -27,27 +23,15 @@ namespace InnManager.Billing
         /// <summary>
         /// The unique number of the invoice
         /// </summary>
-        public string InvoiceNumber { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(InvoiceNumber)));
-            }
-        } = "";
+        public string InvoiceNumber { get; set; } = "";
         /// <summary>
         /// The date of the invoice
         /// </summary>
-        public DateTime InvoiceDate { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(InvoiceDate)));
-            }
-        } = DateTime.Today;
+        public DateTime InvoiceDate { get; set; } = DateTime.Today;
         /// <summary>
         /// The due date of the invoice
         /// </summary>
-        public DateTime DueDate { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(DueDate)));
-            }
-        } = DateTime.Today;
+        public DateTime DueDate { get; set; } = DateTime.Today;
         /// <summary>
         /// Adds up all processed charges
         /// </summary>
