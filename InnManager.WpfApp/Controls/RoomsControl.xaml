@@ -57,7 +57,9 @@
             </Border>
         </Grid>
         <Grid Grid.Row="4">
-            <TextBlock Text="Total Rooms: 0" Height="25" Margin="5" FontWeight="Bold" FontSize="15" />
+            <TextBlock Text="Total Rooms: " Height="25" Margin="5" FontWeight="Bold" FontSize="15" >
+                <Run Text="{Binding Path = Rooms.Count, Mode=OneWay}"/>
+            </TextBlock>
         </Grid>
     </Grid>
 </UserControl>

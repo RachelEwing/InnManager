@@ -21,9 +21,18 @@
             <Grid>
                 <Border Grid.Column="0" Background=" Lavender">
                     <WrapPanel>
-                        <TextBlock Background="LightGoldenrodYellow" Text="Total Rooms" Margin="15" FontSize=" 20" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="200" TextAlignment="Center"/>
-                        <TextBlock Background="LightGreen" Text="Available Rooms" Margin="15" FontSize=" 20" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="200" TextAlignment="Center"/>
-                        <TextBlock Background="LightPink" Text="Occupied Rooms" Margin="15" FontSize=" 20" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="200" TextAlignment="Center"/>
+                        <TextBlock Background="LightGoldenrodYellow" Margin="15" FontSize=" 20" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="200" TextAlignment="Center">
+                            <Run Text="Total Rooms:"/>
+                            <Run Text="{Binding Path = Rooms.Count, Mode=OneWay}"/>
+                        </TextBlock>
+                        <TextBlock Background="LightGreen" Margin="15" FontSize=" 20" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="200" TextAlignment="Center">
+                            <Run Text="Available Rooms:"/>
+                            <Run Text="{Binding Path = AvailableRoomCount, Mode=OneWay}"/>
+                        </TextBlock>
+                        <TextBlock Background="LightPink" Margin="15" FontSize=" 20" FontWeight="Bold" Height="50" VerticalAlignment="Center" Width="200" TextAlignment="Center">
+                            <Run Text="Occupied Rooms:"/>
+                            <Run Text="{Binding Path = OccupiedRoomCount, Mode=OneWay}"/>
+                        </TextBlock>
                     </WrapPanel>
                 </Border>
             </Grid>

@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using InnManager.Hotels;
+using InnManager.WpfApp.Controls;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -8,7 +10,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using InnManager.WpfApp.Controls;
 
 namespace InnManager.WpfApp
 {
@@ -19,6 +20,9 @@ namespace InnManager.WpfApp
     {
         public MainWindow()
         {
+
+            Hotel h = new Hotel();
+            this.DataContext = h;
             InitializeComponent();
         }
         /// <summary>

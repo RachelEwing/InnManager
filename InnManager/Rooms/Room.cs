@@ -54,7 +54,6 @@ namespace InnManager.Rooms
         //Whether or not the room is available
         public bool IsAvailable { get; set
             {
-                IsAvailable = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsAvailable)));
             }
         } = true;
@@ -66,7 +65,6 @@ namespace InnManager.Rooms
                 if (value > 0)
                 {
                     this.Floor = value;
-                    Floor = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Floor)));
                 }
             }
@@ -79,7 +77,6 @@ namespace InnManager.Rooms
                 if (value > 0)
                 {
                     this.Capacity = value;
-                    Capacity = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Capacity)));
                 }
             }
@@ -87,21 +84,18 @@ namespace InnManager.Rooms
         //property for whether or not the room has a balcony
         public bool HasBalcony { get; set
             {
-                HasBalcony = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(HasBalcony)));
             }
         } = false;
         //property for whether or not the room is clean
         public bool IsClean { get; set
             {
-                IsClean = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsClean)));
             }
         } = true;
         //property for the status of the room
         public RoomStatus Status { get; set
             {
-                Status = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
             }
         } = RoomStatus.Available;
