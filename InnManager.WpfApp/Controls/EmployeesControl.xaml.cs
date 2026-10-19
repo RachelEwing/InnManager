@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InnManager.WpfApp.ModalWindows;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,18 @@ namespace InnManager.WpfApp.Controls
         public EmployeesControl()
         {
             InitializeComponent();
+        }
+        public void NewEmployeeClick(object sender, RoutedEventArgs e)
+        {
+            NewEmployeeForm form = new NewEmployeeForm();
+            bool? result = form.ShowDialog();
+            if (result == true)
+            {
+                MessageBox.Show("Received");
+            }
+            else {
+                MessageBox.Show("Cancelled");
+            }
         }
     }
 }

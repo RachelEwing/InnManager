@@ -21,5 +21,24 @@ namespace InnManager.WpfApp.ModalWindows
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Converts data to a new employee or returns error
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void AddEmployeeClick(object sender, RoutedEventArgs e) {
+            DialogResult = true;
+            this.Close();
+        }
+        /// <summary>
+        /// Closes form without creating an employee
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void CancelClick(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            this.Close();
+        }
     }
 }

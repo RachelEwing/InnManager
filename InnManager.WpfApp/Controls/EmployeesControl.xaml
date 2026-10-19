@@ -31,7 +31,7 @@
                 </Grid.ColumnDefinitions>
                 <Border Grid.Column="0" VerticalAlignment="Center">
                     <WrapPanel>
-                        <Button Content="  + New Employee  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
+                        <Button Content="  + New Employee  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="NewEmployeeClick"/>
                         <Button Content="  Edit  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
                         <Button Content="  Deactivate  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
                         <Button Content="  Reset Password  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
