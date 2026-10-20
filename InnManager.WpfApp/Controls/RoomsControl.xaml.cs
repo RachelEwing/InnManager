@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InnManager.WpfApp.ModalWindows;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,19 @@ namespace InnManager.WpfApp.Controls
         public RoomsControl()
         {
             InitializeComponent();
+        }
+        public void NewRoomClick(object sender, RoutedEventArgs e)
+        {
+            NewRoomForm form = new NewRoomForm() { DataContext = this.DataContext };
+            bool? result = form.ShowDialog();
+            if (result == true)
+            {
+                MessageBox.Show("Received");
+            }
+            else
+            {
+                MessageBox.Show("Cancelled");
+            }
         }
     }
 }

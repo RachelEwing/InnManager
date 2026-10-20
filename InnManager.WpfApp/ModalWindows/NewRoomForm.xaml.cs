@@ -13,11 +13,11 @@ using System.Windows.Shapes;
 namespace InnManager.WpfApp.ModalWindows
 {
     /// <summary>
-    /// Interaction logic for NewRoom.xaml
+    /// Interaction logic for NewRoomForm.xaml
     /// </summary>
-    public partial class NewRoom : Window
+    public partial class NewRoomForm : Window
     {
-        public NewRoom()
+        public NewRoomForm()
         {
             InitializeComponent();
         }

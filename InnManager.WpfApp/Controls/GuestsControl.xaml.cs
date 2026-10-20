@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InnManager.WpfApp.ModalWindows;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,19 @@ namespace InnManager.WpfApp.Controls
         public GuestsControl()
         {
             InitializeComponent();
+        }
+        public void NewGuestClick(object sender, RoutedEventArgs e)
+        {
+            NewGuestForm form = new NewGuestForm() { DataContext = this.DataContext };
+            bool? result = form.ShowDialog();
+            if (result == true)
+            {
+                MessageBox.Show("Received");
+            }
+            else
+            {
+                MessageBox.Show("Cancelled");
+            }
         }
     }
 }

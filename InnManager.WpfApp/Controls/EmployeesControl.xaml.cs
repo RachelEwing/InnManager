@@ -1,4 +1,6 @@
-﻿using InnManager.WpfApp.ModalWindows;
+﻿using InnManager.Employees;
+using InnManager.Hotels;
+using InnManager.WpfApp.ModalWindows;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,7 +27,7 @@ namespace InnManager.WpfApp.Controls
         }
         public void NewEmployeeClick(object sender, RoutedEventArgs e)
         {
-            NewEmployeeForm form = new NewEmployeeForm();
+            NewEmployeeForm form = new NewEmployeeForm() {DataContext = this.DataContext};
             bool? result = form.ShowDialog();
             if (result == true)
             {
