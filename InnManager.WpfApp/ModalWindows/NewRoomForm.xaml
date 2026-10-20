@@ -9,36 +9,38 @@
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="First Name:  "/>
-                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name ="FirstNameText"/>
+                <TextBlock Text="Room Number:  "/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name ="RoomNumberText"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Last Name:  "/>
-                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="LastNameText"/>
+                <TextBlock Text="Rate($):  "/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="RateText"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Position:  "/>
-                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="PositionText"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Email:  "/>
-                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="EmailText"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Phone:  "/>
-                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="PhoneText"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Hire Date:  "/>
-                <DatePicker Name="HireDatePicker"/>
+                <TextBlock Text="Room Type:  "/>
+                <ComboBox Width="100" HorizontalAlignment="Left" Name="RoomTypePicker"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Status:  "/>
-                <ComboBox Width="100" Name="StatusPicker"/>
+                <ComboBox Width="100" HorizontalAlignment="Left" Name="StatusPicker"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Floor:  "/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="FloorPicker"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Capacity:  "/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="CapacityPicker"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <CheckBox Content="Is Clean" Name="IsCleanPicker"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <CheckBox Content="Has Balcony" Name="HasBalconyPicker"/>
             </StackPanel>
             <TextBlock/>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Button Content="Add Employee" Width="auto" Margin="5" Click="AddRoomClick"/>
+                <Button Content="Add Room" Width="auto" Margin="5" Click="AddRoomClick"/>
                 <Button Content="Cancel" Width="auto" Margin="5" Click="CancelClick"/>
             </StackPanel>
         </StackPanel>

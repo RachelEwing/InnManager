@@ -7,6 +7,13 @@ namespace InnManager.Reservations
     /// </summary>
     public class Reservation : INotifyPropertyChanged
     {
+        /// <summary>
+        /// How many guests are staying the night
+        /// </summary>
+        public int NumberOfGuests { get; set; } = 1;
+        /// <summary>
+        /// The name of the guest making the reservation
+        /// </summary>
         public string GuestName { get; set;
         } = "";
         /// <summary>

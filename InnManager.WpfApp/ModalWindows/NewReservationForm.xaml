@@ -5,40 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InnManager.WpfApp.ModalWindows"
         mc:Ignorable="d"
-        Title="New Reservation Form" Height="325" Width="200">
+        Title="New Reservation Form" Height="325" Width="220">
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="First Name:  "/>
-                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name ="FirstNameText"/>
+                <TextBlock Text="Guest:  "/>
+                <ComboBox Width="100" HorizontalAlignment="Left" Name ="GuestPicker"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Last Name:  "/>
-                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="LastNameText"/>
+                <TextBlock Text="Room:  "/>
+                <ComboBox Width="100" HorizontalAlignment="Left" Name="RoomPicker"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Position:  "/>
-                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="PositionText"/>
+                <TextBlock Text="Check In Date:  "/>
+                <DatePicker Width="100" HorizontalAlignment="Left" Name="CheckInDatePicker"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Email:  "/>
-                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="EmailText"/>
+                <TextBlock Text="Check Out Date:  "/>
+                <DatePicker Width="100" HorizontalAlignment="Left" Name="CheckOutDatePicker"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Phone:  "/>
-                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="PhoneText"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Hire Date:  "/>
-                <DatePicker Name="HireDatePicker"/>
+                <TextBlock Text="Number of Guests:  "/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="NumberOfGuestsText"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Status:  "/>
-                <ComboBox Width="100" Name="StatusPicker"/>
+                <ComboBox Width="100" HorizontalAlignment="Left" Name="StausPicker"/>
             </StackPanel>
             <TextBlock/>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Button Content="Add Employee" Width="auto" Margin="5" Click="AddReservationClick"/>
+                <Button Content="Create Reservation" Width="auto" Margin="5" Click="AddReservationClick"/>
                 <Button Content="Cancel" Width="auto" Margin="5" Click="CancelClick"/>
             </StackPanel>
         </StackPanel>
