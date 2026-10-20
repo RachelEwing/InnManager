@@ -26,7 +26,10 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Status:  "/>
-                <ComboBox Width="100" Name="StatusPicker"/>
+                <ComboBox Width="100" Name="StatusPicker">
+                    <ComboBoxItem Content = "Complete"/>
+                    <ComboBoxItem Content = "Not Complete"/>
+                </ComboBox>
             </StackPanel>
             <TextBlock/>
             <StackPanel Orientation="Horizontal" Margin="5">

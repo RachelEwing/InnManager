@@ -23,6 +23,7 @@ namespace InnManager.WpfApp.ModalWindows
         public NewHousekeepingTaskForm()
         {
             InitializeComponent();
+            StatusPicker.SelectedIndex = 0;
         }
         /// <summary>
         /// Converts data to a new employee or returns error

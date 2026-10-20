@@ -22,9 +22,9 @@ namespace InnManager.WpfApp.ModalWindows
     {
         public NewGuestForm()
         {
+            InitializeComponent();
             IDTypePicker.ItemsSource = Enum.GetValues(typeof(IDType));
             IDTypePicker.SelectedItem = IDType.Other;
-            InitializeComponent();
         }
         /// <summary>
         /// Converts data to a new employee or returns error
@@ -34,7 +34,7 @@ namespace InnManager.WpfApp.ModalWindows
         public void AddGuestClick(object sender, RoutedEventArgs e)
         {
             if (Validation()) {
-                Guest guest = new Guest();
+                Guest guest = new Guest() {FirstName = FirstNameText.Text, LastName = LastNameText.Text, PhoneNumber = PhoneText.Text, Email = EmailText.Text, Address = AddressText.Text, IDType = (IDType)IDTypePicker.SelectedItem, IDNumber = IDNumberText.Text};
                 var data = this.DataContext;
                 if (data is Hotel h)
                 {

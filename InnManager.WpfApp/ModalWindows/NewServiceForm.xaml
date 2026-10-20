@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InnManager.WpfApp.ModalWindows"
         mc:Ignorable="d"
-        Title="New Service Form" Height="325" Width="200">
+        Title="New Service Form" Height="325" Width="225">
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">

@@ -1,5 +1,6 @@
-﻿using InnManager.Services;
+﻿using InnManager.Enums;
 using InnManager.Hotels;
+using InnManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,6 +23,8 @@ namespace InnManager.WpfApp.ModalWindows
         public NewServiceForm()
         {
             InitializeComponent();
+            CategoryPicker.ItemsSource = Enum.GetValues(typeof(ServiceCategory));
+            CategoryPicker.SelectedItem = ServiceCategory.Miscellaneous;
         }
         /// <summary>
         /// Converts data to a new employee or returns error

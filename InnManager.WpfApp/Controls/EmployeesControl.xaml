@@ -42,19 +42,19 @@
                 </Border>
             </Grid>
         </Grid>
-        <Grid Grid.Row="2" VerticalAlignment="Center">
-            <Border BorderThickness =" 5">
-                <WrapPanel Background="LightSteelBlue" VerticalAlignment="Center">
-                    <TextBlock Text="  Employee ID  " Height="25" Margin="5" FontWeight="Bold" FontSize="12"/>
-                    <TextBlock Text="  First Name  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
-                    <TextBlock Text="  Last Name  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
-                    <TextBlock Text="  Position  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
-                    <TextBlock Text="  Email  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
-                    <TextBlock Text="  Phone  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
-                    <TextBlock Text="  Status  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
-                    <TextBlock Text="  Hire Date  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
-                </WrapPanel>
-            </Border>
+        <Grid Grid.Row="3">
+            <DataGrid ItemsSource="{Binding Path= Employees}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="EmployeeID" Binding ="{Binding Path = EmployeeID}"/>
+                    <DataGridTextColumn Header="First Name" Binding ="{Binding Path = FirstName}"/>
+                    <DataGridTextColumn Header="Last Name" Binding ="{Binding Path = LastName}"/>
+                    <DataGridTextColumn Header="Position" Binding ="{Binding Path = Position}"/>
+                    <DataGridTextColumn Header="Email" Binding ="{Binding Path = Email}"/>
+                    <DataGridTextColumn Header="Phone" Binding ="{Binding Path = PhoneNumber}"/>
+                    <DataGridTextColumn Header="Status" Binding ="{Binding Path = Status}"/>
+                    <DataGridTextColumn Header="Hire Date" Binding ="{Binding Path = HireDate}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
         <Grid Grid.Row="4">
             <TextBlock Height="25" Margin="5" FontWeight="Bold" FontSize="15">

@@ -1,4 +1,5 @@
 ﻿using InnManager.Employees;
+using InnManager.Enums;
 using InnManager.Hotels;
 using InnManager.Reservations;
 using System;
@@ -20,9 +21,19 @@ namespace InnManager.WpfApp.ModalWindows
     /// </summary>
     public partial class NewReservationForm : Window
     {
-        public NewReservationForm()
+        public NewReservationForm(Hotel hotel)
         {
+            DataContext = hotel;
             InitializeComponent();
+            if (this.DataContext is Hotel)
+            {
+                MessageBox.Show("Is a hotel?");
+            }
+            if (this.DataContext == null)
+            {
+                MessageBox.Show("Null?");
+            }
+
         }
         /// <summary>
         /// Converts data to a new employee or returns error

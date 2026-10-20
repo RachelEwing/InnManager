@@ -1,4 +1,5 @@
 ﻿using InnManager.Billing;
+using InnManager.Enums;
 using InnManager.Hotels;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,8 @@ namespace InnManager.WpfApp.ModalWindows
         public NewPaymentForm()
         {
             InitializeComponent();
+            PaymentMethodPicker.ItemsSource = Enum.GetValues(typeof(PaymentMethod));
+            PaymentMethodPicker.SelectedItem = PaymentMethod.Cash;
         }
         /// <summary>
         /// Converts data to a new employee or returns error
