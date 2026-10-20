@@ -1,4 +1,7 @@
-﻿using System;
+﻿using InnManager.Employees;
+using InnManager.Hotels;
+using InnManager.Housekeeping;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,6 +23,27 @@ namespace InnManager.WpfApp.ModalWindows
         public NewHousekeepingTaskForm()
         {
             InitializeComponent();
+        }
+        /// <summary>
+        /// Converts data to a new employee or returns error
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void AddTaskClick(object sender, RoutedEventArgs e)
+        {
+            HousekeepingTask task = new HousekeepingTask();
+            var data = this.DataContext;
+            if (data is Hotel h)
+            {
+                h.HouseKeepingTasks.Add(task);
+            }
+            DialogResult = true;
+            this.Close();
+        }
+        public void CancelClick(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            this.Close();
         }
     }
 }

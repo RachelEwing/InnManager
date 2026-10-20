@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InnManager.WpfApp.ModalWindows"
         mc:Ignorable="d"
-        Title="NewGuestForm" Height="450" Width="800">
+        Title="New Guest Form" Height="325" Width="200">
     <Grid>
-        
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="First Name:  "/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name ="FirstNameText"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Last Name:  "/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="LastNameText"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Email:  "/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="EmailText"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Phone:  "/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="PhoneText"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Address:  "/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="AddressText"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="ID Type:  "/>
+                <ComboBox Width="100" HorizontalAlignment="Left" Name="IDTypePicker"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="ID Number:  "/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="IDNumberText"/>
+            </StackPanel>
+            <TextBlock/>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Button Content="Add Guest" Width="auto" Margin="5" Click="AddGuestClick"/>
+                <Button Content="Cancel" Width="auto" Margin="5" Click="CancelClick"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

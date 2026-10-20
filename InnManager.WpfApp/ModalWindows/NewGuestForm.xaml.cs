@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InnManager.Guests;
+using InnManager.Hotels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,6 +22,27 @@ namespace InnManager.WpfApp.ModalWindows
         public NewGuestForm()
         {
             InitializeComponent();
+        }
+        /// <summary>
+        /// Converts data to a new employee or returns error
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void AddGuestClick(object sender, RoutedEventArgs e)
+        {
+            Guest guest = new Guest();
+            var data = this.DataContext;
+            if (data is Hotel h)
+            {
+                h.Guests.Add(guest);
+            }
+            DialogResult = true;
+            this.Close();
+        }
+        public void CancelClick(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            this.Close();
         }
     }
 }

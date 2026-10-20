@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InnManager.WpfApp.ModalWindows"
         mc:Ignorable="d"
-        Title="NewReservationForm" Height="450" Width="800">
+        Title="New Reservation Form" Height="325" Width="200">
     <Grid>
-        
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="First Name:  "/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name ="FirstNameText"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Last Name:  "/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="LastNameText"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Position:  "/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="PositionText"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Email:  "/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="EmailText"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Phone:  "/>
+                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="PhoneText"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Hire Date:  "/>
+                <DatePicker Name="HireDatePicker"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Status:  "/>
+                <ComboBox Width="100" Name="StatusPicker"/>
+            </StackPanel>
+            <TextBlock/>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Button Content="Add Employee" Width="auto" Margin="5" Click="AddReservationClick"/>
+                <Button Content="Cancel" Width="auto" Margin="5" Click="CancelClick"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

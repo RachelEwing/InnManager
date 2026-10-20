@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InnManager.Billing;
+using InnManager.Hotels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,6 +22,27 @@ namespace InnManager.WpfApp.ModalWindows
         public NewPaymentForm()
         {
             InitializeComponent();
+        }
+        /// <summary>
+        /// Converts data to a new employee or returns error
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void AddPaymentClick(object sender, RoutedEventArgs e)
+        {
+            Payment payment = new Payment();
+            var data = this.DataContext;
+            if (data is Hotel h)
+            {
+                h.Payments.Add(payment);
+            }
+            DialogResult = true;
+            this.Close();
+        }
+        public void CancelClick(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            this.Close();
         }
     }
 }

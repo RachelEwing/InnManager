@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InnManager.Services;
+using InnManager.Hotels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,6 +22,27 @@ namespace InnManager.WpfApp.ModalWindows
         public NewServiceForm()
         {
             InitializeComponent();
+        }
+        /// <summary>
+        /// Converts data to a new employee or returns error
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void AddServiceClick(object sender, RoutedEventArgs e)
+        {
+            Service service = new Service();
+            var data = this.DataContext;
+            if (data is Hotel h)
+            {
+                h.Services.Add(service);
+            }
+            DialogResult = true;
+            this.Close();
+        }
+        public void CancelClick(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            this.Close();
         }
     }
 }
