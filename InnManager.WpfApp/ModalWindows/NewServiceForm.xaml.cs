@@ -47,5 +47,30 @@ namespace InnManager.WpfApp.ModalWindows
             DialogResult = false;
             this.Close();
         }
+        public bool Validation() {
+            bool valid = true;
+            if (!decimal.TryParse(PricePicker.Text, out decimal capacity))
+            {
+                MessageBox.Show(
+                  "Price must be a valid whole number.",
+                  "Invalid Price",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Warning);
+
+                valid = false;
+            }
+
+            if (capacity < 1)
+            {
+                MessageBox.Show(
+                  "Price must be at least 1.",
+                  "Invalid Price",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Warning);
+
+                valid = false;
+            }
+            return valid;
+        }
     }
 }

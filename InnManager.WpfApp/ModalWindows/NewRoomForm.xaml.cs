@@ -54,7 +54,69 @@ namespace InnManager.WpfApp.ModalWindows
         public bool Validation() {
             bool valid = true;
             if (RoomNumberText.Text == "") valid = false;
+            if (!decimal.TryParse(RateText.Text, out decimal rate))
+            {
+                MessageBox.Show(
+                  "Rate must be a valid whole number.",
+                  "Invalid Rate",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Warning);
 
+                valid = false;
+            }
+
+            if (rate < 1)
+            {
+                MessageBox.Show(
+                  "Rate must be at least 1.",
+                  "Invalid Rate",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Warning);
+
+                valid = false;
+            }
+            if (!int.TryParse(FloorPicker.Text, out int floor))
+            {
+                MessageBox.Show(
+                  "Floor must be a valid whole number.",
+                  "Invalid Floor",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Warning);
+
+                valid = false;
+            }
+
+            if (floor < 1)
+            {
+                MessageBox.Show(
+                  "Floor must be at least 1.",
+                  "Invalid Floor Number",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Warning);
+
+                valid = false;
+            }
+            if (!int.TryParse(CapacityPicker.Text, out int capacity))
+            {
+                MessageBox.Show(
+                  "Capacity must be a valid whole number.",
+                  "Invalid Capacity",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Warning);
+
+                valid = false;
+            }
+
+            if (capacity < 1)
+            {
+                MessageBox.Show(
+                  "Capacity must be at least 1.",
+                  "Invalid Capacity",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Warning);
+
+                valid = false;
+            }
             return valid;
         }
     }

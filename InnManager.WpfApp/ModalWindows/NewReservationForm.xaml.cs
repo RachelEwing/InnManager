@@ -56,5 +56,31 @@ namespace InnManager.WpfApp.ModalWindows
             DialogResult = false;
             this.Close();
         }
+
+        public bool Validation() {
+            bool valid = true;
+            if (!int.TryParse(NumberOfGuestsText.Text, out int capacity))
+            {
+                MessageBox.Show(
+                  "Number of Guests must be a valid whole number.",
+                  "Invalid number of guests",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Warning);
+
+                valid = false;
+            }
+
+            if (capacity < 1)
+            {
+                MessageBox.Show(
+                  "Number of guests must be at least 1.",
+                  "Invalid number of guests",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Warning);
+
+                valid = false;
+            }
+            return valid;
+        }
     }
 }

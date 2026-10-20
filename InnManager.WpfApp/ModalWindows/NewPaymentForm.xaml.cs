@@ -33,19 +33,47 @@ namespace InnManager.WpfApp.ModalWindows
         /// <param name="e"></param>
         public void AddPaymentClick(object sender, RoutedEventArgs e)
         {
-            Payment payment = new Payment();
-            var data = this.DataContext;
-            if (data is Hotel h)
-            {
-                h.Payments.Add(payment);
+            if (Validation()) {
+                Payment payment = new Payment();
+                var data = this.DataContext;
+                if (data is Hotel h)
+                {
+                    h.Payments.Add(payment);
+                }
+                DialogResult = true;
+                this.Close();
             }
-            DialogResult = true;
-            this.Close();
         }
         public void CancelClick(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
             this.Close();
+        }
+
+        public bool Validation() {
+            bool valid = true;
+            if (!decimal.TryParse(AmountPicker.Text, out decimal capacity))
+            {
+                MessageBox.Show(
+                  "Amount must be a valid whole number.",
+                  "Invalid Amount",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Warning);
+
+                valid = false;
+            }
+
+            if (capacity < 1)
+            {
+                MessageBox.Show(
+                  "Amount must be at least 1.",
+                  "Invalid Amount",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Warning);
+
+                valid = false;
+            }
+            return valid;
         }
     }
 }
