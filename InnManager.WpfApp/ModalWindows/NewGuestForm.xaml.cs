@@ -1,4 +1,5 @@
-﻿using InnManager.Guests;
+﻿using InnManager.Enums;
+using InnManager.Guests;
 using InnManager.Hotels;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,8 @@ namespace InnManager.WpfApp.ModalWindows
     {
         public NewGuestForm()
         {
+            IDTypePicker.ItemsSource = Enum.GetValues(typeof(IDType));
+            IDTypePicker.SelectedItem = IDType.Other;
             InitializeComponent();
         }
         /// <summary>
@@ -30,19 +33,56 @@ namespace InnManager.WpfApp.ModalWindows
         /// <param name="e"></param>
         public void AddGuestClick(object sender, RoutedEventArgs e)
         {
-            Guest guest = new Guest();
-            var data = this.DataContext;
-            if (data is Hotel h)
-            {
-                h.Guests.Add(guest);
+            if (Validation()) {
+                Guest guest = new Guest();
+                var data = this.DataContext;
+                if (data is Hotel h)
+                {
+                    h.Guests.Add(guest);
+                }
+                DialogResult = true;
+                this.Close();
             }
-            DialogResult = true;
-            this.Close();
         }
         public void CancelClick(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
             this.Close();
+        }
+        public bool Validation()
+        {
+            bool valid = true;
+            if (FirstNameText.Text.Length < 1)
+            {
+                valid = false;
+                MessageBox.Show("First Name cannot be empty.");
+            }
+            if (LastNameText.Text.Length < 1)
+            {
+                valid = false;
+                MessageBox.Show("Last Name cannot be empty.");
+            }
+            if (EmailText.Text.Length < 1)
+            {
+                valid = false;
+                MessageBox.Show("Email cannot be empty.");
+            }
+            if (PhoneText.Text.Length < 1)
+            {
+                valid = false;
+                MessageBox.Show("Phone cannot be empty.");
+            }
+            if (AddressText.Text.Length < 1)
+            {
+                valid = false;
+                MessageBox.Show("Address cannot be empty.");
+            }
+            if (IDNumberText.Text.Length < 1)
+            {
+                valid = false;
+                MessageBox.Show("ID Number cannot be empty.");
+            }
+            return valid;
         }
     }
 }

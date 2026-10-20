@@ -30,7 +30,7 @@
             </StackPanel>
             <TextBlock/>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Button Content="Add Employee" Width="auto" Margin="5" Click="AddTaskClick"/>
+                <Button Content="Add Task" Width="auto" Margin="5" Click="AddTaskClick"/>
                 <Button Content="Cancel" Width="auto" Margin="5" Click="CancelClick"/>
             </StackPanel>
         </StackPanel>
