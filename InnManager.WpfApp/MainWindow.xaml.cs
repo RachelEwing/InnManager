@@ -23,7 +23,6 @@ namespace InnManager.WpfApp
         {
             InitializeComponent();
             Hotel h = new Hotel();
-            h.Employees.Add(new Employee());
             this.DataContext = h;
         }
         /// <summary>

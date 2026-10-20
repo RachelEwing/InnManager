@@ -49,7 +49,7 @@ namespace InnManager.Guests
                 } catch {
                     return "Unavailable";
                 }
-            } set;
+            }
         }
         /// <summary>
         /// Address of the guest

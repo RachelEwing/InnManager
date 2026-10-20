@@ -18,7 +18,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Position:  "/>
-                <TextBox Width="100" TextAlignment="Left" HorizontalAlignment="Left" Name="PositionText"/>
+                <ComboBox Width="100" HorizontalAlignment="Left" Name="PositionPicker"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Email:  "/>
@@ -34,7 +34,10 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Status:  "/>
-                <ComboBox Width="100" Name="StatusPicker"/>
+                <ComboBox Width="100" Name="StatusPicker">
+                    <ComboBoxItem Content="Active" />
+                    <ComboBoxItem Content="Inactive" />
+                </ComboBox>
             </StackPanel>
             <TextBlock/>
             <StackPanel Orientation="Horizontal" Margin="5">

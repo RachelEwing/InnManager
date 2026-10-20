@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Text;
 
 namespace InnManager.Reservations
 {
@@ -96,7 +97,6 @@ namespace InnManager.Reservations
                 }
             }
         }
-
         public event PropertyChangedEventHandler? PropertyChanged;
     }
 }

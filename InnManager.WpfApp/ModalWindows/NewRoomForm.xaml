@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InnManager.WpfApp.ModalWindows"
         mc:Ignorable="d"
-        Title="New Room Form" Height="325" Width="200">
+        Title="New Room Form" Height="325" Width="225">
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
@@ -18,7 +18,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Room Type:  "/>
-                <ComboBox Width="100" HorizontalAlignment="Left" Name="RoomTypePicker"/>
+                <ComboBox Width="100" HorizontalAlignment="Left" Name="RoomTypePicker" ItemsSource="{Binding}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Status:  "/>

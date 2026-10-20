@@ -1,5 +1,6 @@
 ﻿using InnManager.Rooms;
 using InnManager.Hotels;
+using InnManager.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,6 +23,10 @@ namespace InnManager.WpfApp.ModalWindows
         public NewRoomForm()
         {
             InitializeComponent();
+            StatusPicker.ItemsSource = Enum.GetValues(typeof(RoomStatus));
+            StatusPicker.SelectedItem = RoomStatus.Available;
+            RoomTypePicker.ItemsSource = Enum.GetValues(typeof(RoomType));
+            RoomTypePicker.SelectedItem = RoomType.Standard;
         }
         /// <summary>
         /// Converts data to a new employee or returns error
@@ -36,13 +41,21 @@ namespace InnManager.WpfApp.ModalWindows
             {
                 h.Rooms.Add(room);
             }
-            DialogResult = true;
-            this.Close();
+            if (Validation()) {
+                DialogResult = true;
+                this.Close();
+            }
         }
         public void CancelClick(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
             this.Close();
+        }
+        public bool Validation() {
+            bool valid = true;
+            if (RoomNumberText.Text == "") valid = false;
+
+            return valid;
         }
     }
 }
