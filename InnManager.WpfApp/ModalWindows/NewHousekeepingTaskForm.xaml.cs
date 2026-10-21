@@ -46,5 +46,27 @@ namespace InnManager.WpfApp.ModalWindows
             DialogResult = false;
             this.Close();
         }
+        public bool Validation() {
+            bool valid = true;
+            if (DescriptionText.Text.Length < 1)
+            {
+                valid = false;
+                MessageBox.Show("Description cannot be empty.");
+            }
+            try
+            {
+                if (ScheduledDatePicker?.SelectedDate < DateTime.Today)
+                {
+                    valid = false;
+                    MessageBox.Show("You cannot retroactively schedule tasks.");
+                }
+            }
+            catch
+            {
+                valid = false;
+                MessageBox.Show("A scheduled date must be set.");
+            }
+            return valid;
+        }
     }
 }

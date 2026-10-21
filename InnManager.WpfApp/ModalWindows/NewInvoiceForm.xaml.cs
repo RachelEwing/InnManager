@@ -30,19 +30,52 @@ namespace InnManager.WpfApp.ModalWindows
         /// <param name="e"></param>
         public void AddInvoiceClick(object sender, RoutedEventArgs e)
         {
-            Invoice invoice = new Invoice();
-            var data = this.DataContext;
-            if (data is Hotel h)
-            {
-                h.Invoices.Add(invoice);
+            if (Validation()) {
+                Invoice invoice = new Invoice();
+                var data = this.DataContext;
+                if (data is Hotel h)
+                {
+                    h.Invoices.Add(invoice);
+                }
+                DialogResult = true;
+                this.Close();
             }
-            DialogResult = true;
-            this.Close();
         }
         public void CancelClick(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
             this.Close();
         }
+        public bool Validation() {
+            bool valid = true;
+            try
+            {
+                if (InvoiceDatePicker?.SelectedDate < DateTime.Today)
+                {
+                    valid = false;
+                    MessageBox.Show("You cannot retroactively add invoices.");
+                }
+            }
+            catch
+            {
+                valid = false;
+                MessageBox.Show("An invoice date must be set.");
+            }
+            try
+            {
+                if (DueDatePicker?.SelectedDate < DateTime.Today)
+                {
+                    valid = false;
+                    MessageBox.Show("You cannot set a due date retroactively.");
+                }
+            }
+            catch
+            {
+                valid = false;
+                MessageBox.Show("A due date must be set.");
+            }
+            return valid;
+        }
+
     }
 }

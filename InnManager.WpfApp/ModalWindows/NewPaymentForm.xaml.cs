@@ -73,6 +73,19 @@ namespace InnManager.WpfApp.ModalWindows
 
                 valid = false;
             }
+            try
+            {
+                if (PaymentDatePicker?.SelectedDate < DateTime.Today)
+                {
+                    valid = false;
+                    MessageBox.Show("You cannot set a payment date retroactively.");
+                }
+            }
+            catch
+            {
+                valid = false;
+                MessageBox.Show("A payment date must be set.");
+            }
             return valid;
         }
     }

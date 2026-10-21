@@ -49,6 +49,8 @@ namespace InnManager.WpfApp.ModalWindows
         }
         public bool Validation() {
             bool valid = true;
+            if (ServiceNameText.Text == "") valid = false;
+            if (DescriptionText.Text == "") valid = false;
             if (!decimal.TryParse(PricePicker.Text, out decimal capacity))
             {
                 MessageBox.Show(
