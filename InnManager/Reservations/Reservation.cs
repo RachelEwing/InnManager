@@ -9,6 +9,10 @@ namespace InnManager.Reservations
     public class Reservation : INotifyPropertyChanged
     {
         /// <summary>
+        /// How much the reservation costs
+        /// </summary>
+        public decimal TotalAmount { get; set; }
+        /// <summary>
         /// How many guests are staying the night
         /// </summary>
         public int NumberOfGuests { get; set; } = 1;

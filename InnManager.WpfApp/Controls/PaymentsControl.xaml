@@ -51,7 +51,7 @@
                     <DataGridTextColumn Header="Payment Date" Binding ="{Binding Path = Date}"/>
                     <DataGridTextColumn Header="Payment Method" Binding ="{Binding Path = PaymentMethod}"/>
                     <DataGridTextColumn Header="Amount ($)" Binding ="{Binding Path = Amount}"/>
-                    <DataGridTextColumn Header="Status" Binding ="{Binding Path = Status}"/>
+                    <DataGridTextColumn Header="Status" Binding ="{Binding Path = Invoice.Status}"/>
                     <DataGridTextColumn Header="Reference Number" Binding ="{Binding Path = PaymentReference}"/>
                 </DataGrid.Columns>
             </DataGrid>

@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InnManager.Guests;
 
 namespace InnManager.WpfApp.ModalWindows
 {
@@ -32,6 +33,9 @@ namespace InnManager.WpfApp.ModalWindows
                 InvoicePicker.SelectedIndex = 0;
             }
             catch { }
+            if (InvoicePicker.SelectedItem is Invoice i) {
+                GuestText.Text = i.GuestName;
+            }
             PaymentMethodPicker.ItemsSource = Enum.GetValues(typeof(PaymentMethod));
             PaymentMethodPicker.SelectedItem = PaymentMethod.Cash;
             PaymentDatePicker.SelectedDate = DateTime.Today;
@@ -46,7 +50,8 @@ namespace InnManager.WpfApp.ModalWindows
             if (Validation()) {
                 Invoice invoice = (Invoice)InvoicePicker.SelectedItem;
                 bool a = !decimal.TryParse(AmountPicker.Text, out decimal amount);
-                Payment payment = new Payment() {Invoice = invoice, FirstName = invoice.FirstName, LastName = invoice.LastName, Date = (DateTime)PaymentDatePicker.SelectedDate, PaymentMethod = (PaymentMethod)PaymentMethodPicker.SelectedItem, Amount = amount, IDNumber = ("00" + (((Hotel)this.DataContext).Payments.Count + 1).ToString())};
+                Payment payment = new Payment() { Invoice = invoice, FirstName = invoice.FirstName, LastName = invoice.LastName, Date = (DateTime)PaymentDatePicker.SelectedDate, PaymentMethod = (PaymentMethod)PaymentMethodPicker.SelectedItem, Amount = amount, IDNumber = invoice.IDNumber, IsProcessed = true};
+                invoice.BillingRecords.Add(payment);
                 var data = this.DataContext;
                 if (data is Hotel h)
                 {
@@ -109,6 +114,18 @@ namespace InnManager.WpfApp.ModalWindows
             }
             if (InvoicePicker.SelectedIndex == -1) { valid = false; MessageBox.Show("No invoices are available"); }
             return valid;
+        }
+        /// <summary>
+        /// Updates guest to match invoice's guest
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
+        public void InvoiceSelectionChanged(object sender, RoutedEventArgs e)
+        {
+            if (InvoicePicker.SelectedItem is Invoice i)
+            {
+                GuestText.Text = i.GuestName;
+            }
         }
     }
 }

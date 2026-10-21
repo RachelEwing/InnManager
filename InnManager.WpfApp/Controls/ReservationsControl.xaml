@@ -51,7 +51,7 @@
                     <DataGridTextColumn Header="Check-In" Binding ="{Binding Path = CheckInDate}"/>
                     <DataGridTextColumn Header="Check-Out" Binding ="{Binding Path = CheckOutDate}"/>
                     <DataGridTextColumn Header="Status" Binding ="{Binding Path = Status}"/>
-                    <DataGridTextColumn Header="Total Amount" Binding ="{Binding Path = NumberOfGuests}"/>
+                    <DataGridTextColumn Header="Total Amount" Binding ="{Binding Path = TotalAmount}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

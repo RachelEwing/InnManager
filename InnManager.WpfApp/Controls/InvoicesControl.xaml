@@ -50,8 +50,8 @@
                     <DataGridTextColumn Header="Room Number" Binding ="{Binding Path = RoomNumber}"/>
                     <DataGridTextColumn Header="Invoice Date" Binding ="{Binding Path = InvoiceDate}"/>
                     <DataGridTextColumn Header="Due Date" Binding ="{Binding Path = DueDate}"/>
-                    <DataGridTextColumn Header="Total Amount ($)" Binding ="{Binding Path = TotalAmount}"/>
-                    <DataGridTextColumn Header="Paid Amount ($)" Binding ="{Binding Path = PaidAmount}"/>
+                    <DataGridTextColumn Header="Total Amount ($)" Binding ="{Binding Path = TotalCharges}"/>
+                    <DataGridTextColumn Header="Paid Amount ($)" Binding ="{Binding Path = TotalPaymentsPos}"/>
                     <DataGridTextColumn Header="Status" Binding ="{Binding Path = Status}"/>
                 </DataGrid.Columns>
             </DataGrid>

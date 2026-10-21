@@ -53,7 +53,7 @@
                     <DataGridTextColumn Header="Address" Binding ="{Binding Path = Address}"/>
                     <DataGridTextColumn Header="ID Type" Binding ="{Binding Path = IDType}"/>
                     <DataGridTextColumn Header="ID Number" Binding ="{Binding Path = IDNumber}"/>
-                    <DataGridTextColumn Header="Checked In" Binding ="{Binding Path = CheckedIn}"/>
+                    <DataGridTextColumn Header="Checked In" Binding ="{Binding Path = IsCheckedIn}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

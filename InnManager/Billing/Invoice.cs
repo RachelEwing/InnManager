@@ -8,7 +8,7 @@ namespace InnManager.Billing
     /// </summary>
     public class Invoice : INotifyPropertyChanged
     {
-        public string IDNumber { private get; set; } = "";
+        public string IDNumber { get; set; } = "";
         /// <summary>
         /// The first name of the guest
         /// </summary>
@@ -28,7 +28,7 @@ namespace InnManager.Billing
         /// <summary>
         /// A list of the billing records (payments and charges)
         /// </summary>
-        public List<BillingRecord> BillingRecords { get; } = new List<BillingRecord>();
+        public List<BillingRecord> BillingRecords { get; set; } = new List<BillingRecord>();
         /// <summary>
         /// The unique number of the invoice
         /// </summary>
@@ -37,7 +37,7 @@ namespace InnManager.Billing
                 try
                 {
                     StringBuilder sb = new StringBuilder();
-                    sb.Append("RES-");
+                    sb.Append("INV-");
                     sb.Append(LastName[0]);
                     sb.Append(LastName[1]);
                     sb.Append("-");
@@ -102,6 +102,7 @@ namespace InnManager.Billing
                 return totalCharges;
             }
         }
+        public decimal TotalPaymentsPos { get => -TotalPayments; }
         /// <summary>
         /// Total balance still due
         /// </summary>

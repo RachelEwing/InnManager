@@ -45,7 +45,11 @@ namespace InnManager.WpfApp.ModalWindows
                 Guest guest = (Guest)GuestPicker.SelectedItem;
                 Room room = (Room)RoomPicker.SelectedItem;
                 bool a = !int.TryParse(NumberOfGuestsText.Text, out int capacity);
-                Reservation reservation = new Reservation() { FirstName = guest.FirstName, LastName = guest.LastName, RoomNumber = room.RoomNumber, CheckInDate = (DateTime)CheckInDatePicker.SelectedDate, CheckOutDate = (DateTime)CheckOutDatePicker.SelectedDate, Status = StatusPicker.SelectedItem.ToString(), NumberOfGuests = capacity, IDNumber = guest.IDNumber};
+                DateTime date1 = ((DateTime)CheckInDatePicker.SelectedDate);
+                DateTime date2 = ((DateTime)CheckOutDatePicker.SelectedDate);
+                TimeSpan difference = date2 - date1;
+                int days = difference.Days;
+                Reservation reservation = new Reservation() { FirstName = guest.FirstName, LastName = guest.LastName, RoomNumber = room.RoomNumber, CheckInDate = (DateTime)CheckInDatePicker.SelectedDate, CheckOutDate = (DateTime)CheckOutDatePicker.SelectedDate, Status = StatusPicker.SelectedItem.ToString(), NumberOfGuests = capacity, IDNumber = guest.IDNumber, TotalAmount = (days * (decimal)room.Rate)};
                 var data = this.DataContext;
                 if (data is Hotel h)
                 {

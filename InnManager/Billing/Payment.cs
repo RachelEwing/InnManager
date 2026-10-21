@@ -44,7 +44,7 @@ namespace InnManager.Billing
                 try
                 {
                     StringBuilder sb = new StringBuilder();
-                    sb.Append("RES-");
+                    sb.Append("PAY-");
                     sb.Append(LastName[0]);
                     sb.Append(LastName[1]);
                     sb.Append("-");

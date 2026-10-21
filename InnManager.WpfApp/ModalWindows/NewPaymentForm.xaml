@@ -10,7 +10,7 @@
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Invoice:  "/>
-                <ComboBox Width="100" HorizontalAlignment="Left" Name ="InvoicePicker" ItemsSource="{Binding Path = Invoices}" SelectedIndex="0" DisplayMemberPath="InvoiceID"/>
+                <ComboBox Width="100" HorizontalAlignment="Left" Name ="InvoicePicker" ItemsSource="{Binding Path = Invoices}" SelectedIndex="0" DisplayMemberPath="InvoiceID" SelectionChanged ="InvoiceSelectionChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Guest:  "/>
