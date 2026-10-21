@@ -127,7 +127,7 @@ namespace InnManager.Reservations
                 {
                     return "Pending";
                 }
-            }
+            } set;
         }
         public event PropertyChangedEventHandler? PropertyChanged;
     }

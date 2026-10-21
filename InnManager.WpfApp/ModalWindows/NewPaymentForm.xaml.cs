@@ -23,8 +23,14 @@ namespace InnManager.WpfApp.ModalWindows
         public NewPaymentForm()
         {
             InitializeComponent();
+            try
+            {
+                InvoicePicker.SelectedIndex = 0;
+            }
+            catch { }
             PaymentMethodPicker.ItemsSource = Enum.GetValues(typeof(PaymentMethod));
             PaymentMethodPicker.SelectedItem = PaymentMethod.Cash;
+            PaymentDatePicker.SelectedDate = DateTime.Today;
         }
         /// <summary>
         /// Converts data to a new employee or returns error
@@ -34,7 +40,9 @@ namespace InnManager.WpfApp.ModalWindows
         public void AddPaymentClick(object sender, RoutedEventArgs e)
         {
             if (Validation()) {
-                Payment payment = new Payment();
+                Invoice invoice = (Invoice)InvoicePicker.SelectedItem;
+                bool a = !decimal.TryParse(AmountPicker.Text, out decimal amount);
+                Payment payment = new Payment() {Invoice = invoice, FirstName = invoice.FirstName, LastName = invoice.LastName, Date = (DateTime)PaymentDatePicker.SelectedDate, PaymentMethod = (PaymentMethod)PaymentMethodPicker.SelectedItem, Amount = amount};
                 var data = this.DataContext;
                 if (data is Hotel h)
                 {
@@ -86,6 +94,7 @@ namespace InnManager.WpfApp.ModalWindows
                 valid = false;
                 MessageBox.Show("A payment date must be set.");
             }
+            if (InvoicePicker.SelectedIndex == -1) valid = false; MessageBox.Show("No invoices are available");
             return valid;
         }
     }

@@ -13,6 +13,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InnManager.Guests;
+using InnManager.Rooms;
 
 namespace InnManager.WpfApp.ModalWindows
 {
@@ -25,15 +27,8 @@ namespace InnManager.WpfApp.ModalWindows
         {
             DataContext = hotel;
             InitializeComponent();
-            if (this.DataContext is Hotel)
-            {
-                MessageBox.Show("Is a hotel?");
-            }
-            if (this.DataContext == null)
-            {
-                MessageBox.Show("Null?");
-            }
-
+            CheckInDatePicker.SelectedDate = DateTime.Today;
+            CheckOutDatePicker.SelectedDate = DateTime.Today;
         }
         /// <summary>
         /// Converts data to a new employee or returns error
@@ -42,14 +37,20 @@ namespace InnManager.WpfApp.ModalWindows
         /// <param name="e"></param>
         public void AddReservationClick(object sender, RoutedEventArgs e)
         {
-            Reservation reservation = new Reservation();
-            var data = this.DataContext;
-            if (data is Hotel h)
-            {
-                h.Reservations.Add(reservation);
+
+            if (Validation()) {
+                Guest guest = (Guest)GuestPicker.SelectedItem;
+                Room room = (Room)RoomPicker.SelectedItem;
+                bool a = !int.TryParse(NumberOfGuestsText.Text, out int capacity);
+                Reservation reservation = new Reservation() { FirstName = guest.FirstName, LastName = guest.LastName, RoomNumber = room.RoomNumber, CheckInDate = (DateTime)CheckInDatePicker.SelectedDate, CheckOutDate = (DateTime)CheckOutDatePicker.SelectedDate, Status = StatusPicker.SelectedItem.ToString(), NumberOfGuests = capacity, IDNumber = guest.IDNumber};
+                var data = this.DataContext;
+                if (data is Hotel h)
+                {
+                    h.Reservations.Add(reservation);
+                }
+                DialogResult = true;
+                this.Close();
             }
-            DialogResult = true;
-            this.Close();
         }
         public void CancelClick(object sender, RoutedEventArgs e)
         {
@@ -80,6 +81,13 @@ namespace InnManager.WpfApp.ModalWindows
 
                 valid = false;
             }
+            if (RoomPicker.SelectedItem is Room r)
+            {
+                if (r.Capacity < capacity) { valid = false; MessageBox.Show("The selected room cannot hold that many people."); }
+            }
+            else {
+                valid = false;
+            }
             try
             {
                 if (CheckInDatePicker?.SelectedDate < DateTime.Today)
@@ -106,6 +114,8 @@ namespace InnManager.WpfApp.ModalWindows
                 valid = false;
                 MessageBox.Show("A check out date must be set.");
             }
+            if ((GuestPicker.SelectedItem as Guest) == null) valid = false;
+            if ((RoomPicker.SelectedItem as Room) == null) valid = false;
             return valid;
         }
     }

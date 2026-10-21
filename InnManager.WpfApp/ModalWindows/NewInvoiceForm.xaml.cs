@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InnManager.Guests;
+using InnManager.Reservations;
 
 namespace InnManager.WpfApp.ModalWindows
 {
@@ -22,6 +24,8 @@ namespace InnManager.WpfApp.ModalWindows
         public NewInvoiceForm()
         {
             InitializeComponent();
+            InvoiceDatePicker.SelectedDate = DateTime.Today;
+            DueDatePicker.SelectedDate = DateTime.Today;
         }
         /// <summary>
         /// Converts data to a new employee or returns error
@@ -31,7 +35,9 @@ namespace InnManager.WpfApp.ModalWindows
         public void AddInvoiceClick(object sender, RoutedEventArgs e)
         {
             if (Validation()) {
-                Invoice invoice = new Invoice();
+                Guest guest = (Guest)GuestPicker.SelectedItem;
+                Reservation res = (Reservation)ReservationPicker.SelectedItem;
+                Invoice invoice = new Invoice() {FirstName = guest.FirstName, LastName = guest.LastName, RoomNumber = res.RoomNumber, InvoiceDate = (DateTime)InvoiceDatePicker.SelectedDate, DueDate = (DateTime)DueDatePicker.SelectedDate};
                 var data = this.DataContext;
                 if (data is Hotel h)
                 {
@@ -74,6 +80,8 @@ namespace InnManager.WpfApp.ModalWindows
                 valid = false;
                 MessageBox.Show("A due date must be set.");
             }
+            if (GuestPicker.SelectedIndex == -1) valid = false; MessageBox.Show("No guests available yet");
+            if (ReservationPicker.SelectedIndex == -1) valid = false; MessageBox.Show("No reservations available yet");
             return valid;
         }
 

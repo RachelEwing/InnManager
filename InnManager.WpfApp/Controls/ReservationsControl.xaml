@@ -45,13 +45,13 @@
         <Grid Grid.Row="3">
             <DataGrid ItemsSource="{Binding Path= Reservations}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Reservation #" Binding ="{Binding Path = ReservationNumber}"/>
+                    <DataGridTextColumn Header="Reservation ID" Binding ="{Binding Path = ReservationID}"/>
                     <DataGridTextColumn Header="Guest Name" Binding ="{Binding Path = GuestName}"/>
-                    <DataGridTextColumn Header="Room" Binding ="{Binding Path = Room}"/>
-                    <DataGridTextColumn Header="Check-In" Binding ="{Binding Path = CheckIn}"/>
-                    <DataGridTextColumn Header="Check-Out" Binding ="{Binding Path = CheckOut}"/>
+                    <DataGridTextColumn Header="Room" Binding ="{Binding Path = RoomNumber}"/>
+                    <DataGridTextColumn Header="Check-In" Binding ="{Binding Path = CheckInDate}"/>
+                    <DataGridTextColumn Header="Check-Out" Binding ="{Binding Path = CheckOutDate}"/>
                     <DataGridTextColumn Header="Status" Binding ="{Binding Path = Status}"/>
-                    <DataGridTextColumn Header="Total Amount" Binding ="{Binding Path = TotalAmount}"/>
+                    <DataGridTextColumn Header="Total Amount" Binding ="{Binding Path = NumberOfGuests}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

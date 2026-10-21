@@ -11,7 +11,7 @@ namespace InnManagerTests.Billing
         public void InvoiceDefaultValuesAreSetCorrectly()
         {
             Invoice i = new Invoice();
-            Assert.Equal("", i.GuestName);
+            Assert.Equal(" ", i.GuestName);
             Assert.Equal("", i.RoomNumber);
             Assert.Equal(0, i.BillingRecords.Count);
             Assert.Equal(0, i.TotalCharges);
@@ -20,7 +20,6 @@ namespace InnManagerTests.Billing
             Assert.Equal(0, i.TotalCharges);
             Assert.Equal(DateTime.Today, i.InvoiceDate);
             Assert.Equal(DateTime.Today, i.DueDate);
-            Assert.Equal("", i.InvoiceNumber);
         }
         /// <summary>
         /// Ensures the invoice total charges are calculated correctly

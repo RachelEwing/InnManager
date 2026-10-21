@@ -30,7 +30,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Status:  "/>
-                <ComboBox Width="100" HorizontalAlignment="Left" Name="StausPicker" SelectedIndex="3">
+                <ComboBox Width="100" HorizontalAlignment="Left" Name="StatusPicker" SelectedIndex="3">
                     <ComboBoxItem Content="Checked Out"/>
                     <ComboBoxItem Content="Overdue"/>
                     <ComboBoxItem Content="Confirmed"/>

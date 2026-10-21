@@ -44,15 +44,15 @@
             </Grid>
         </Grid>
         <Grid Grid.Row="3">
-            <DataGrid ItemsSource="{Binding Path= Guests}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False">
+            <DataGrid ItemsSource="{Binding Path= Payments}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Invoice #" Binding ="{Binding Path = GuestID}"/>
-                    <DataGridTextColumn Header="Guest Name" Binding ="{Binding Path = FirstName}"/>
-                    <DataGridTextColumn Header="Payment Date" Binding ="{Binding Path = LastName}"/>
-                    <DataGridTextColumn Header="Payment Method" Binding ="{Binding Path = PhoneNumber}"/>
-                    <DataGridTextColumn Header="Amount ($)" Binding ="{Binding Path = Email}"/>
-                    <DataGridTextColumn Header="Status" Binding ="{Binding Path = Address}"/>
-                    <DataGridTextColumn Header="Reference Number" Binding ="{Binding Path = IDType}"/>
+                    <DataGridTextColumn Header="Invoice #" Binding ="{Binding Path = Invoice.InvoiceNumber}"/>
+                    <DataGridTextColumn Header="Guest Name" Binding ="{Binding Path = GuestName}"/>
+                    <DataGridTextColumn Header="Payment Date" Binding ="{Binding Path = Date}"/>
+                    <DataGridTextColumn Header="Payment Method" Binding ="{Binding Path = PaymentMethod}"/>
+                    <DataGridTextColumn Header="Amount ($)" Binding ="{Binding Path = Amount}"/>
+                    <DataGridTextColumn Header="Status" Binding ="{Binding Path = Status}"/>
+                    <DataGridTextColumn Header="Reference Number" Binding ="{Binding Path = PaymentReference}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

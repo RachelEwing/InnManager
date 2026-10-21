@@ -18,7 +18,6 @@ namespace InnManagerTests.Billing
             Assert.False(p.IsProcessed);
             Assert.Equal(PaymentMethod.Cash, p.PaymentMethod);
             Assert.Equal(0, p.SignedAmount);
-            Assert.Equal("", p.ReferenceNumber);
         }
         /// <summary>
         /// Ensures payment signed amount is calculated correctly

@@ -27,9 +27,6 @@ namespace InnManager.WpfApp.Controls
         public void NewReservationClick(object sender, RoutedEventArgs e)
         {
             NewReservationForm form = new NewReservationForm((Hotel)this.DataContext);
-            if (this.DataContext is Hotel) {
-                MessageBox.Show("Reservation Control is a hotel");
-            }
             bool? result = form.ShowDialog();
             if (result == true)
             {

@@ -1,5 +1,6 @@
 ﻿using InnManager.Enums;
 using System.ComponentModel;
+using System.Text;
 
 namespace InnManager.Employees
 {
@@ -8,8 +9,22 @@ namespace InnManager.Employees
     /// </summary>
     public class Employee : INotifyPropertyChanged
     {
-        public string EmployeeID { get; set;
-        } = "";
+        public string EmployeeID { get
+            {
+                try
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("EMP-");
+                    sb.Append(LastName[0]);
+                    sb.Append(LastName[1]);
+                    return sb.ToString();
+                }
+                catch
+                {
+                    return "Unavailable";
+                }
+            }
+        }
         /// <summary>
         /// first name property
         /// </summary>

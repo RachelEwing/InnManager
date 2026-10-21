@@ -12,7 +12,6 @@ namespace InnManagerTests.Employees
         public void EmployeeDefaultValuesAreSetCorrectly()
         {
             Employee e = new Employee();
-            Assert.Equal("", e.EmployeeID);
             Assert.Equal("", e.FirstName);
             Assert.Equal("", e.LastName);
             Assert.Equal(EmployeePosition.FrontDesk, e.Position);

@@ -57,10 +57,10 @@ namespace InnManager.WpfApp.ModalWindows
                 valid = false;
                 MessageBox.Show("First Name cannot be empty.");
             }
-            if (LastNameText.Text.Length < 1)
+            if (LastNameText.Text.Length < 2)
             {
                 valid = false;
-                MessageBox.Show("Last Name cannot be empty.");
+                MessageBox.Show("Last Name cannot that short.");
             }
             if (EmailText.Text.Length < 1)
             {

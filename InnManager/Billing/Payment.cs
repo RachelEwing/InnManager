@@ -9,6 +9,7 @@ namespace InnManager.Billing
     /// </summary>
     public class Payment : BillingRecord
     {
+        public Invoice Invoice { get; set; } = new Invoice();
         /// <summary>
         /// How the bill is being paid
         /// </summary>
@@ -25,6 +26,7 @@ namespace InnManager.Billing
         /// First Name of the Guest
         /// </summary>
         public string FirstName { get; set; } = "";
+        public string GuestName { get => FirstName + " " + LastName; }
         /// <summary>
         /// The ID Number of the guest
         /// </summary>

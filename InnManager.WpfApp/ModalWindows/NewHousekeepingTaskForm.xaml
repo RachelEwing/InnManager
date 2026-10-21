@@ -18,7 +18,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Assigned Staff:  "/>
-                <ComboBox Width="100" HorizontalAlignment="Left" Name="AssignedStaffPicker" ItemsSource="{Binding Path = Employees}" SelectedIndex="0" DisplayMemberPath="FirstName"/>
+                <ComboBox Width="100" HorizontalAlignment="Left" Name="AssignedStaffPicker" ItemsSource="{Binding Path = Employees}" SelectedIndex="0" DisplayMemberPath="EmployeeID"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Scheduled Date:  "/>

@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InnManager.Rooms;
 
 namespace InnManager.WpfApp.ModalWindows
 {
@@ -26,6 +27,7 @@ namespace InnManager.WpfApp.ModalWindows
             InitializeComponent();
             this.DataContext = h;
             StatusPicker.SelectedIndex = 0;
+            ScheduledDatePicker.SelectedDate = DateTime.Today;
         }
         /// <summary>
         /// Converts data to a new employee or returns error
@@ -35,7 +37,7 @@ namespace InnManager.WpfApp.ModalWindows
         public void AddTaskClick(object sender, RoutedEventArgs e)
         {
             if (Validation()) {
-                HousekeepingTask task = new HousekeepingTask() { };
+                HousekeepingTask task = new HousekeepingTask() { RoomNumber = ((Room)RoomPicker.SelectedItem).RoomNumber, Description = DescriptionText.Text, AssignedStaff = ((Employee)AssignedStaffPicker.SelectedItem).EmployeeID , ScheduledDate = (DateTime)ScheduledDatePicker.SelectedDate, IsCompleted = (StatusPicker.SelectedItem == "Complete")};
                 var data = this.DataContext;
                 if (data is Hotel h)
                 {
@@ -70,6 +72,8 @@ namespace InnManager.WpfApp.ModalWindows
                 valid = false;
                 MessageBox.Show("A scheduled date must be set.");
             }
+            if (AssignedStaffPicker.SelectedIndex == -1) valid = false; MessageBox.Show("No staff available yet");
+            if (RoomPicker.SelectedIndex == -1) valid = false; MessageBox.Show("No rooms available yet");
             return valid;
         }
     }
