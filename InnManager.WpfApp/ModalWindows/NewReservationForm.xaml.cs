@@ -124,6 +124,10 @@ namespace InnManager.WpfApp.ModalWindows
                     valid = false;
                     MessageBox.Show("You cannot retroactively set a check out date.");
                 }
+                if (CheckOutDatePicker?.SelectedDate < CheckInDatePicker?.SelectedDate) {
+                    valid = false;
+                    MessageBox.Show("You must check in before you can check out.");
+                }
             }
             catch
             {
