@@ -20,6 +20,9 @@ namespace InnManager.WpfApp.ModalWindows
     /// </summary>
     public partial class NewRoomForm : Window
     {
+        /// <summary>
+        /// Initializes and binds comboboxes.  Sets dates to today.
+        /// </summary>
         public NewRoomForm()
         {
             InitializeComponent();
@@ -29,10 +32,10 @@ namespace InnManager.WpfApp.ModalWindows
             RoomTypePicker.SelectedItem = RoomType.Standard;
         }
         /// <summary>
-        /// Converts data to a new employee or returns error
+        /// Converts data to a new room or returns error
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         public void AddRoomClick(object sender, RoutedEventArgs e)
         {
             if (Validation()) {
@@ -49,11 +52,20 @@ namespace InnManager.WpfApp.ModalWindows
                 this.Close();
             }
         }
+        /// <summary>
+        /// Cancels and closes form
+        /// </summary>
+        /// <param name="sender">cancel button</param>
+        /// <param name="e">args</param>
         public void CancelClick(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
             this.Close();
         }
+        /// <summary>
+        /// Validates form data
+        /// </summary>
+        /// <returns>whether or not data is valid</returns>
         public bool Validation() {
             bool valid = true;
             if (RoomNumberText.Text == "") valid = false;

@@ -11,8 +11,17 @@ namespace InnManager.Rooms
     /// </remarks>
     public class Room : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Backing field for cleanliness
+        /// </summary>
         private bool _isClean = true;
+        /// <summary>
+        /// Backing field for balcony bool
+        /// </summary>
         private bool _hasBalcony = false;
+        /// <summary>
+        /// Backing field for room's rate
+        /// </summary>
         private decimal _rate = 0;
         /// <summary>
         /// backing field for roomtype
@@ -102,8 +111,13 @@ namespace InnManager.Rooms
         //property for the status of the room
         public RoomStatus Status { get; set;
         } = RoomStatus.Available;
-
+        /// <summary>
+        /// How much the room costs per night
+        /// </summary>
         public decimal Rate { get => _rate; set => _rate = value; }
+        /// <summary>
+        /// Handles changes in properties
+        /// </summary>
 
         public event PropertyChangedEventHandler? PropertyChanged;
     }

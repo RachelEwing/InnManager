@@ -24,6 +24,11 @@ namespace InnManager.WpfApp.Controls
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Creates a new task form and reports whether or not the task was added
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         public void NewTaskClick(object sender, RoutedEventArgs e)
         {
             NewHousekeepingTaskForm form = new NewHousekeepingTaskForm((Hotel)this.DataContext);

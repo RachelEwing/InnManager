@@ -23,6 +23,11 @@ namespace InnManager.WpfApp.Controls
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Creates new invoice form and reports whether or not the invoice was created
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         public void NewInvoiceClick(object sender, RoutedEventArgs e)
         {
             NewInvoiceForm form = new NewInvoiceForm() { DataContext = this.DataContext };

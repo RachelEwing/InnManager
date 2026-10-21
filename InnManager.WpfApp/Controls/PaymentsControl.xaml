@@ -46,7 +46,7 @@
         <Grid Grid.Row="3">
             <DataGrid ItemsSource="{Binding Path= Payments}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Invoice #" Binding ="{Binding Path = Invoice.InvoiceNumber}"/>
+                    <DataGridTextColumn Header="Invoice #" Binding ="{Binding Path = Invoice.IDNumber}"/>
                     <DataGridTextColumn Header="Guest Name" Binding ="{Binding Path = GuestName}"/>
                     <DataGridTextColumn Header="Payment Date" Binding ="{Binding Path = Date}"/>
                     <DataGridTextColumn Header="Payment Method" Binding ="{Binding Path = PaymentMethod}"/>

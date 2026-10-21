@@ -9,6 +9,9 @@ namespace InnManager.Billing
     /// </summary>
     public class Payment : BillingRecord
     {
+        /// <summary>
+        /// Which invoice the payment is connected to
+        /// </summary>
         public Invoice Invoice { get; set; } = new Invoice();
         /// <summary>
         /// How the bill is being paid

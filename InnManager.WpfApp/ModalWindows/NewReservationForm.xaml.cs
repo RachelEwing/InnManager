@@ -23,6 +23,9 @@ namespace InnManager.WpfApp.ModalWindows
     /// </summary>
     public partial class NewReservationForm : Window
     {
+        /// <summary>
+        /// Initializes and binds comboboxes.  Sets dates to today.
+        /// </summary>
         public NewReservationForm(Hotel hotel)
         {
             DataContext = hotel;
@@ -31,10 +34,10 @@ namespace InnManager.WpfApp.ModalWindows
             CheckOutDatePicker.SelectedDate = DateTime.Today;
         }
         /// <summary>
-        /// Converts data to a new employee or returns error
+        /// Converts data to a new reservation or returns error
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         public void AddReservationClick(object sender, RoutedEventArgs e)
         {
 
@@ -52,11 +55,20 @@ namespace InnManager.WpfApp.ModalWindows
                 this.Close();
             }
         }
+        /// <summary>
+        /// Cancels form and closes it
+        /// </summary>
+        /// <param name="sender">cancel button</param>
+        /// <param name="e">args</param>
         public void CancelClick(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
             this.Close();
         }
+        /// <summary>
+        /// Validates form data
+        /// </summary>
+        /// <returns>whether or not form data is valid</returns>
 
         public bool Validation() {
             bool valid = true;

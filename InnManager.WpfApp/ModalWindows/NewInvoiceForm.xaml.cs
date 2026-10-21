@@ -21,6 +21,9 @@ namespace InnManager.WpfApp.ModalWindows
     /// </summary>
     public partial class NewInvoiceForm : Window
     {
+        /// <summary>
+        /// Initializes and binds comboboxes.  Sets dates to today.
+        /// </summary>
         public NewInvoiceForm()
         {
             InitializeComponent();
@@ -28,7 +31,7 @@ namespace InnManager.WpfApp.ModalWindows
             DueDatePicker.SelectedDate = DateTime.Today;
         }
         /// <summary>
-        /// Converts data to a new employee or returns error
+        /// Converts data to a new invoice or returns error
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -37,7 +40,7 @@ namespace InnManager.WpfApp.ModalWindows
             if (Validation()) {
                 Guest guest = (Guest)GuestPicker.SelectedItem;
                 Reservation res = (Reservation)ReservationPicker.SelectedItem;
-                Invoice invoice = new Invoice() {FirstName = guest.FirstName, LastName = guest.LastName, RoomNumber = res.RoomNumber, InvoiceDate = (DateTime)InvoiceDatePicker.SelectedDate, DueDate = (DateTime)DueDatePicker.SelectedDate};
+                Invoice invoice = new Invoice() {FirstName = guest.FirstName, LastName = guest.LastName, RoomNumber = res.RoomNumber, InvoiceDate = (DateTime)InvoiceDatePicker.SelectedDate, DueDate = (DateTime)DueDatePicker.SelectedDate, IDNumber = res.IDNumber};
                 var data = this.DataContext;
                 if (data is Hotel h)
                 {
@@ -47,11 +50,20 @@ namespace InnManager.WpfApp.ModalWindows
                 this.Close();
             }
         }
+        /// <summary>
+        /// Cancels and closes form
+        /// </summary>
+        /// <param name="sender">cancel button</param>
+        /// <param name="e">args</param>
         public void CancelClick(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
             this.Close();
         }
+        /// <summary>
+        /// Validates form data
+        /// </summary>
+        /// <returns>Whether or not data is valid</returns>
         public bool Validation() {
             bool valid = true;
             try
@@ -80,8 +92,8 @@ namespace InnManager.WpfApp.ModalWindows
                 valid = false;
                 MessageBox.Show("A due date must be set.");
             }
-            if (GuestPicker.SelectedIndex == -1) valid = false; MessageBox.Show("No guests available yet");
-            if (ReservationPicker.SelectedIndex == -1) valid = false; MessageBox.Show("No reservations available yet");
+            if (GuestPicker.SelectedIndex == -1) { valid = false; MessageBox.Show("No guests available yet"); }
+            if (ReservationPicker.SelectedIndex == -1) { valid = false; MessageBox.Show("No reservations available yet"); }
             return valid;
         }
 

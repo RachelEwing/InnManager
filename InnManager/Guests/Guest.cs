@@ -66,6 +66,9 @@ namespace InnManager.Guests
         /// </summary>
         public string IDNumber { get; set;
         } = "";
+        /// <summary>
+        /// Handles property changes
+        /// </summary>
 
         public event PropertyChangedEventHandler? PropertyChanged;
     }

@@ -27,8 +27,15 @@ namespace InnManager.Billing
         /// The amount on the bill (now positive or negative)
         /// </summary>
         public virtual decimal SignedAmount { get; }
+        /// <summary>
+        /// Handles changed properties
+        /// </summary>
 
         public event PropertyChangedEventHandler? PropertyChanged;
+        /// <summary>
+        /// Helper for handling changed properties
+        /// </summary>
+        /// <param name="propertyName"></param>
 
         protected void OnPropertyChanged(string propertyName)
         {

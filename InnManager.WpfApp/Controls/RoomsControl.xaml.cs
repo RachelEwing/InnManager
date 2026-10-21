@@ -23,6 +23,11 @@ namespace InnManager.WpfApp.Controls
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Creates a new room form and reports whether or not the new room was created
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         public void NewRoomClick(object sender, RoutedEventArgs e)
         {
             NewRoomForm form = new NewRoomForm() { DataContext = this.DataContext };

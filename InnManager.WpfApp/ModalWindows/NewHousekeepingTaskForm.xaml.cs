@@ -22,6 +22,9 @@ namespace InnManager.WpfApp.ModalWindows
     /// </summary>
     public partial class NewHousekeepingTaskForm : Window
     {
+        /// <summary>
+        /// Initializes and binds comboboxes.  Sets dates to today.
+        /// </summary>
         public NewHousekeepingTaskForm(Hotel h)
         {
             InitializeComponent();
@@ -30,7 +33,7 @@ namespace InnManager.WpfApp.ModalWindows
             ScheduledDatePicker.SelectedDate = DateTime.Today;
         }
         /// <summary>
-        /// Converts data to a new employee or returns error
+        /// Converts data to a new task or returns error
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -47,11 +50,20 @@ namespace InnManager.WpfApp.ModalWindows
                 this.Close();
             }
         }
+        /// <summary>
+        /// Cancels and closes form
+        /// </summary>
+        /// <param name="sender">cancel button</param>
+        /// <param name="e">args</param>
         public void CancelClick(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
             this.Close();
         }
+        /// <summary>
+        /// Validates form data
+        /// </summary>
+        /// <returns>whether or not data is valid</returns>
         public bool Validation() {
             bool valid = true;
             if (DescriptionText.Text.Length < 1)
@@ -72,8 +84,8 @@ namespace InnManager.WpfApp.ModalWindows
                 valid = false;
                 MessageBox.Show("A scheduled date must be set.");
             }
-            if (AssignedStaffPicker.SelectedIndex == -1) valid = false; MessageBox.Show("No staff available yet");
-            if (RoomPicker.SelectedIndex == -1) valid = false; MessageBox.Show("No rooms available yet");
+            if (AssignedStaffPicker.SelectedIndex == -1) { valid = false; MessageBox.Show("No staff available yet"); }
+            if (RoomPicker.SelectedIndex == -1) { valid = false; MessageBox.Show("No rooms available yet"); }
             return valid;
         }
     }

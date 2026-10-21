@@ -34,6 +34,9 @@ namespace InnManager.Services
         /// </summary>
         public ServiceCategory Category { get; set;
         } = ServiceCategory.Miscellaneous;
+        /// <summary>
+        /// Handles changes in properties
+        /// </summary>
 
         public event PropertyChangedEventHandler? PropertyChanged;
     }

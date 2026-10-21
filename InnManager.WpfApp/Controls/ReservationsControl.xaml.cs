@@ -24,6 +24,11 @@ namespace InnManager.WpfApp.Controls
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Creates new reservation form and reports whether or not the reservation was created
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         public void NewReservationClick(object sender, RoutedEventArgs e)
         {
             NewReservationForm form = new NewReservationForm((Hotel)this.DataContext);

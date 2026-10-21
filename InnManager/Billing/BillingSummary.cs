@@ -45,6 +45,9 @@
                 return totalCharges;
             }
         }
+        /// <summary>
+        /// Net Balance of summary
+        /// </summary>
         public decimal NetBalance { get => TotalCharges + TotalPayments; }
         /// <summary>
         /// Constructor

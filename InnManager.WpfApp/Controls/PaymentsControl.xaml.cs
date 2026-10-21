@@ -23,6 +23,11 @@ namespace InnManager.WpfApp.Controls
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Creates new payment form and reports whether or not the payment was created
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         public void NewPaymentClick(object sender, RoutedEventArgs e)
         {
             NewPaymentForm form = new NewPaymentForm() { DataContext = this.DataContext };

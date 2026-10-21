@@ -20,6 +20,9 @@ namespace InnManager.WpfApp.ModalWindows
     /// </summary>
     public partial class NewGuestForm : Window
     {
+        /// <summary>
+        /// Initializes and binds comboboxes.  Sets dates to today.
+        /// </summary>
         public NewGuestForm()
         {
             InitializeComponent();
@@ -27,10 +30,10 @@ namespace InnManager.WpfApp.ModalWindows
             IDTypePicker.SelectedItem = IDType.Other;
         }
         /// <summary>
-        /// Converts data to a new employee or returns error
+        /// Converts data to a new guest or returns error
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         public void AddGuestClick(object sender, RoutedEventArgs e)
         {
             if (Validation()) {
@@ -44,11 +47,20 @@ namespace InnManager.WpfApp.ModalWindows
                 this.Close();
             }
         }
+        /// <summary>
+        /// Cancels and closes form
+        /// </summary>
+        /// <param name="sender">cancel button</param>
+        /// <param name="e">args</param>
         public void CancelClick(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
             this.Close();
         }
+        /// <summary>
+        /// Validates form data
+        /// </summary>
+        /// <returns>Whether or not data is valid</returns>
         public bool Validation()
         {
             bool valid = true;

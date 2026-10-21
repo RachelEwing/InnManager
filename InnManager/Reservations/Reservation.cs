@@ -129,6 +129,9 @@ namespace InnManager.Reservations
                 }
             } set;
         }
+        /// <summary>
+        /// Handles property changes
+        /// </summary>
         public event PropertyChangedEventHandler? PropertyChanged;
     }
 }

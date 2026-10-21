@@ -23,6 +23,11 @@ namespace InnManager.WpfApp.Controls
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Creates new service form and reports whether or not the new service was created
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         public void NewServiceClick(object sender, RoutedEventArgs e)
         {
             NewServiceForm form = new NewServiceForm() { DataContext = this.DataContext };

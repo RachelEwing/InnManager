@@ -9,6 +9,9 @@ namespace InnManager.Employees
     /// </summary>
     public class Employee : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Unique employeeID
+        /// </summary>
         public string EmployeeID { get
             {
                 try
@@ -64,6 +67,9 @@ namespace InnManager.Employees
         /// Whether the employee is currently working
         /// </summary>
         public string Status { get { if (IsActive) return "Active"; else return "Inactive"; } }
+        /// <summary>
+        /// Handles property changes
+        /// </summary>
 
         public event PropertyChangedEventHandler? PropertyChanged;
     }

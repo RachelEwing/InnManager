@@ -117,7 +117,9 @@ namespace InnManager.Billing
                 else return "Unpaid";
             }
         }
-
+        /// <summary>
+        /// Handles changed properties
+        /// </summary>
         public event PropertyChangedEventHandler? PropertyChanged;
     }
 }

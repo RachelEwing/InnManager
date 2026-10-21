@@ -14,7 +14,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Reservation:  "/>
-                <ComboBox Width="100" HorizontalAlignment="Left" Name="ReservationPicker" ItemsSource="{Binding Path = Reservation}" SelectedIndex="0" DisplayMemberPath="ReservationID"/>
+                <ComboBox Width="100" HorizontalAlignment="Left" Name="ReservationPicker" ItemsSource="{Binding Path = Reservations}" SelectedIndex="0" DisplayMemberPath="ReservationID"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Invoice Date:  "/>

@@ -20,6 +20,9 @@ namespace InnManager.WpfApp.ModalWindows
     /// </summary>
     public partial class NewServiceForm : Window
     {
+        /// <summary>
+        /// Initializes and binds comboboxes.  Sets dates to today.
+        /// </summary>
         public NewServiceForm()
         {
             InitializeComponent();
@@ -27,10 +30,10 @@ namespace InnManager.WpfApp.ModalWindows
             CategoryPicker.SelectedItem = ServiceCategory.Miscellaneous;
         }
         /// <summary>
-        /// Converts data to a new employee or returns error
+        /// Converts data to a new service or returns error
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         public void AddServiceClick(object sender, RoutedEventArgs e)
         {
             if (Validation()) {
@@ -45,11 +48,20 @@ namespace InnManager.WpfApp.ModalWindows
                 this.Close();
             }
         }
+        /// <summary>
+        /// Cancels and closes form
+        /// </summary>
+        /// <param name="sender">cancel button</param>
+        /// <param name="e">args</param>
         public void CancelClick(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
             this.Close();
         }
+        /// <summary>
+        /// Validates data
+        /// </summary>
+        /// <returns>Whether or not data is valid</returns>
         public bool Validation() {
             bool valid = true;
             if (ServiceNameText.Text == "") valid = false;

@@ -25,6 +25,11 @@ namespace InnManager.WpfApp.Controls
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Creates a new employee form and reports whether the new employee was added or not
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         public void NewEmployeeClick(object sender, RoutedEventArgs e)
         {
             NewEmployeeForm form = new NewEmployeeForm() {DataContext = this.DataContext};

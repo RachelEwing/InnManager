@@ -23,6 +23,11 @@ namespace InnManager.WpfApp.Controls
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Creates a new guest form and reports if a new gust was added
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         public void NewGuestClick(object sender, RoutedEventArgs e)
         {
             NewGuestForm form = new NewGuestForm() { DataContext = this.DataContext };

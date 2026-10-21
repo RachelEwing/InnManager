@@ -7,6 +7,9 @@ namespace InnManager.Housekeeping
     /// </summary>
     public class HousekeepingTask : INotifyPropertyChanged
     {
+        /// <summary>
+        /// RoomNumber of room the task is associated with
+        /// </summary>
         public string RoomNumber { get; set;
         } = "";
         /// <summary>
@@ -43,6 +46,9 @@ namespace InnManager.Housekeeping
                 }
             }
         }
+        /// <summary>
+        /// Handles changes in properties
+        /// </summary>
 
         public event PropertyChangedEventHandler? PropertyChanged;
     }

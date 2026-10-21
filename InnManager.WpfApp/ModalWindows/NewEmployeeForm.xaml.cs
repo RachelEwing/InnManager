@@ -20,6 +20,9 @@ namespace InnManager.WpfApp.ModalWindows
     /// </summary>
     public partial class NewEmployeeForm : Window
     {
+        /// <summary>
+        /// Initializes and binds comboboxes.  Sets dates to today.
+        /// </summary>
         public NewEmployeeForm()
         {
             InitializeComponent();
@@ -31,8 +34,8 @@ namespace InnManager.WpfApp.ModalWindows
         /// <summary>
         /// Converts data to a new employee or returns error
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">sender</param>
+        /// <param name="e">args</param>
         public void AddEmployeeClick(object sender, RoutedEventArgs e) {
             if (Validation()) {
                 Employee employee = new Employee() {FirstName = FirstNameText.Text, LastName = LastNameText.Text, Email = EmailText.Text, Position = (EmployeePosition)PositionPicker.SelectedItem, PhoneNumber = PhoneText.Text, HireDate = (DateTime)HireDatePicker.SelectedDate};
@@ -55,6 +58,10 @@ namespace InnManager.WpfApp.ModalWindows
             DialogResult = false;
             this.Close();
         }
+        /// <summary>
+        /// Validates data
+        /// </summary>
+        /// <returns>Whether or not data is valid</returns>
         public bool Validation() {
             bool valid = true;
             if (FirstNameText.Text.Length < 1) {
