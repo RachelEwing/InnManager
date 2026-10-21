@@ -43,18 +43,18 @@
                 </Border>
             </Grid>
         </Grid>
-        <Grid Grid.Row="2" VerticalAlignment="Center">
-            <Border BorderThickness =" 5">
-                <WrapPanel Background="LightSteelBlue" VerticalAlignment="Center">
-                    <TextBlock Text="  Invoice #  " Height="25" Margin="5" FontWeight="Bold" FontSize="12"/>
-                    <TextBlock Text="  Guest Name  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
-                    <TextBlock Text="  Payment Date  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
-                    <TextBlock Text="  Payment Method  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
-                    <TextBlock Text="  Amount ($)  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
-                    <TextBlock Text="  Status  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
-                    <TextBlock Text="  Reference No.  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
-                </WrapPanel>
-            </Border>
+        <Grid Grid.Row="3">
+            <DataGrid ItemsSource="{Binding Path= Guests}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Invoice #" Binding ="{Binding Path = GuestID}"/>
+                    <DataGridTextColumn Header="Guest Name" Binding ="{Binding Path = FirstName}"/>
+                    <DataGridTextColumn Header="Payment Date" Binding ="{Binding Path = LastName}"/>
+                    <DataGridTextColumn Header="Payment Method" Binding ="{Binding Path = PhoneNumber}"/>
+                    <DataGridTextColumn Header="Amount ($)" Binding ="{Binding Path = Email}"/>
+                    <DataGridTextColumn Header="Status" Binding ="{Binding Path = Address}"/>
+                    <DataGridTextColumn Header="Reference Number" Binding ="{Binding Path = IDType}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
         <Grid Grid.Row="4">
             <TextBlock Height="25" Margin="5" FontWeight="Bold" FontSize="15" >

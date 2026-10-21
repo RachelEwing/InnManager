@@ -42,16 +42,16 @@
                 </Border>
             </Grid>
         </Grid>
-        <Grid Grid.Row="2" VerticalAlignment="Center">
-            <Border BorderThickness =" 5">
-                <WrapPanel Background="LightSteelBlue" VerticalAlignment="Center">
-                    <TextBlock Text="  Service Name  " Height="25" Margin="5" FontWeight="Bold" FontSize="12"/>
-                    <TextBlock Text="  Description  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
-                    <TextBlock Text="  Price ($)  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
-                    <TextBlock Text="  Available  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
-                    <TextBlock Text="  Category  " Height="25" Margin="5" FontWeight="Bold" FontSize="12" />
-                </WrapPanel>
-            </Border>
+        <Grid Grid.Row="3">
+            <DataGrid ItemsSource="{Binding Path= Services}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Service Name" Binding ="{Binding Path = ServiceName}"/>
+                    <DataGridTextColumn Header="Description" Binding ="{Binding Path = Description}"/>
+                    <DataGridTextColumn Header="Price ($)" Binding ="{Binding Path = Price}"/>
+                    <DataGridTextColumn Header="Available" Binding ="{Binding Path = IsAvailable}"/>
+                    <DataGridTextColumn Header="Category" Binding ="{Binding Path = Category}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
         <Grid Grid.Row="4">
             <TextBlock Text="Total Services: " Height="25" Margin="5" FontWeight="Bold" FontSize="15" >
