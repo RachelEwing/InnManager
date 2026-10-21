@@ -35,13 +35,16 @@ namespace InnManager.WpfApp.ModalWindows
         /// <param name="e"></param>
         public void AddRoomClick(object sender, RoutedEventArgs e)
         {
-            Room room = new Room();
+            if (Validation()) {
+            bool a = !int.TryParse(FloorPicker.Text, out int floor);
+            bool b = !int.TryParse(CapacityPicker.Text, out int capacity);
+            bool c = !decimal.TryParse(RateText.Text, out decimal rate);
+            Room room = new Room() { RoomNumber = RoomNumberText.Text, RoomType = (RoomType)RoomTypePicker.SelectedItem, Status = (RoomStatus)StatusPicker.SelectedItem, Floor = floor, Capacity = capacity, IsClean = (IsCleanPicker.IsChecked == true), HasBalcony = (HasBalconyPicker.IsChecked == true), Rate = rate };
             var data = this.DataContext;
             if (data is Hotel h)
             {
                 h.Rooms.Add(room);
             }
-            if (Validation()) {
                 DialogResult = true;
                 this.Close();
             }

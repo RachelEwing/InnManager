@@ -1,5 +1,6 @@
 ﻿using InnManager.Enums;
 using System.ComponentModel;
+using System.Text;
 
 namespace InnManager.Billing
 {
@@ -17,13 +18,59 @@ namespace InnManager.Billing
         /// </summary>
         public override decimal SignedAmount => -Amount;
         /// <summary>
-        /// The unique reference number of this payment
+        /// Last Name of the Guest
         /// </summary>
-        public string ReferenceNumber { get; set
+        public string LastName { get; set; } = "";
+        /// <summary>
+        /// First Name of the Guest
+        /// </summary>
+        public string FirstName { get; set; } = "";
+        /// <summary>
+        /// The ID Number of the guest
+        /// </summary>
+        public string IDNumber { get; set; } = "";
+        /// <summary>
+        /// The unique reference for the payment
+        /// </summary>
+        public string PaymentReference
+        {
+            get
             {
-               
-                OnPropertyChanged(nameof(ReferenceNumber));
+                try
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("RES-");
+                    sb.Append(LastName[0]);
+                    sb.Append(LastName[1]);
+                    sb.Append("-");
+                    sb.Append(IDNumber.Substring(IDNumber.Length - 3));
+                    sb.Append("-");
+                    if (PaymentMethod == PaymentMethod.Cash) {
+                        sb.Append("C");
+                    }
+                    else if (PaymentMethod == PaymentMethod.BankTransfer)
+                    {
+                        sb.Append("BT");
+                    }
+                    else if (PaymentMethod == PaymentMethod.CreditCard)
+                    {
+                        sb.Append("CC");
+                    }
+                    else if (PaymentMethod == PaymentMethod.DebitCard)
+                    {
+                        sb.Append("DC");
+                    }
+                    else
+                    {
+                        sb.Append("DW");
+                    }
+                    return sb.ToString();
+                }
+                catch
+                {
+                    return "Unavailable";
+                }
             }
-        } = "";
+        }
     }
 }

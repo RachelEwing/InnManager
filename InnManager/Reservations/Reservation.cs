@@ -15,8 +15,20 @@ namespace InnManager.Reservations
         /// <summary>
         /// The name of the guest making the reservation
         /// </summary>
-        public string GuestName { get; set;
-        } = "";
+        public string GuestName { get => FirstName + " " + LastName;
+        }
+        /// <summary>
+        /// First Name of Guest
+        /// </summary>
+        public string FirstName { get; set; } = "";
+        /// <summary>
+        /// Last Name of guest
+        /// </summary>
+        public string LastName { get; set; } = "";
+        /// <summary>
+        /// The Guest's ID Number
+        /// </summary>
+        public string IDNumber { get; set; } = "";
         /// <summary>
         /// room number property
         /// </summary>
@@ -56,8 +68,28 @@ namespace InnManager.Reservations
         /// <summary>
         /// Unique number assigned to the reservation
         /// </summary>
-        public string ReservationNumber { get; set;
-        } = "";
+        public string ReservationID
+        {
+            get
+            {
+                try
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("RES-");
+                    sb.Append(LastName[0]);
+                    sb.Append(LastName[1]);
+                    sb.Append("-");
+                    sb.Append(IDNumber.Substring(IDNumber.Length - 3));
+                    sb.Append("-");
+                    sb.Append(RoomNumber);
+                    return sb.ToString();
+                }
+                catch
+                {
+                    return "Unavailable";
+                }
+            }
+        }
         /// <summary>
         /// active boolean property
         /// </summary>

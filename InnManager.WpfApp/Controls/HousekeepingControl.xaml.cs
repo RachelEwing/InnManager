@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InnManager.Hotels;
 
 namespace InnManager.WpfApp.Controls
 {
@@ -25,7 +26,7 @@ namespace InnManager.WpfApp.Controls
         }
         public void NewTaskClick(object sender, RoutedEventArgs e)
         {
-            NewHousekeepingTaskForm form = new NewHousekeepingTaskForm() { DataContext = this.DataContext };
+            NewHousekeepingTaskForm form = new NewHousekeepingTaskForm((Hotel)this.DataContext);
             bool? result = form.ShowDialog();
             if (result == true)
             {

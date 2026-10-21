@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Text;
 
 namespace InnManager.Billing
 {
@@ -7,11 +8,19 @@ namespace InnManager.Billing
     /// </summary>
     public class Invoice : INotifyPropertyChanged
     {
-        public string GuestName { get; set
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GuestName)));
-            }
-        } = "";
+        public string IDNumber { private get; set; } = "";
+        /// <summary>
+        /// The first name of the guest
+        /// </summary>
+        public string FirstName { get; set; } = "";
+        /// <summary>
+        /// The last name of the guest
+        /// </summary>
+        public string LastName { get; set; } = "";
+        /// <summary>
+        /// The name of the guest
+        /// </summary>
+        public string GuestName { get => FirstName + " " + LastName; }
         /// <summary>
         /// room number property
         /// </summary>
@@ -23,7 +32,26 @@ namespace InnManager.Billing
         /// <summary>
         /// The unique number of the invoice
         /// </summary>
-        public string InvoiceNumber { get; set; } = "";
+        public string InvoiceID { get
+            {
+                try
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("RES-");
+                    sb.Append(LastName[0]);
+                    sb.Append(LastName[1]);
+                    sb.Append("-");
+                    sb.Append(IDNumber.Substring(IDNumber.Length - 3));
+                    sb.Append("-");
+                    sb.Append(RoomNumber);
+                    return sb.ToString();
+                }
+                catch
+                {
+                    return "Unavailable";
+                }
+            }
+        }
         /// <summary>
         /// The date of the invoice
         /// </summary>

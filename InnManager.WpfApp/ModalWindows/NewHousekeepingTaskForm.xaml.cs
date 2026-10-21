@@ -1,4 +1,5 @@
 ﻿using InnManager.Employees;
+using InnManager.Enums;
 using InnManager.Hotels;
 using InnManager.Housekeeping;
 using System;
@@ -20,9 +21,10 @@ namespace InnManager.WpfApp.ModalWindows
     /// </summary>
     public partial class NewHousekeepingTaskForm : Window
     {
-        public NewHousekeepingTaskForm()
+        public NewHousekeepingTaskForm(Hotel h)
         {
             InitializeComponent();
+            this.DataContext = h;
             StatusPicker.SelectedIndex = 0;
         }
         /// <summary>
@@ -32,14 +34,16 @@ namespace InnManager.WpfApp.ModalWindows
         /// <param name="e"></param>
         public void AddTaskClick(object sender, RoutedEventArgs e)
         {
-            HousekeepingTask task = new HousekeepingTask();
-            var data = this.DataContext;
-            if (data is Hotel h)
-            {
-                h.HouseKeepingTasks.Add(task);
+            if (Validation()) {
+                HousekeepingTask task = new HousekeepingTask() { };
+                var data = this.DataContext;
+                if (data is Hotel h)
+                {
+                    h.HouseKeepingTasks.Add(task);
+                }
+                DialogResult = true;
+                this.Close();
             }
-            DialogResult = true;
-            this.Close();
         }
         public void CancelClick(object sender, RoutedEventArgs e)
         {

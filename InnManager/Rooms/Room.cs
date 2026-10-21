@@ -11,6 +11,21 @@ namespace InnManager.Rooms
     /// </remarks>
     public class Room : INotifyPropertyChanged
     {
+        private bool _isClean = true;
+        private bool _hasBalcony = false;
+        private decimal _rate = 0;
+        /// <summary>
+        /// backing field for roomtype
+        /// </summary>
+        private RoomType _roomType = RoomType.Standard;
+        /// <summary>
+        /// Private backing field for capacity
+        /// </summary>
+        private int _capacity = 1;
+        /// <summary>
+        /// private backing field for floor
+        /// </summary>
+        private int _floor = 0;
         // Keeps track of the next ID to assign to a room
         private static long _nextID = 0;
         //private field for room ID
@@ -36,11 +51,12 @@ namespace InnManager.Rooms
         } = "";
 
         //The Type of Room (Single, Double, etc.)
-        public RoomType RoomType { get; set
+        public RoomType RoomType { get => _roomType; set
             {
+                _roomType = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomType)));
             }
-        } = RoomType.Standard;
+        }
 
         //Whether or not the room is available
         public bool IsAvailable { get; set;
@@ -48,40 +64,46 @@ namespace InnManager.Rooms
         //property for floor
         public int Floor
         {
-            get; set
+            get => _floor; set
             {
                 if (value > 0)
                 {
+                    _floor = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Floor)));
                 }
             }
-        } = 0;
+        }
         //property for capacity
         public int Capacity
         {
-            get; set
+            get => _capacity; set
             {
                 if (value > 0)
                 {
+                    _capacity = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Capacity)));
                 }
             }
-        } = 1;
+        }
         //property for whether or not the room has a balcony
-        public bool HasBalcony { get; set
+        public bool HasBalcony { get=>_hasBalcony; set
             {
+                _hasBalcony = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(HasBalcony)));
             }
-        } = false;
+        }
         //property for whether or not the room is clean
-        public bool IsClean { get; set
+        public bool IsClean { get => _isClean; set
             {
+                _isClean = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsClean)));
             }
-        } = true;
+        }
         //property for the status of the room
         public RoomStatus Status { get; set;
         } = RoomStatus.Available;
+
+        public decimal Rate { get => _rate; set => _rate = value; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
     }

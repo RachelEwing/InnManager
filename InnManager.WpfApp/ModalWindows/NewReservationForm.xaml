@@ -10,11 +10,11 @@
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Guest:  "/>
-                <ComboBox Width="100" HorizontalAlignment="Left" Name ="GuestPicker"/>
+                <ComboBox Width="100" HorizontalAlignment="Left" Name ="GuestPicker" ItemsSource="{Binding Path = Guests}" SelectedIndex="0" DisplayMemberPath="GuestID"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Room:  "/>
-                <ComboBox Width="100" HorizontalAlignment="Left" Name="RoomPicker"/>
+                <ComboBox Width="100" HorizontalAlignment="Left" Name="RoomPicker" ItemsSource="{Binding Path = Rooms}" SelectedIndex="0" DisplayMemberPath="RoomNumber"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Text="Check In Date:  "/>

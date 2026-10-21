@@ -33,14 +33,17 @@ namespace InnManager.WpfApp.ModalWindows
         /// <param name="e"></param>
         public void AddServiceClick(object sender, RoutedEventArgs e)
         {
-            Service service = new Service();
-            var data = this.DataContext;
-            if (data is Hotel h)
-            {
-                h.Services.Add(service);
+            if (Validation()) {
+                bool a = !decimal.TryParse(PricePicker.Text, out decimal price);
+                Service service = new Service() {ServiceName = ServiceNameText.Text, Category = (ServiceCategory)CategoryPicker.SelectedItem, Price = price, IsAvailable = (IsAvailablePicker.IsChecked == true), Description = DescriptionText.Text};
+                var data = this.DataContext;
+                if (data is Hotel h)
+                {
+                    h.Services.Add(service);
+                }
+                DialogResult = true;
+                this.Close();
             }
-            DialogResult = true;
-            this.Close();
         }
         public void CancelClick(object sender, RoutedEventArgs e)
         {
