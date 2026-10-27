@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="InnManager.WpfApp.Controls.Editing.GuestEditControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InnManager.WpfApp.Controls.Editing"
+             mc:Ignorable="d" 
+             d:DesignHeight="395" d:DesignWidth="640">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="60"/>
+            <RowDefinition Height ="*"/>
+            <RowDefinition Height ="55"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="LightSteelBlue">
+            <TextBlock Text="Edit Guest" FontSize="40" Margin="10, 0, 10, 0"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width ="*"/>
+                <ColumnDefinition Width ="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Guest ID" FontSize="15" Margin="5" FontWeight="Bold"/>
+                    <TextBox Width="auto" Name="GuestIDEditor" Margin="5"/>
+                    <TextBlock Text="First Name" FontSize="15" Margin="5" FontWeight="Bold"/>
+                    <TextBox Width="auto" Name="FirstNameEditor" Margin="5"/>
+                    <TextBlock Text="Last Name" FontSize="15" Margin="5" FontWeight="Bold"/>
+                    <TextBox Width="auto" Name="LastNameEditor" Margin="5"/>
+                    <TextBlock Text="Phone" FontSize="15" Margin="5" FontWeight="Bold"/>
+                    <TextBox Width="auto" Name="PhoneEditor" Margin="5"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Email" FontSize="15" Margin="5" FontWeight="Bold"/>
+                    <TextBox Width="auto" Name="EmailEditor" Margin="5"/>
+                    <TextBlock Text="Address" FontSize="15" Margin="5" FontWeight="Bold"/>
+                    <TextBox Width="auto" Name="AddressEditor" Margin="5"/>
+                    <TextBlock Text="ID Type" FontSize="15" Margin="5" FontWeight="Bold"/>
+                    <ComboBox Width="auto" Name="IDTypeEditor" Margin="5"/>
+                    <TextBlock Text="ID Number" FontSize="15" Margin="5" FontWeight="Bold"/>
+                    <TextBox Width="auto" Name="IDNumberEditor" Margin="5"/>
+                    <CheckBox Name="IsCheckedInEditor" Margin="5" Content="Checked In" FontSize="15" FontWeight="Bold"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" Background="LightSteelBlue">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Save" Height="35" Width="90" Margin="10" Background="SteelBlue" Foreground="White" Click="SaveGuestClick" FontWeight="Bold"/>
+                <Button Content="Back to Guests" Height="35" Width="90" Margin="10" Background="LightSteelBlue" Click="BackClick" FontWeight="Bold"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

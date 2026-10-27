@@ -9,10 +9,16 @@ namespace InnManager.Billing
     /// </summary>
     public class Charge : BillingRecord
     {
+        private ChargeCategory _category = ChargeCategory.Miscellaneous;
         /// <summary>
         /// The category that is being charged for
         /// </summary>
-        public ChargeCategory Category { get; set; } = ChargeCategory.Miscellaneous;
+        public ChargeCategory Category { get => _category; set
+            {
+                _category = value;
+                OnPropertyChanged(nameof(Category));
+            }
+        }
         /// <summary>
         /// The signed amount (positive) added to the bill
         /// </summary>
