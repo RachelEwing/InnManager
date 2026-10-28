@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using InnManager.Enums;
+using System.ComponentModel;
 
 namespace InnManager.Housekeeping
 {
@@ -8,27 +9,71 @@ namespace InnManager.Housekeeping
     public class HousekeepingTask : INotifyPropertyChanged
     {
         /// <summary>
+        /// Private field storing the room number.
+        /// </summary>
+        private string _roomNumber = "";
+        /// <summary>
         /// RoomNumber of room the task is associated with
         /// </summary>
-        public string RoomNumber { get; set;
-        } = "";
+        public string RoomNumber { get => _roomNumber; set
+            {
+                _roomNumber = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomNumber)));
+            }
+        }
+        /// <summary>
+        /// Description backing field
+        /// </summary>
+        private string _description = "";
         /// <summary>
         /// description of task property
         /// </summary>
-        public string Description { get; set;
-        } = "";
+        public string Description { get => _description; set
+            {
+                _description = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Description)));
+            }
+        }
+        /// <summary>
+        /// Scheduled Time Backing field
+        /// </summary>
+        private DateTime _scheduledDate = DateTime.Today;
         /// <summary>
         /// scheduled date for task property
         /// </summary>
-        public DateTime ScheduledDate { get; set;
-        } = DateTime.Today;
+        public DateTime ScheduledDate { get => _scheduledDate; set
+            {
+                _scheduledDate = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ScheduledDate)));
+            }
+        }
+        /// <summary>
+        /// Is completed backing field
+        /// </summary>
+        private bool _isCompleted = false;
         /// <summary>
         /// is completed boolean property
         /// </summary>
-        public bool IsCompleted { get; set;
-        } = false;
-        public string AssignedStaff { get; set;
-        } = "";
+        public bool IsCompleted { get => _isCompleted; set
+            {
+                _isCompleted = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCompleted)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
+            }
+        }
+        /// <summary>
+        /// Assigned staff backing field
+        /// </summary>
+        private string _assignedStaff = "";
+        /// <summary>
+        /// Staff assigned to the task
+        /// </summary>
+        public string AssignedStaff { get => _assignedStaff; set
+            {
+                _assignedStaff = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AssignedStaff)));
+            }
+        }
         /// <summary>
         /// status property
         /// </summary>

@@ -10,28 +10,54 @@ namespace InnManager.Guests
     /// </summary>
     public class Guest : INotifyPropertyChanged
     {
-        public string FirstName { get; set;
-        } = "";
+        private string _firstName = "";
+        public string FirstName { get=>_firstName; set
+            {
+                _firstName = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(FirstName)));
+            }
+        }
+        private string _lastName = "";
         /// <summary>
         /// last name property
         /// </summary>
-        public string LastName { get; set;
-        } = "";
+        public string LastName { get; set
+            {
+                _lastName = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LastName)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GuestID)));
+            }
+        }
+        private string _email = "";
         /// <summary>
         /// email property
         /// </summary>
-        public string Email { get; set;
-        } = "";
+        public string Email { get; set
+            {
+                _email = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Email)));
+            }
+        }
+        private string _phoneNumber = "";
         /// <summary>
         /// phone number property
         /// </summary>
-        public string PhoneNumber { get; set;
-        } = "";
+        public string PhoneNumber { get; set
+            {
+                _phoneNumber = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PhoneNumber)));
+            }
+        }
+        private bool _isCheckedIn = false;
         /// <summary>
         /// Checked in property
         /// </summary>
-        public bool IsCheckedIn { get; set;
-        } = false;
+        public bool IsCheckedIn { get; set
+            {
+                _isCheckedIn = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCheckedIn)));
+            }
+        }
         /// <summary>
         /// unique ID for the guest
         /// </summary>
@@ -51,21 +77,37 @@ namespace InnManager.Guests
                 }
             }
         }
+        private string _address = "";
         /// <summary>
         /// Address of the guest
         /// </summary>
-        public string Address { get; set;
-        } = "";
+        public string Address { get; set
+            {
+                _address = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Address)));
+            }
+        }
+        private IDType _iDType = IDType.Other;
         /// <summary>
         /// The type of ID the guest has
         /// </summary>
-        public IDType IDType { get; set;
-        } = IDType.Other;
+        public IDType IDType { get; set
+            {
+                _iDType = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IDType)));
+            }
+        }
+        private string _iDNumber = "";
         /// <summary>
         /// The ID number of the guest
         /// </summary>
-        public string IDNumber { get; set;
-        } = "";
+        public string IDNumber { get; set
+            {
+                _iDNumber = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IDNumber)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GuestID)));
+            }
+        }
         /// <summary>
         /// Handles property changes
         /// </summary>

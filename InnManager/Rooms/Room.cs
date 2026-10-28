@@ -35,13 +35,18 @@ namespace InnManager.Rooms
         /// private backing field for floor
         /// </summary>
         private int _floor = 0;
-        // Keeps track of the next ID to assign to a room
+        /// <summary>
+        /// Keeps track of the next ID to assign to a room
+        /// </summary>
         private static long _nextID = 0;
-        //private field for room ID
+        /// <summary>
+        /// private field for room ID
+        /// </summary>
         private long _roomID;
-        //private field for room number
 
-        //Property for updating and delivering the next room ID when a new room is added
+        /// <summary>
+        /// Property for updating and delivering the next room ID when a new room is added
+        /// </summary>
         public static long NextID
         {
             get
@@ -51,26 +56,51 @@ namespace InnManager.Rooms
             }
         }
 
-        //The ID for the individual room
+        /// <summary>
+        /// The ID for the individual room
+        /// </summary>
         public long RoomID { get; set;
         } = NextID;
+        /// <summary>
+        /// Backing field for room number
+        /// </summary>
+        private string _roomNumber = "";
+        /// <summary>
+        /// The Room Number
+        /// </summary>
+        public string RoomNumber { get => _roomNumber; set
+            {
+                _roomNumber = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomNumber)));
+            }
+        }
 
-        //The Room Number
-        public string RoomNumber { get; set;
-        } = "";
-
-        //The Type of Room (Single, Double, etc.)
+        /// <summary>
+        /// The Type of Room (Single, Double, etc.)
+        /// </summary>
         public RoomType RoomType { get => _roomType; set
             {
                 _roomType = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomType)));
             }
         }
+        /// <summary>
+        /// Backing field for is available
+        /// </summary>
+        private bool _isAvailable = true;
 
-        //Whether or not the room is available
-        public bool IsAvailable { get; set;
-        } = true;
-        //property for floor
+        /// <summary>
+        /// Whether or not the room is available
+        /// </summary>
+        public bool IsAvailable { get => _isAvailable; set
+            {
+                _isAvailable = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsAvailable)));
+            }
+        }
+        /// <summary>
+        /// property for floor
+        /// </summary>
         public int Floor
         {
             get => _floor; set
@@ -82,7 +112,9 @@ namespace InnManager.Rooms
                 }
             }
         }
-        //property for capacity
+        /// <summary>
+        /// property for capacity
+        /// </summary>
         public int Capacity
         {
             get => _capacity; set
@@ -94,27 +126,44 @@ namespace InnManager.Rooms
                 }
             }
         }
-        //property for whether or not the room has a balcony
+        /// <summary>
+        /// property for whether or not the room has a balcony
+        /// </summary>
         public bool HasBalcony { get=>_hasBalcony; set
             {
                 _hasBalcony = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(HasBalcony)));
             }
         }
-        //property for whether or not the room is clean
+        /// <summary>
+        /// property for whether or not the room is clean
+        /// </summary>
         public bool IsClean { get => _isClean; set
             {
                 _isClean = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsClean)));
             }
         }
-        //property for the status of the room
-        public RoomStatus Status { get; set;
-        } = RoomStatus.Available;
+        /// <summary>
+        /// Backing field for Status
+        /// </summary>
+        private RoomStatus _status = RoomStatus.Available;
+        /// <summary>
+        /// property for the status of the room
+        /// </summary>
+        public RoomStatus Status { get => _status; set
+            {
+                _status = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
+            }
+        }
         /// <summary>
         /// How much the room costs per night
         /// </summary>
-        public decimal Rate { get => _rate; set => _rate = value; }
+        public decimal Rate { get => _rate; set {
+                _rate = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Rate)));
+            } }
         /// <summary>
         /// Handles changes in properties
         /// </summary>

@@ -9,50 +9,135 @@ namespace InnManager.Reservations
     public class Reservation : INotifyPropertyChanged
     {
         /// <summary>
+        /// Total amount backing field
+        /// </summary>
+        private decimal _totalAmount = 0;
+        /// <summary>
         /// How much the reservation costs
         /// </summary>
-        public decimal TotalAmount { get; set; }
+        public decimal TotalAmount { get => _totalAmount; set
+            {
+                _totalAmount = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TotalAmount)));
+            }
+        }
+        /// <summary>
+        /// Number of guests backing field
+        /// </summary>
+        private int _numberOfGuests = 1;
         /// <summary>
         /// How many guests are staying the night
         /// </summary>
-        public int NumberOfGuests { get; set; } = 1;
+        public int NumberOfGuests { get => _numberOfGuests; set
+            {
+                _numberOfGuests = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NumberOfGuests)));
+            }
+        }
         /// <summary>
         /// The name of the guest making the reservation
         /// </summary>
         public string GuestName { get => FirstName + " " + LastName;
         }
         /// <summary>
+        /// First Name backing field
+        /// </summary>
+        private string _firstName = "";
+        /// <summary>
         /// First Name of Guest
         /// </summary>
-        public string FirstName { get; set; } = "";
+        public string FirstName { get => _firstName; set
+            {
+                _firstName = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(FirstName)));
+            }
+        }
+        /// <summary>
+        /// Last name backing field
+        /// </summary>
+        private string _lastName = "";
         /// <summary>
         /// Last Name of guest
         /// </summary>
-        public string LastName { get; set; } = "";
+        public string LastName { get => _lastName; set
+            {
+                _lastName = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LastName)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ReservationID)));
+            }
+        }
+        /// <summary>
+        /// ID number backing
+        /// </summary>
+        private string _iDNumber = "";
         /// <summary>
         /// The Guest's ID Number
         /// </summary>
-        public string IDNumber { get; set; } = "";
+        public string IDNumber { get => _iDNumber; set
+            {
+                _iDNumber = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IDNumber)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ReservationID)));
+            }
+        }
+        /// <summary>
+        /// Room Number backing
+        /// </summary>
+        private string _roomNumber = "";
         /// <summary>
         /// room number property
         /// </summary>
-        public string RoomNumber { get; set;
-        } = "";
+        public string RoomNumber { get => _roomNumber; set
+            {
+                _roomNumber = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomNumber)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ReservationID)));
+            }
+        }
+        /// <summary>
+        /// Check in date backing
+        /// </summary>
+        private DateTime _checkInDate = DateTime.Today;
         /// <summary>
         /// check in date property
         /// </summary>
-        public DateTime CheckInDate { get; set;
-        } = DateTime.Today;
+        public DateTime CheckInDate { get => _checkInDate; set
+            {
+                _checkInDate = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CheckInDate)));
+            }
+        }
+        /// <summary>
+        /// Check out Date backing
+        /// </summary>
+        private DateTime _checkOutDate = DateTime.Today;
         /// <summary>
         /// check out date property
         /// </summary>
-        public DateTime CheckOutDate { get; set;
-        } = DateTime.Today;
+        public DateTime CheckOutDate { get => _checkOutDate; set
+            {
+                _checkOutDate = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CheckOutDate)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCheckedOutOverdue)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
+            }
+        }
+        /// <summary>
+        /// Is Checked out backing
+        /// </summary>
+        private bool _isCheckedOut = false;
         /// <summary>
         /// checked out boolean property
         /// </summary>
-        public bool IsCheckedOut { get; set;
-        } = false;
+        public bool IsCheckedOut { get => _isCheckedOut; set
+            {
+                _isCheckedOut = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCheckedOut)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCheckedOutOverdue)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsActive)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
+            }
+        }
         /// <summary>
         /// checked out overdue boolean property
         /// </summary>
@@ -65,10 +150,20 @@ namespace InnManager.Reservations
             }
         }
         /// <summary>
+        /// Is Confirmed backing field
+        /// </summary>
+        private bool _isConfirmed = false;
+        /// <summary>
         /// confirmation property
         /// </summary>
-        public bool IsConfirmed { get; set;
-        } = false;
+        public bool IsConfirmed { get => _isConfirmed; set
+            {
+                _isConfirmed = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsConfirmed)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsActive)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
+            }
+        }
         /// <summary>
         /// Unique number assigned to the reservation
         /// </summary>
