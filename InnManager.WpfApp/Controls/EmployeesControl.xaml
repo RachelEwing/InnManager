@@ -4,63 +4,67 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InnManager.WpfApp.Controls"
+             xmlns:local2="clr-namespace:InnManager.WpfApp.Controls.Editing"
              mc:Ignorable="d" 
              d:DesignHeight="395" d:DesignWidth="640">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height = "55" />
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height = "auto"/>
-            <RowDefinition Height = "*"/>
-            <RowDefinition Height = "45"/>
-        </Grid.RowDefinitions>
-        <Border Grid.Row="0" Background="LightSteelBlue">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" FontSize="35" FontWeight="Bold" Margin="5">Employees</TextBlock>
+        <Grid Name="Main">
+            <Grid.RowDefinitions>
+                <RowDefinition Height = "55" />
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "*"/>
+                <RowDefinition Height = "45"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Background="LightSteelBlue">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" FontSize="35" FontWeight="Bold" Margin="5">Employees</TextBlock>
+                </Grid>
+            </Border>
+            <Grid Grid.Row=" 1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="375"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" VerticalAlignment="Center">
+                        <WrapPanel>
+                            <Button Content="  + New Employee  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="NewEmployeeClick"/>
+                            <Button Content="  Edit  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="EditClick" />
+                            <Button Content="  Deactivate  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
+                            <Button Content="  Reset Password  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
+                        </WrapPanel>
+                    </Border>
+                    <Border Grid.Column="1" VerticalAlignment="Center">
+                        <TextBox HorizontalContentAlignment="Left" Text="Search employee by name, email, or position..." Height="30" Width="250" HorizontalAlignment="Right" Margin=" 5"/>
+                    </Border>
+                </Grid>
             </Grid>
-        </Border>
-        <Grid Grid.Row=" 1">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="375"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" VerticalAlignment="Center">
-                    <WrapPanel>
-                        <Button Content="  + New Employee  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="NewEmployeeClick"/>
-                        <Button Content="  Edit  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                        <Button Content="  Deactivate  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                        <Button Content="  Reset Password  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                    </WrapPanel>
-                </Border>
-                <Border Grid.Column="1" VerticalAlignment="Center">
-                    <TextBox HorizontalContentAlignment="Left" Text="Search employee by name, email, or position..." Height="30" Width="250" HorizontalAlignment="Right" Margin=" 5"/>
-                </Border>
+            <Grid Grid.Row="3">
+                <DataGrid ItemsSource="{Binding Path= Employees}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Name="EmployeeDataGrid">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="EmployeeID" Binding ="{Binding Path = EmployeeID}"/>
+                        <DataGridTextColumn Header="First Name" Binding ="{Binding Path = FirstName}"/>
+                        <DataGridTextColumn Header="Last Name" Binding ="{Binding Path = LastName}"/>
+                        <DataGridTextColumn Header="Position" Binding ="{Binding Path = Position}"/>
+                        <DataGridTextColumn Header="Email" Binding ="{Binding Path = Email}"/>
+                        <DataGridTextColumn Header="Phone" Binding ="{Binding Path = PhoneNumber}"/>
+                        <DataGridTextColumn Header="Status" Binding ="{Binding Path = Status}"/>
+                        <DataGridTextColumn Header="Hire Date" Binding ="{Binding Path = HireDate}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
-        </Grid>
-        <Grid Grid.Row="3">
-            <DataGrid ItemsSource="{Binding Path= Employees}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="EmployeeID" Binding ="{Binding Path = EmployeeID}"/>
-                    <DataGridTextColumn Header="First Name" Binding ="{Binding Path = FirstName}"/>
-                    <DataGridTextColumn Header="Last Name" Binding ="{Binding Path = LastName}"/>
-                    <DataGridTextColumn Header="Position" Binding ="{Binding Path = Position}"/>
-                    <DataGridTextColumn Header="Email" Binding ="{Binding Path = Email}"/>
-                    <DataGridTextColumn Header="Phone" Binding ="{Binding Path = PhoneNumber}"/>
-                    <DataGridTextColumn Header="Status" Binding ="{Binding Path = Status}"/>
-                    <DataGridTextColumn Header="Hire Date" Binding ="{Binding Path = HireDate}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </Grid>
-        <Grid Grid.Row="4">
-            <TextBlock Height="25" Margin="5" FontWeight="Bold" FontSize="15">
+            <Grid Grid.Row="4">
+                <TextBlock Height="25" Margin="5" FontWeight="Bold" FontSize="15">
                        <Run Text="Total Employees: "/>
                        <Run Text="{Binding Path = Employees.Count, Mode=OneWay}"/>
-            </TextBlock>
+                </TextBlock>
+            </Grid>
         </Grid>
+        <local2:EmployeeEditControl x:Name="Edit" Visibility="Hidden" />
     </Grid>
 </UserControl>

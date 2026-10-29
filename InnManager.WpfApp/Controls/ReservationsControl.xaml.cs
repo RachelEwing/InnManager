@@ -1,4 +1,5 @@
-﻿using InnManager.Hotels;
+﻿using InnManager.Employees;
+using InnManager.Hotels;
 using InnManager.WpfApp.ModalWindows;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InnManager.Reservations;
 
 namespace InnManager.WpfApp.Controls
 {
@@ -23,6 +25,7 @@ namespace InnManager.WpfApp.Controls
         public ReservationsControl()
         {
             InitializeComponent();
+            Edit.Close += OnBackClick;
         }
         /// <summary>
         /// Creates new reservation form and reports whether or not the reservation was created
@@ -41,6 +44,24 @@ namespace InnManager.WpfApp.Controls
             {
                 MessageBox.Show("Cancelled");
             }
+        }
+        public void EditClick(object sender, RoutedEventArgs e)
+        {
+            if (ReservationDataGrid.SelectedItem is Reservation reservation)
+            {
+                Edit.DataContext = reservation;
+                Main.Visibility = Visibility.Hidden;
+                Edit.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MessageBox.Show("No reservation selected.");
+            }
+        }
+        public void OnBackClick(object sender, EventArgs e)
+        {
+            Main.Visibility = Visibility.Visible;
+            Edit.Visibility = Visibility.Hidden;
         }
     }
 }

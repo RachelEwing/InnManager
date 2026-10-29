@@ -22,5 +22,14 @@ namespace InnManager.WpfApp.Controls.Editing
         {
             InitializeComponent();
         }
+        public event EventHandler Close;
+        public void BackClick(object sender, RoutedEventArgs e)
+        {
+            Close?.Invoke(this, EventArgs.Empty);
+        }
+        public void SaveInvoiceClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

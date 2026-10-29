@@ -1,5 +1,6 @@
 ﻿using InnManager.Hotels;
 using InnManager.WpfApp.Controls;
+using InnManager.WpfApp.Controls.Editing;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;

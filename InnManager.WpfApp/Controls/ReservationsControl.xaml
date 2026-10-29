@@ -4,61 +4,65 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InnManager.WpfApp.Controls"
+             xmlns:local2="clr-namespace:InnManager.WpfApp.Controls.Editing"
              mc:Ignorable="d" 
              d:DesignHeight="395" d:DesignWidth="640">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height = "55" />
-            <RowDefinition Height="55"/>
-            <RowDefinition Height = "auto"/>
-            <RowDefinition Height = "*"/>
-            <RowDefinition Height = "45"/>
-        </Grid.RowDefinitions>
-        <Border Grid.Row="0" Background="LightSteelBlue">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="auto"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" FontSize="35" FontWeight="Bold" Margin="5">Reservations</TextBlock>
+        <Grid Name="Main">
+            <Grid.RowDefinitions>
+                <RowDefinition Height = "55" />
+                <RowDefinition Height="55"/>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "*"/>
+                <RowDefinition Height = "45"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Background="LightSteelBlue">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" FontSize="35" FontWeight="Bold" Margin="5">Reservations</TextBlock>
+                </Grid>
+            </Border>
+            <Grid Grid.Row=" 1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="375"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" VerticalAlignment="Center">
+                        <WrapPanel>
+                            <Button Content="  New Reservation  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="NewReservationClick"/>
+                            <Button Content="  Edit  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="EditClick"/>
+                            <Button Content="  Cancel  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
+                            <Button Content="  Refresh  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
+                        </WrapPanel>
+                    </Border>
+                    <Border Grid.Column="1" VerticalAlignment="Center">
+                        <TextBox HorizontalContentAlignment="Left" Text="Search guest name, reservation number..." Height="30" Width="250" HorizontalAlignment="Right" Margin=" 5"/>
+                    </Border>
+                </Grid>
             </Grid>
-        </Border>
-        <Grid Grid.Row=" 1">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="375"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" VerticalAlignment="Center">
-                    <WrapPanel>
-                        <Button Content="  New Reservation  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="NewReservationClick"/>
-                        <Button Content="  Edit  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                        <Button Content="  Cancel  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                        <Button Content="  Refresh  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                    </WrapPanel>
-                </Border>
-                <Border Grid.Column="1" VerticalAlignment="Center">
-                    <TextBox HorizontalContentAlignment="Left" Text="Search guest name, reservation number..." Height="30" Width="250" HorizontalAlignment="Right" Margin=" 5"/>
-                </Border>
+            <Grid Grid.Row="3">
+                <DataGrid ItemsSource="{Binding Path= Reservations}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Name="ReservationDataGrid">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Reservation ID" Binding ="{Binding Path = ReservationID}"/>
+                        <DataGridTextColumn Header="Guest Name" Binding ="{Binding Path = GuestName}"/>
+                        <DataGridTextColumn Header="Room" Binding ="{Binding Path = RoomNumber}"/>
+                        <DataGridTextColumn Header="Check-In" Binding ="{Binding Path = CheckInDate}"/>
+                        <DataGridTextColumn Header="Check-Out" Binding ="{Binding Path = CheckOutDate}"/>
+                        <DataGridTextColumn Header="Status" Binding ="{Binding Path = Status}"/>
+                        <DataGridTextColumn Header="Total Amount" Binding ="{Binding Path = TotalAmount}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
-        </Grid>
-        <Grid Grid.Row="3">
-            <DataGrid ItemsSource="{Binding Path= Reservations}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Reservation ID" Binding ="{Binding Path = ReservationID}"/>
-                    <DataGridTextColumn Header="Guest Name" Binding ="{Binding Path = GuestName}"/>
-                    <DataGridTextColumn Header="Room" Binding ="{Binding Path = RoomNumber}"/>
-                    <DataGridTextColumn Header="Check-In" Binding ="{Binding Path = CheckInDate}"/>
-                    <DataGridTextColumn Header="Check-Out" Binding ="{Binding Path = CheckOutDate}"/>
-                    <DataGridTextColumn Header="Status" Binding ="{Binding Path = Status}"/>
-                    <DataGridTextColumn Header="Total Amount" Binding ="{Binding Path = TotalAmount}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </Grid>
-        <Grid Grid.Row="4">
-            <TextBlock Text="Total Reservations: " Height="25" Margin="5" FontWeight="Bold" FontSize="15" >
+            <Grid Grid.Row="4">
+                <TextBlock Text="Total Reservations: " Height="25" Margin="5" FontWeight="Bold" FontSize="15" >
                 <Run Text="{Binding Path = Reservations.Count, Mode=OneWay}"/>
-            </TextBlock>
+                </TextBlock>
+            </Grid>
         </Grid>
+        <local2:ReservationEditControl x:Name="Edit" Visibility="Hidden" />
     </Grid>
 </UserControl>

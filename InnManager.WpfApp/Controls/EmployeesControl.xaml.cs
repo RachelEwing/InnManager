@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InnManager.WpfApp.Controls.Editing;
 
 namespace InnManager.WpfApp.Controls
 {
@@ -24,6 +25,7 @@ namespace InnManager.WpfApp.Controls
         public EmployeesControl()
         {
             InitializeComponent();
+            Edit.Close += OnBackClick;
         }
         /// <summary>
         /// Creates a new employee form and reports whether the new employee was added or not
@@ -41,6 +43,22 @@ namespace InnManager.WpfApp.Controls
             else {
                 MessageBox.Show("Cancelled");
             }
+        }
+        public void EditClick(object sender, RoutedEventArgs e)
+        {
+            if (EmployeeDataGrid.SelectedItem is Employee employee)
+            {
+                Edit.DataContext = employee;
+                Main.Visibility = Visibility.Hidden;
+                Edit.Visibility = Visibility.Visible;
+            }
+            else {
+                MessageBox.Show("No employee selected.");
+            }
+        }
+        public void OnBackClick(object sender, EventArgs e) {
+            Main.Visibility = Visibility.Visible;
+            Edit.Visibility = Visibility.Hidden;
         }
     }
 }

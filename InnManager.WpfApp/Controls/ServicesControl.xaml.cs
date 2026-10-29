@@ -1,4 +1,5 @@
-﻿using InnManager.WpfApp.ModalWindows;
+﻿using InnManager.Employees;
+using InnManager.WpfApp.ModalWindows;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InnManager.Services;
 
 namespace InnManager.WpfApp.Controls
 {
@@ -22,6 +24,7 @@ namespace InnManager.WpfApp.Controls
         public ServicesControl()
         {
             InitializeComponent();
+            Edit.Close += OnBackClick;
         }
         /// <summary>
         /// Creates new service form and reports whether or not the new service was created
@@ -40,6 +43,24 @@ namespace InnManager.WpfApp.Controls
             {
                 MessageBox.Show("Cancelled");
             }
+        }
+        public void EditClick(object sender, RoutedEventArgs e)
+        {
+            if (ServiceDataGrid.SelectedItem is Service service)
+            {
+                Edit.DataContext = service;
+                Main.Visibility = Visibility.Hidden;
+                Edit.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MessageBox.Show("No service selected.");
+            }
+        }
+        public void OnBackClick(object sender, EventArgs e)
+        {
+            Main.Visibility = Visibility.Visible;
+            Edit.Visibility = Visibility.Hidden;
         }
     }
 }

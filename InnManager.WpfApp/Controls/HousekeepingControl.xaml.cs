@@ -1,4 +1,6 @@
-﻿using InnManager.WpfApp.ModalWindows;
+﻿using InnManager.Employees;
+using InnManager.Hotels;
+using InnManager.WpfApp.ModalWindows;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using InnManager.Hotels;
+using InnManager.Housekeeping;
 
 namespace InnManager.WpfApp.Controls
 {
@@ -23,6 +25,7 @@ namespace InnManager.WpfApp.Controls
         public HousekeepingControl()
         {
             InitializeComponent();
+            Edit.Close += OnBackClick;
         }
         /// <summary>
         /// Creates a new task form and reports whether or not the task was added
@@ -41,6 +44,24 @@ namespace InnManager.WpfApp.Controls
             {
                 MessageBox.Show("Cancelled");
             }
+        }
+        public void EditClick(object sender, RoutedEventArgs e)
+        {
+            if (HousekeepingDataGrid.SelectedItem is HousekeepingTask task)
+            {
+                Edit.DataContext = task;
+                Main.Visibility = Visibility.Hidden;
+                Edit.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MessageBox.Show("No task selected.");
+            }
+        }
+        public void OnBackClick(object sender, EventArgs e)
+        {
+            Main.Visibility = Visibility.Visible;
+            Edit.Visibility = Visibility.Hidden;
         }
     }
 }

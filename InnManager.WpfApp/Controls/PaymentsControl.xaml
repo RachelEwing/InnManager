@@ -4,63 +4,67 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InnManager.WpfApp.Controls"
+             xmlns:local2="clr-namespace:InnManager.WpfApp.Controls.Editing"
              mc:Ignorable="d" 
              d:DesignHeight="395" d:DesignWidth="640">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height = "55" />
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height = "auto"/>
-            <RowDefinition Height = "*"/>
-            <RowDefinition Height = "45"/>
-        </Grid.RowDefinitions>
-        <Border Grid.Row="0" Background="LightSteelBlue">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" FontSize="35" FontWeight="Bold" Margin="5">Payments</TextBlock>
+        <Grid Name="Main">
+            <Grid.RowDefinitions>
+                <RowDefinition Height = "55" />
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "*"/>
+                <RowDefinition Height = "45"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Background="LightSteelBlue">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" FontSize="35" FontWeight="Bold" Margin="5">Payments</TextBlock>
+                </Grid>
+            </Border>
+            <Grid Grid.Row=" 1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="375"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" VerticalAlignment="Center">
+                        <WrapPanel>
+                            <Button Content="  + New Payment  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="NewPaymentClick"/>
+                            <Button Content="  View  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="ViewClick"/>
+                            <Button Content="  Receipt  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
+                            <Button Content="  Refund  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
+                            <Button Content="  Refresh  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
+                        </WrapPanel>
+                    </Border>
+                    <Border Grid.Column="1" VerticalAlignment="Center">
+                        <TextBox HorizontalContentAlignment="Left" Text="Search invoice number, guest name, or reference..." Height="30" Width="250" HorizontalAlignment="Right" Margin=" 5"/>
+                    </Border>
+                </Grid>
             </Grid>
-        </Border>
-        <Grid Grid.Row=" 1">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="375"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" VerticalAlignment="Center">
-                    <WrapPanel>
-                        <Button Content="  + New Payment  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="NewPaymentClick"/>
-                        <Button Content="  View  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                        <Button Content="  Receipt  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                        <Button Content="  Refund  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                        <Button Content="  Refresh  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                    </WrapPanel>
-                </Border>
-                <Border Grid.Column="1" VerticalAlignment="Center">
-                    <TextBox HorizontalContentAlignment="Left" Text="Search invoice number, guest name, or reference..." Height="30" Width="250" HorizontalAlignment="Right" Margin=" 5"/>
-                </Border>
+            <Grid Grid.Row="3">
+                <DataGrid ItemsSource="{Binding Path= Payments}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Name="PaymentDataGrid">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Invoice #" Binding ="{Binding Path = Invoice.IDNumber}"/>
+                        <DataGridTextColumn Header="Guest Name" Binding ="{Binding Path = GuestName}"/>
+                        <DataGridTextColumn Header="Payment Date" Binding ="{Binding Path = Date}"/>
+                        <DataGridTextColumn Header="Payment Method" Binding ="{Binding Path = PaymentMethod}"/>
+                        <DataGridTextColumn Header="Amount ($)" Binding ="{Binding Path = Amount}"/>
+                        <DataGridTextColumn Header="Status" Binding ="{Binding Path = Invoice.Status}"/>
+                        <DataGridTextColumn Header="Reference Number" Binding ="{Binding Path = PaymentReference}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
-        </Grid>
-        <Grid Grid.Row="3">
-            <DataGrid ItemsSource="{Binding Path= Payments}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Invoice #" Binding ="{Binding Path = Invoice.IDNumber}"/>
-                    <DataGridTextColumn Header="Guest Name" Binding ="{Binding Path = GuestName}"/>
-                    <DataGridTextColumn Header="Payment Date" Binding ="{Binding Path = Date}"/>
-                    <DataGridTextColumn Header="Payment Method" Binding ="{Binding Path = PaymentMethod}"/>
-                    <DataGridTextColumn Header="Amount ($)" Binding ="{Binding Path = Amount}"/>
-                    <DataGridTextColumn Header="Status" Binding ="{Binding Path = Invoice.Status}"/>
-                    <DataGridTextColumn Header="Reference Number" Binding ="{Binding Path = PaymentReference}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </Grid>
-        <Grid Grid.Row="4">
-            <TextBlock Height="25" Margin="5" FontWeight="Bold" FontSize="15" >
+            <Grid Grid.Row="4">
+                <TextBlock Height="25" Margin="5" FontWeight="Bold" FontSize="15" >
                 <Run Text="Total Payments: "/>
                 <Run Text="{Binding Path = Payments.Count, Mode=OneWay}"/>
-            </TextBlock>
+                </TextBlock>
+            </Grid>
         </Grid>
+        <local2:PaymentEditControl x:Name="Edit" Visibility="Hidden" />
     </Grid>
 </UserControl>
