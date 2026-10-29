@@ -45,7 +45,7 @@
                 </Grid>
             </Grid>
             <Grid Grid.Row="3">
-                <DataGrid ItemsSource="{Binding Path= Reservations}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Name="ReservationDataGrid">
+                <DataGrid ItemsSource="{Binding Path= Reservations, Mode=OneWay}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Name="ReservationDataGrid">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Reservation ID" Binding ="{Binding Path = ReservationID}"/>
                         <DataGridTextColumn Header="Guest Name" Binding ="{Binding Path = GuestName}"/>

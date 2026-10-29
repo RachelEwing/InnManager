@@ -45,7 +45,7 @@
                 </Grid>
             </Grid>
             <Grid Grid.Row="3">
-                <DataGrid ItemsSource="{Binding Path= HouseKeepingTasks}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Name="HousekeepingDataGrid">
+                <DataGrid ItemsSource="{Binding Path= HouseKeepingTasks, Mode=OneWay}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Name="HousekeepingDataGrid" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Room Number" Binding ="{Binding Path = RoomNumber}"/>
                         <DataGridTextColumn Header="Description" Binding ="{Binding Path = Description}"/>

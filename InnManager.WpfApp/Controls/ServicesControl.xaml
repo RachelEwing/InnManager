@@ -45,7 +45,7 @@
                 </Grid>
             </Grid>
             <Grid Grid.Row="3">
-                <DataGrid ItemsSource="{Binding Path= Services}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Name="ServiceDataGrid">
+                <DataGrid ItemsSource="{Binding Path= Services, Mode=OneWay}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Name="ServiceDataGrid" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Service Name" Binding ="{Binding Path = ServiceName}"/>
                         <DataGridTextColumn Header="Description" Binding ="{Binding Path = Description}"/>
