@@ -25,24 +25,23 @@
                     <TextBlock Text="Employee ID" FontSize="15" Margin="5" FontWeight="Bold"/>
                     <TextBox Width="auto" Name="EmployeeIDEditor" Margin="5" Text="{Binding Path = EmployeeID, Mode=OneWay}"/>
                     <TextBlock Text="First Name" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="FirstNameEditor" Margin="5"/>
+                    <TextBox Width="auto" Name="FirstNameEditor" Margin="5" Text="{Binding Path = FirstName, Mode=OneWay}"/>
                     <TextBlock Text="Last Name" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="LastNameEditor" Margin="5"/>
+                    <TextBox Width="auto" Name="LastNameEditor" Margin="5" Text="{Binding Path = LastName, Mode=OneWay}"/>
                     <TextBlock Text="Position" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <ComboBox Width="auto" Name="PositionEditor" Margin="5"/>
+                    <ComboBox Width="auto" Name="PositionEditor" Margin="5" SelectedItem="{Binding Path = Position}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="1">
                 <StackPanel Margin="10">
                     <TextBlock Text="Email" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="EmailEditor" Margin="5"/>
+                    <TextBox Width="auto" Name="EmailEditor" Margin="5" Text="{Binding Path = Email, Mode=OneWay}"/>
                     <TextBlock Text="Phone" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="PhoneEditor" Margin="5"/>
+                    <TextBox Width="auto" Name="PhoneEditor" Margin="5" Text="{Binding Path = PhoneNumber, Mode=OneWay}"/>
                     <TextBlock Text="Hire Date" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <DatePicker Width="auto" Name="HireDateEditor" Margin="5"/>
-                    <TextBlock Text="Status" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <ComboBox Width="auto" Name="StatusEditor" Margin="5"/>
-                 </StackPanel>
+                        <DatePicker Width="auto" Name="HireDateEditor" Margin="5" SelectedDate="{Binding Path = HireDate, Mode=OneWay}"/>
+                    <CheckBox Content="Is Active" FontSize="15" Margin="5" FontWeight="Bold" IsChecked="{Binding Path = IsActive, Mode=OneWay}"/>
+                </StackPanel>
             </Grid>
         </Grid>
         <Grid Grid.Row="2" Background="LightSteelBlue">

@@ -46,7 +46,7 @@
                 </Grid>
             </Grid>
             <Grid Grid.Row="3">
-                <DataGrid ItemsSource="{Binding Path= Payments, Mode=OneWay}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Name="PaymentDataGrid">
+                <DataGrid ItemsSource="{Binding Path= Payments, Mode=OneWay}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Name="PaymentDataGrid" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Invoice #" Binding ="{Binding Path = Invoice.IDNumber}"/>
                         <DataGridTextColumn Header="Guest Name" Binding ="{Binding Path = GuestName}"/>

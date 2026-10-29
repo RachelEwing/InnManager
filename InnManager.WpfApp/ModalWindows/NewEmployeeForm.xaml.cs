@@ -38,7 +38,7 @@ namespace InnManager.WpfApp.ModalWindows
         /// <param name="e">args</param>
         public void AddEmployeeClick(object sender, RoutedEventArgs e) {
             if (Validation()) {
-                Employee employee = new Employee() {FirstName = FirstNameText.Text, LastName = LastNameText.Text, Email = EmailText.Text, Position = (EmployeePosition)PositionPicker.SelectedItem, PhoneNumber = PhoneText.Text, HireDate = (DateTime)HireDatePicker.SelectedDate};
+                Employee employee = new Employee() {FirstName = FirstNameText.Text, LastName = LastNameText.Text, Email = EmailText.Text, Position = (EmployeePosition)PositionPicker.SelectedItem, PhoneNumber = PhoneText.Text, HireDate = (DateTime)HireDatePicker.SelectedDate, IsActive = (StatusPicker.SelectedIndex==0)};
                 var data = this.DataContext;
                 if (data is Hotel h)
                 {
