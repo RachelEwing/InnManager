@@ -24,6 +24,14 @@ namespace InnManager.WpfApp.Controls.Editing
         {
             InitializeComponent();
         }
+
+        public DependencyProperty HotelProperty = DependencyProperty.Register(nameof(Hotel), typeof(Hotel), typeof(HousekeepingEditControl));
+
+        public Hotel HotelData {
+            get => (Hotel)GetValue(HotelProperty);
+            set => SetValue(HotelProperty, value);
+        }
+
         public event EventHandler Close;
         public void BackClick(object sender, RoutedEventArgs e)
         {

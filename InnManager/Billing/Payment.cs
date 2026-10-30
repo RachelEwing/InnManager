@@ -22,7 +22,9 @@ namespace InnManager.Billing
         private bool _isRefunded = false;
         public bool IsRefunded { get => _isRefunded; set {
                 _isRefunded = value;
-            } }
+                OnPropertyChanged(nameof(Status));
+            }
+        }
         /// <summary>
         /// Which invoice the payment is connected to
         /// </summary>

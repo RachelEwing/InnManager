@@ -49,7 +49,7 @@ namespace InnManager.WpfApp.ModalWindows
                 DateTime date2 = ((DateTime)CheckOutDatePicker.SelectedDate);
                 TimeSpan difference = date2 - date1;
                 int days = difference.Days;
-                Reservation reservation = new Reservation() { FirstName = guest.FirstName, LastName = guest.LastName, RoomNumber = room.RoomNumber, CheckInDate = (DateTime)CheckInDatePicker.SelectedDate, CheckOutDate = (DateTime)CheckOutDatePicker.SelectedDate, Status = StatusPicker.SelectedItem.ToString(), NumberOfGuests = capacity, IDNumber = guest.IDNumber, TotalAmount = (days * (decimal)room.Rate)};
+                Reservation reservation = new Reservation() { FirstName = guest.FirstName, LastName = guest.LastName, RoomNumber = room.RoomNumber, CheckInDate = (DateTime)CheckInDatePicker.SelectedDate, CheckOutDate = (DateTime)CheckOutDatePicker.SelectedDate, Status = StatusPicker.SelectedItem.ToString(), NumberOfGuests = capacity, IDNumber = guest.IDNumber, TotalAmount = (days * (decimal)room.Rate), Room = (Room)RoomPicker.SelectedItem, Guest = (Guest)GuestPicker.SelectedItem};
                 var data = this.DataContext;
                 if (data is Hotel h)
                 {

@@ -62,6 +62,6 @@
                 </TextBlock>
             </Grid>
         </Grid>
-        <local2:HousekeepingEditControl x:Name="Edit" Visibility="Hidden" />
+        <local2:HousekeepingEditControl x:Name="Edit" Visibility="Hidden"/>
     </Grid>
 </UserControl>

@@ -53,6 +53,12 @@ namespace InnManager.WpfApp.Controls
                 Edit.DataContext = reservation;
                 Main.Visibility = Visibility.Hidden;
                 Edit.Visibility = Visibility.Visible;
+                Edit.RoomEditor.ItemsSource = ((Hotel)this.DataContext).Rooms;
+                Edit.RoomEditor.SelectedItem = reservation.Room;
+                Edit.RoomEditor.DisplayMemberPath = "RoomNumber";
+                Edit.GuestNameEditor.ItemsSource = ((Hotel)this.DataContext).Employees;
+                Edit.GuestNameEditor.SelectedItem = reservation.Guest;
+                Edit.GuestNameEditor.DisplayMemberPath = "GuestID";
             }
             else
             {

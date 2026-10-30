@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Text;
+using InnManager.Guests;
+using InnManager.Rooms;
 
 namespace InnManager.Reservations
 {
@@ -8,6 +10,29 @@ namespace InnManager.Reservations
     /// </summary>
     public class Reservation : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Room backing variable
+        /// </summary>
+        private Room _room;
+        /// <summary>
+        /// The room associated with the reservation
+        /// </summary>
+        public Room Room { get => _room; set {
+                _room = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Room)));
+            }
+        }
+        /// <summary>
+        /// Backing field for guest
+        /// </summary>
+        private Guest _guest;
+        /// <summary>
+        /// Guest who made the reservation
+        /// </summary>
+        public Guest Guest { get => _guest; set {
+                _guest = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Guest)));
+            }}
         /// <summary>
         /// Total amount backing field
         /// </summary>

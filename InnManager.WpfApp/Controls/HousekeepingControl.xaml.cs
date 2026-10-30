@@ -27,6 +27,7 @@ namespace InnManager.WpfApp.Controls
         {
             InitializeComponent();
             Edit.Close += OnBackClick;
+            Edit.HotelData = (Hotel)this.DataContext;
         }
         /// <summary>
         /// Creates a new task form and reports whether or not the task was added
@@ -53,6 +54,12 @@ namespace InnManager.WpfApp.Controls
                 Edit.DataContext = task;
                 Main.Visibility = Visibility.Hidden;
                 Edit.Visibility = Visibility.Visible;
+                Edit.AssignedStaffEditor.ItemsSource = ((Hotel)this.DataContext).Employees;
+                Edit.AssignedStaffEditor.SelectedItem = task.Employee;
+                Edit.AssignedStaffEditor.DisplayMemberPath = "EmployeeID";
+                Edit.RoomNumberEditor.ItemsSource = ((Hotel)this.DataContext).Rooms;
+                Edit.RoomNumberEditor.SelectedItem = task.Room;
+                Edit.RoomNumberEditor.DisplayMemberPath = "RoomNumber";
             }
             else
             {

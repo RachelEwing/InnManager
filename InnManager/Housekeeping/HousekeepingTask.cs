@@ -1,5 +1,7 @@
 ﻿using InnManager.Enums;
 using System.ComponentModel;
+using InnManager.Employees;
+using InnManager.Rooms;
 
 namespace InnManager.Housekeeping
 {
@@ -8,6 +10,24 @@ namespace InnManager.Housekeeping
     /// </summary>
     public class HousekeepingTask : INotifyPropertyChanged
     {
+        private Room _room;
+        public Room Room { get => _room; set {
+                _room = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Room)));
+            }
+        }       
+        /// <summary>
+        /// Employee backing variable
+        /// </summary>
+        private Employee _employee;
+        /// <summary>
+        /// The employee assigned to do the task
+        /// </summary>
+        public Employee Employee { get => _employee; set {
+                _employee = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Employee)));
+            }
+        }
         /// <summary>
         /// Private field storing the room number.
         /// </summary>

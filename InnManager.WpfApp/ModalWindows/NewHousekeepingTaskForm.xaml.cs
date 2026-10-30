@@ -40,7 +40,7 @@ namespace InnManager.WpfApp.ModalWindows
         public void AddTaskClick(object sender, RoutedEventArgs e)
         {
             if (Validation()) {
-                HousekeepingTask task = new HousekeepingTask() { RoomNumber = ((Room)RoomPicker.SelectedItem).RoomNumber, Description = DescriptionText.Text, AssignedStaff = ((Employee)AssignedStaffPicker.SelectedItem).EmployeeID , ScheduledDate = (DateTime)ScheduledDatePicker.SelectedDate, IsCompleted = (StatusPicker.SelectedIndex == 0)};
+                HousekeepingTask task = new HousekeepingTask() { RoomNumber = ((Room)RoomPicker.SelectedItem).RoomNumber, Description = DescriptionText.Text, AssignedStaff = ((Employee)AssignedStaffPicker.SelectedItem).EmployeeID , ScheduledDate = (DateTime)ScheduledDatePicker.SelectedDate, IsCompleted = (StatusPicker.SelectedIndex == 0), Employee = (Employee)AssignedStaffPicker.SelectedItem, Room = (Room)RoomPicker.SelectedItem};
                 var data = this.DataContext;
                 if (data is Hotel h)
                 {
