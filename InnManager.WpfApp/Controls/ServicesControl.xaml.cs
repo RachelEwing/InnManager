@@ -1,4 +1,6 @@
 ﻿using InnManager.Employees;
+using InnManager.Enums;
+using InnManager.Services;
 using InnManager.WpfApp.ModalWindows;
 using System;
 using System.Collections.Generic;
@@ -12,7 +14,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using InnManager.Services;
 
 namespace InnManager.WpfApp.Controls
 {
@@ -51,6 +52,8 @@ namespace InnManager.WpfApp.Controls
                 Edit.DataContext = service;
                 Main.Visibility = Visibility.Hidden;
                 Edit.Visibility = Visibility.Visible;
+                Edit.ServiceCategoryEditor.ItemsSource = Enum.GetValues(typeof(ServiceCategory));
+                Edit.ServiceCategoryEditor.SelectedItem = service.Category;
             }
             else
             {

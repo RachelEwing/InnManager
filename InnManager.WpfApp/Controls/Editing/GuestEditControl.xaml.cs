@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InnManager.Enums;
 
 namespace InnManager.WpfApp.Controls.Editing
 {
@@ -21,6 +22,7 @@ namespace InnManager.WpfApp.Controls.Editing
         public GuestEditControl()
         {
             InitializeComponent();
+            IDTypeEditor.ItemsSource = Enum.GetValues(typeof(IDType));
         }
         public event EventHandler Close;
         public void BackClick(object sender, RoutedEventArgs e)

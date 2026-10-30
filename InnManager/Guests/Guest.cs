@@ -1,6 +1,7 @@
 ﻿using InnManager.Employees;
 using InnManager.Enums;
 using System.ComponentModel;
+using System.Net.NetworkInformation;
 using System.Text;
 
 namespace InnManager.Guests
@@ -10,6 +11,7 @@ namespace InnManager.Guests
     /// </summary>
     public class Guest : INotifyPropertyChanged
     {
+        private static int _idGenerator = 1;
         private string _firstName = "";
         public string FirstName { get=>_firstName; set
             {
@@ -21,7 +23,7 @@ namespace InnManager.Guests
         /// <summary>
         /// last name property
         /// </summary>
-        public string LastName { get; set
+        public string LastName { get => _lastName; set
             {
                 _lastName = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LastName)));
@@ -32,7 +34,7 @@ namespace InnManager.Guests
         /// <summary>
         /// email property
         /// </summary>
-        public string Email { get; set
+        public string Email { get => _email; set
             {
                 _email = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Email)));
@@ -42,7 +44,7 @@ namespace InnManager.Guests
         /// <summary>
         /// phone number property
         /// </summary>
-        public string PhoneNumber { get; set
+        public string PhoneNumber { get => _phoneNumber; set
             {
                 _phoneNumber = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PhoneNumber)));
@@ -52,36 +54,24 @@ namespace InnManager.Guests
         /// <summary>
         /// Checked in property
         /// </summary>
-        public bool IsCheckedIn { get; set
+        public bool IsCheckedIn { get => _isCheckedIn; set
             {
                 _isCheckedIn = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCheckedIn)));
             }
         }
+        private string _guestID = ("G" + _idGenerator.ToString("D4"));
         /// <summary>
         /// unique ID for the guest
         /// </summary>
-        public string GuestID {
-            get
-            {
-                try { 
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("GST-");
-                    sb.Append(LastName[0]);
-                    sb.Append(LastName[1]);
-                    sb.Append("-");
-                    sb.Append(IDNumber.Substring(IDNumber.Length - 3));
-                    return sb.ToString();
-                } catch {
-                    return "Unavailable";
-                }
-            }
-        }
+        public string GuestID { get => _guestID; init {
+                _idGenerator++;
+            } }
         private string _address = "";
         /// <summary>
         /// Address of the guest
         /// </summary>
-        public string Address { get; set
+        public string Address { get => _address; set
             {
                 _address = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Address)));
@@ -91,7 +81,7 @@ namespace InnManager.Guests
         /// <summary>
         /// The type of ID the guest has
         /// </summary>
-        public IDType IDType { get; set
+        public IDType IDType { get => _iDType; set
             {
                 _iDType = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IDType)));
@@ -101,7 +91,7 @@ namespace InnManager.Guests
         /// <summary>
         /// The ID number of the guest
         /// </summary>
-        public string IDNumber { get; set
+        public string IDNumber { get=>_iDNumber; set
             {
                 _iDNumber = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IDNumber)));

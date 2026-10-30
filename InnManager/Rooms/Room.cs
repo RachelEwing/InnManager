@@ -165,6 +165,10 @@ namespace InnManager.Rooms
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Rate)));
             } }
         /// <summary>
+        /// Optional notes about the room
+        /// </summary>
+        public string Notes { get; set; } = "";
+        /// <summary>
         /// Handles changes in properties
         /// </summary>
 

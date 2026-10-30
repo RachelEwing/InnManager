@@ -1,4 +1,6 @@
 ﻿using InnManager.Employees;
+using InnManager.Enums;
+using InnManager.Rooms;
 using InnManager.WpfApp.ModalWindows;
 using System;
 using System.Collections.Generic;
@@ -12,7 +14,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using InnManager.Rooms;
 
 namespace InnManager.WpfApp.Controls
 {
@@ -51,6 +52,10 @@ namespace InnManager.WpfApp.Controls
                 Edit.DataContext = room;
                 Main.Visibility = Visibility.Hidden;
                 Edit.Visibility = Visibility.Visible;
+                Edit.RoomTypeEditor.ItemsSource = Enum.GetValues(typeof(RoomType));
+                Edit.RoomTypeEditor.SelectedItem = room.RoomType;
+                Edit.RoomStatusEditor.ItemsSource = Enum.GetValues(typeof(RoomStatus));
+                Edit.RoomStatusEditor.SelectedItem = room.Status;
             }
             else
             {

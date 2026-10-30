@@ -23,23 +23,23 @@
             <Grid Grid.Column="0">
                 <StackPanel Margin="10">
                     <TextBlock Text="Invoice Number" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="InvoiceNumberDisplay" Margin="5"/>
+                    <TextBox Width="auto" Name="InvoiceNumberDisplay" Margin="5" Text="{Binding Path = Invoice.IDNumber, Mode=OneWay}"/>
                     <TextBlock Text="Guest Name" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="GuestNameDisplay" Margin="5"/>
+                    <TextBox Width="auto" Name="GuestNameDisplay" Margin="5" Text="{Binding Path = GuestName, Mode=OneWay}"/>
                     <TextBlock Text="Payment Date" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="PaymentDateDisplay" Margin="5"/>
+                    <TextBox Width="auto" Name="PaymentDateDisplay" Margin="5" Text="{Binding Path = Date, Mode = OneWay}"/>
                     <TextBlock Text="Payment Method" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="PaymentMethodDisplay" Margin="5"/>
+                    <TextBox Width="auto" Name="PaymentMethodDisplay" Margin="5" Text="{Binding Path = PaymentMethod, Mode=OneWay}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="1">
                 <StackPanel Margin="10">
                     <TextBlock Text="Amount ($)" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="AmountDisplay" Margin="5"/>
+                    <TextBox Width="auto" Name="AmountDisplay" Margin="5" Text="{Binding Path = Amount, Mode=OneWay}"/>
                     <TextBlock Text="Status" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="StatusDisplay" Margin="5"/>
+                    <TextBox Width="auto" Name="StatusDisplay" Margin="5" Text="{Binding Path = Invoice.Status, Mode=OneWay}"/>
                     <TextBlock Text="Reference Number" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="ReferenceNumberDisplay" Margin="5"/>
+                    <TextBox Width="auto" Name="ReferenceNumberDisplay" Margin="5" Text="{Binding Path = PaymentReference, Mode=OneWay}"/>
                 </StackPanel>
             </Grid>
         </Grid>

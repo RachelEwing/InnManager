@@ -22,7 +22,6 @@ namespace InnManager.WpfApp.Controls.Editing
         public EmployeeEditControl()
         {
             InitializeComponent();
-            PositionEditor.ItemsSource = Enum.GetValues(typeof(EmployeePosition));
         }
         public event EventHandler Close;
         public void BackClick(object sender, RoutedEventArgs e)

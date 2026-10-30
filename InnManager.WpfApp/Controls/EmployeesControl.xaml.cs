@@ -1,5 +1,7 @@
 ﻿using InnManager.Employees;
+using InnManager.Enums;
 using InnManager.Hotels;
+using InnManager.WpfApp.Controls.Editing;
 using InnManager.WpfApp.ModalWindows;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using InnManager.WpfApp.Controls.Editing;
 
 namespace InnManager.WpfApp.Controls
 {
@@ -51,6 +52,8 @@ namespace InnManager.WpfApp.Controls
                 Edit.DataContext = employee;
                 Main.Visibility = Visibility.Hidden;
                 Edit.Visibility = Visibility.Visible;
+                Edit.PositionEditor.ItemsSource = Enum.GetValues(typeof(EmployeePosition));
+                Edit.PositionEditor.SelectedItem = employee.Position;
             }
             else {
                 MessageBox.Show("No employee selected.");

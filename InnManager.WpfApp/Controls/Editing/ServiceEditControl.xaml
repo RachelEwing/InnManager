@@ -23,17 +23,16 @@
             <Grid Grid.Column="0">
                 <StackPanel Margin="10">
                     <TextBlock Text="Service Name" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="ServiceNameEditor" Margin="5"/>
+                    <TextBox Width="auto" Name="ServiceNameEditor" Margin="5" Text="{Binding Path = ServiceName, Mode=OneWay}"/>
                     <TextBlock Text="Description" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="DescriptionEditor" Margin="5" Height="50"/>
+                    <TextBox Width="auto" Name="DescriptionEditor" Margin="5" Height="50" Text="{Binding Path = Description, Mode=OneWay}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="1">
                 <StackPanel Margin="10">
                     <TextBlock Text="Price" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="PriceEditor" Margin="5"/>
-                    <TextBlock Text="Available" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <ComboBox Width="auto" Name="AvailabilityEditor" Margin="5"/>
+                    <TextBox Width="auto" Name="PriceEditor" Margin="5" Text="{Binding Path = Price, Mode=OneWay}"/>
+                    <CheckBox  Content="Available" FontSize="15" Margin="5" FontWeight="Bold" Name="AvailabilityEditor" IsChecked="{Binding Path=IsAvailable, Mode=OneWay}"/>
                     <TextBlock Text="Category" FontSize="15" Margin="5" FontWeight="Bold"/>
                     <ComboBox Width="auto" Name="ServiceCategoryEditor" Margin="5"/>
                 </StackPanel>
