@@ -1,5 +1,7 @@
 ﻿using InnManager.Employees;
+using InnManager.Guests;
 using InnManager.Hotels;
+using InnManager.Housekeeping;
 using InnManager.WpfApp.ModalWindows;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using InnManager.Housekeeping;
 
 namespace InnManager.WpfApp.Controls
 {
@@ -62,6 +63,21 @@ namespace InnManager.WpfApp.Controls
         {
             Main.Visibility = Visibility.Visible;
             Edit.Visibility = Visibility.Hidden;
+        }
+        public void DeleteClick(object sender, EventArgs e)
+        {
+            if (HousekeepingDataGrid.SelectedItem == null)
+            {
+                MessageBox.Show("No task selected");
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete {((HousekeepingTask)(HousekeepingDataGrid.SelectedItem)).Description}", "Delete Task?", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    ((Hotel)this.DataContext).HouseKeepingTasks.Remove(((HousekeepingTask)(HousekeepingDataGrid.SelectedItem)));
+                }
+            }
         }
     }
 }

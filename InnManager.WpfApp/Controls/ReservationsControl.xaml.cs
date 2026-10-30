@@ -1,5 +1,7 @@
 ﻿using InnManager.Employees;
+using InnManager.Guests;
 using InnManager.Hotels;
+using InnManager.Reservations;
 using InnManager.WpfApp.ModalWindows;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using InnManager.Reservations;
 
 namespace InnManager.WpfApp.Controls
 {
@@ -62,6 +63,21 @@ namespace InnManager.WpfApp.Controls
         {
             Main.Visibility = Visibility.Visible;
             Edit.Visibility = Visibility.Hidden;
+        }
+        public void DeleteClick(object sender, EventArgs e)
+        {
+            if (ReservationDataGrid.SelectedItem == null)
+            {
+                MessageBox.Show("No reservation selected");
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete {((Reservation)(ReservationDataGrid.SelectedItem)).ReservationID}", "Delete Reservation?", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    ((Hotel)this.DataContext).Reservations.Remove(((Reservation)(ReservationDataGrid.SelectedItem)));
+                }
+            }
         }
     }
 }

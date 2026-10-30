@@ -1,5 +1,7 @@
 ﻿using InnManager.Employees;
 using InnManager.Enums;
+using InnManager.Guests;
+using InnManager.Hotels;
 using InnManager.Rooms;
 using InnManager.WpfApp.ModalWindows;
 using System;
@@ -66,6 +68,21 @@ namespace InnManager.WpfApp.Controls
         {
             Main.Visibility = Visibility.Visible;
             Edit.Visibility = Visibility.Hidden;
+        }
+        public void DeleteClick(object sender, EventArgs e)
+        {
+            if (RoomDataGrid.SelectedItem == null)
+            {
+                MessageBox.Show("No room selected");
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete {((Room)(RoomDataGrid.SelectedItem)).RoomID}", "Delete Room?", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    ((Hotel)this.DataContext).Rooms.Remove(((Room)(RoomDataGrid.SelectedItem)));
+                }
+            }
         }
     }
 }

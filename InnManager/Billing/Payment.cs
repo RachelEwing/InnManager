@@ -9,6 +9,20 @@ namespace InnManager.Billing
     /// </summary>
     public class Payment : BillingRecord
     {
+        public string Status { get {
+
+                if (IsRefunded)
+                {
+                    return "Refunded";
+                }
+                else {
+                    return Invoice.Status;
+                }
+            } }
+        private bool _isRefunded = false;
+        public bool IsRefunded { get => _isRefunded; set {
+                _isRefunded = value;
+            } }
         /// <summary>
         /// Which invoice the payment is connected to
         /// </summary>

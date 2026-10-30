@@ -1,5 +1,7 @@
 ﻿using InnManager.Employees;
 using InnManager.Enums;
+using InnManager.Guests;
+using InnManager.Hotels;
 using InnManager.Services;
 using InnManager.WpfApp.ModalWindows;
 using System;
@@ -64,6 +66,21 @@ namespace InnManager.WpfApp.Controls
         {
             Main.Visibility = Visibility.Visible;
             Edit.Visibility = Visibility.Hidden;
+        }
+        public void DeleteClick(object sender, EventArgs e)
+        {
+            if (ServiceDataGrid.SelectedItem == null)
+            {
+                MessageBox.Show("No service selected");
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete {((Service)(ServiceDataGrid.SelectedItem)).ServiceName}", "Delete Service?", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    ((Hotel)this.DataContext).Services.Remove(((Service)(ServiceDataGrid.SelectedItem)));
+                }
+            }
         }
     }
 }

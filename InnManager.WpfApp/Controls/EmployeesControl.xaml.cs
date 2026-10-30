@@ -63,5 +63,17 @@ namespace InnManager.WpfApp.Controls
             Main.Visibility = Visibility.Visible;
             Edit.Visibility = Visibility.Hidden;
         }
+        public void DeactivateClick(object sender, EventArgs e) {
+            if (EmployeeDataGrid.SelectedItem == null)
+            {
+                MessageBox.Show("No employee selected");
+            }
+            else {
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to deactivate {((Employee)(EmployeeDataGrid.SelectedItem)).EmployeeID}", "Deactivate Employee?", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes) {
+                    (((Employee)(EmployeeDataGrid.SelectedItem))).IsActive = false;
+                }
+            }
+        }
     }
 }

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InnManager.Guests;
+using InnManager.Hotels;
 
 namespace InnManager.WpfApp.Controls
 {
@@ -61,6 +62,21 @@ namespace InnManager.WpfApp.Controls
         {
             Main.Visibility = Visibility.Visible;
             Edit.Visibility = Visibility.Hidden;
+        }
+        public void DeleteClick(object sender, EventArgs e)
+        {
+            if (GuestDataGrid.SelectedItem == null)
+            {
+                MessageBox.Show("No guest selected");
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete {((Guest)(GuestDataGrid.SelectedItem)).GuestID}", "Delete Guest?", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    ((Hotel)this.DataContext).Guests.Remove(((Guest)(GuestDataGrid.SelectedItem)));
+                }
+            }
         }
     }
 }

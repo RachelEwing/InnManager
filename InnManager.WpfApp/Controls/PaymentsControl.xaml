@@ -36,7 +36,7 @@
                             <Button Content="  + New Payment  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="NewPaymentClick"/>
                             <Button Content="  View  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="ViewClick"/>
                             <Button Content="  Receipt  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                            <Button Content="  Refund  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
+                            <Button Content="  Refund  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="RefundClick"/>
                             <Button Content="  Refresh  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
                         </WrapPanel>
                     </Border>
@@ -53,7 +53,7 @@
                         <DataGridTextColumn Header="Payment Date" Binding ="{Binding Path = Date}"/>
                         <DataGridTextColumn Header="Payment Method" Binding ="{Binding Path = PaymentMethod}"/>
                         <DataGridTextColumn Header="Amount ($)" Binding ="{Binding Path = Amount}"/>
-                        <DataGridTextColumn Header="Status" Binding ="{Binding Path = Invoice.Status}"/>
+                        <DataGridTextColumn Header="Status" Binding ="{Binding Path = Status}"/>
                         <DataGridTextColumn Header="Reference Number" Binding ="{Binding Path = PaymentReference}"/>
                     </DataGrid.Columns>
                 </DataGrid>

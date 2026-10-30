@@ -62,5 +62,20 @@ namespace InnManager.WpfApp.Controls
             Main.Visibility = Visibility.Visible;
             Edit.Visibility = Visibility.Hidden;
         }
+        public void RefundClick(object sender, EventArgs e)
+        {
+            if (PaymentDataGrid.SelectedItem == null)
+            {
+                MessageBox.Show("No payment selected");
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to refund {((Payment)(PaymentDataGrid.SelectedItem)).IDNumber}", "Refund Payment?", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    (((Payment)(PaymentDataGrid.SelectedItem))).IsRefunded = true;
+                }
+            }
+        }
     }
 }
