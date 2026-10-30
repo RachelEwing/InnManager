@@ -23,11 +23,11 @@
             <Grid Grid.Column="0">
                 <StackPanel Margin="10">
                     <TextBlock Text="Employee ID" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="EmployeeIDEditor" Margin="5" Text="{Binding Path = EmployeeID, Mode=OneWay}"/>
+                    <TextBox Width="auto" Name="EmployeeIDEditor" Margin="5" Text="{Binding Path = EmployeeID, Mode=OneWay}" IsReadOnly="True"/>
                     <TextBlock Text="First Name" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="FirstNameEditor" Margin="5" Text="{Binding Path = FirstName, Mode=OneWay}"/>
+                    <TextBox Width="auto" Name="FirstNameEditor" Margin="5" Text="{Binding Path = FirstName, Mode=TwoWay}"/>
                     <TextBlock Text="Last Name" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="LastNameEditor" Margin="5" Text="{Binding Path = LastName, Mode=OneWay}"/>
+                    <TextBox Width="auto" Name="LastNameEditor" Margin="5" Text="{Binding Path = LastName, Mode=TwoWay}"/>
                     <TextBlock Text="Position" FontSize="15" Margin="5" FontWeight="Bold"/>
                     <ComboBox Width="auto" Name="PositionEditor" Margin="5" SelectedItem="{Binding Path = Position}"/>
                 </StackPanel>
@@ -35,12 +35,12 @@
             <Grid Grid.Column="1">
                 <StackPanel Margin="10">
                     <TextBlock Text="Email" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="EmailEditor" Margin="5" Text="{Binding Path = Email, Mode=OneWay}"/>
+                    <TextBox Width="auto" Name="EmailEditor" Margin="5" Text="{Binding Path = Email, Mode=TwoWay}"/>
                     <TextBlock Text="Phone" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="PhoneEditor" Margin="5" Text="{Binding Path = PhoneNumber, Mode=OneWay}"/>
+                    <TextBox Width="auto" Name="PhoneEditor" Margin="5" Text="{Binding Path = PhoneNumber, Mode=TwoWay}"/>
                     <TextBlock Text="Hire Date" FontSize="15" Margin="5" FontWeight="Bold"/>
-                        <DatePicker Width="auto" Name="HireDateEditor" Margin="5" SelectedDate="{Binding Path = HireDate, Mode=OneWay}"/>
-                    <CheckBox Content="Is Active" FontSize="15" Margin="5" FontWeight="Bold" IsChecked="{Binding Path = IsActive, Mode=OneWay}"/>
+                        <DatePicker Width="auto" Name="HireDateEditor" Margin="5" SelectedDate="{Binding Path = HireDate, Mode=TwoWay}"/>
+                    <CheckBox Content="Is Active" FontSize="15" Margin="5" FontWeight="Bold" IsChecked="{Binding Path = IsActive, Mode=TwoWay}"/>
                 </StackPanel>
             </Grid>
         </Grid>

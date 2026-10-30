@@ -23,25 +23,25 @@
             <Grid Grid.Column="0">
                 <StackPanel Margin="10">
                     <TextBlock Text="Reservation #" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="ReservationNumberEditor" Margin="5" Text="{Binding Path = ReservationID, Mode=OneWay}"/>
+                    <TextBox Width="auto" Name="ReservationNumberEditor" Margin="5" Text="{Binding Path = ReservationID, Mode=OneWay}" IsReadOnly="True"/>
                     <TextBlock Text="Guest Name" FontSize="15" Margin="5" FontWeight="Bold"/>
                     <ComboBox Width="auto" Name="GuestNameEditor" Margin="5"/>
                     <TextBlock Text="Room" FontSize="15" Margin="5" FontWeight="Bold"/>
                     <ComboBox Width="auto" Name="RoomEditor" Margin="5"/>
                     <TextBlock Text="Check-In Date" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <DatePicker Width="auto" Name="CheckInEditor" Margin="5" SelectedDate="{Binding Path = CheckInDate, Mode=OneWay}"/>
+                    <DatePicker Width="auto" Name="CheckInEditor" Margin="5" SelectedDate="{Binding Path = CheckInDate, Mode=TwoWay}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="1">
                 <StackPanel Margin="10">
                     <TextBlock Text="Check-Out Date" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <DatePicker Width="auto" Name="CheckOutEditor" Margin="5" SelectedDate="{Binding Path = CheckOutDate, Mode = OneWay}"/>
+                    <DatePicker Width="auto" Name="CheckOutEditor" Margin="5" SelectedDate="{Binding Path = CheckOutDate, Mode = TwoWay}"/>
                     <TextBlock Text="Number of Guests" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="NumberOfGuestsEditor" Margin="5" Text="{Binding Path = NumberOfGuests, Mode=OneWay}"/>
+                    <TextBox Width="auto" Name="NumberOfGuestsEditor" Margin="5" Text="{Binding Path = NumberOfGuests, Mode=TwoWay}"/>
                     <TextBlock Text="Status" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="ReservationStatusEditor" Margin="5" Text="{Binding Path = Status, Mode=OneWay}"/>
+                    <TextBox Width="auto" Name="ReservationStatusEditor" Margin="5" Text="{Binding Path = Status, Mode=TwoWay}"/>
                     <TextBlock Text="Total Amount ($)" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="TotalAmountEditor" Margin="5" Text="{Binding Path = TotalAmount, Mode=OneWay}"/>
+                    <TextBox Width="auto" Name="TotalAmountEditor" Margin="5" Text="{Binding Path = TotalAmount, Mode=TwoWay}"/>
                 </StackPanel>
             </Grid>
         </Grid>

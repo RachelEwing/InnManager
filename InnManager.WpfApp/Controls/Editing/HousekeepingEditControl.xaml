@@ -25,16 +25,16 @@
                     <TextBlock Text="Room Number" FontSize="15" Margin="5" FontWeight="Bold"/>
                     <ComboBox Width="auto" Name="RoomNumberEditor" Margin="5"/>
                     <TextBlock Text="Description" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="DescriptionEditor" Margin="5" Text="{Binding Path = Description}"/>
+                    <TextBox Width="auto" Name="DescriptionEditor" Margin="5" Text="{Binding Path = Description, Mode=TwoWay}"/>
                     <TextBlock Text="Assigned Staff" FontSize="15" Margin="5" FontWeight="Bold"/>
                     <ComboBox Width="auto" Name="AssignedStaffEditor" Margin="5"/>
                     <TextBlock Text="Scheduled Date" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <DatePicker Width="auto" Name="ScheduledDateEditor" Margin="5" SelectedDate="{Binding Path = ScheduledDate}"/>
+                    <DatePicker Width="auto" Name="ScheduledDateEditor" Margin="5" SelectedDate="{Binding Path = ScheduledDate, Mode=TwoWay}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="1">
                 <StackPanel Margin="10">
-                    <CheckBox Content="Completed" FontSize="15" Margin="5" FontWeight="Bold" IsChecked="{Binding Path = IsCompleted}"/>
+                    <CheckBox Content="Completed" FontSize="15" Margin="5" FontWeight="Bold" IsChecked="{Binding Path = IsCompleted, Mode=TwoWay}"/>
                 </StackPanel>
             </Grid>
         </Grid>

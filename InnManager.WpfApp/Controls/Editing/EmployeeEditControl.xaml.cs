@@ -30,7 +30,32 @@ namespace InnManager.WpfApp.Controls.Editing
         }
         public void SaveEmployeeClick(object sender, RoutedEventArgs e)
         {
-
+            if (Validation()) {
+            }
+        }
+        public bool Validation() {
+            bool valid = true;
+            if (FirstNameEditor.Text.Length < 1)
+            {
+                valid = false;
+                MessageBox.Show("First Name cannot be empty.");
+            }
+            if (LastNameEditor.Text.Length < 2)
+            {
+                valid = false;
+                MessageBox.Show("Last Name cannot be that short.");
+            }
+            if (EmailEditor.Text.Length < 1)
+            {
+                valid = false;
+                MessageBox.Show("Email cannot be empty.");
+            }
+            if (PhoneEditor.Text.Length < 1)
+            {
+                valid = false;
+                MessageBox.Show("Phone Number cannot be empty.");
+            }
+            return valid;
         }
     }
 }
