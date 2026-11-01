@@ -9,20 +9,21 @@ namespace InnManager.Billing
     /// </summary>
     public class Invoice : INotifyPropertyChanged
     {
+        public Invoice() {
+            _idGenerator++;
+        }
+        /// <summary>
+        /// Generates ID
+        /// </summary>
+        private static int _idGenerator = 1;
         /// <summary>
         /// The field for IDNumber
         /// </summary>
-        private string _iDNumber = "";
+        private string _iDNumber = ("INV-" + _idGenerator.ToString("D4"));
         /// <summary>
         /// The Unique ID Number for this guest
         /// </summary>
-        public string IDNumber { get => _iDNumber; set
-            {
-                _iDNumber = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IDNumber)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(InvoiceID)));
-            }
-        }
+        public string IDNumber { get => _iDNumber; }
         /// <summary>
         /// The backing field for first name
         /// </summary>
@@ -76,22 +77,7 @@ namespace InnManager.Billing
         /// </summary>
         public string InvoiceID { get
             {
-                try
-                {
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("INV-");
-                    sb.Append(LastName[0]);
-                    sb.Append(LastName[1]);
-                    sb.Append("-");
-                    sb.Append(IDNumber.Substring(IDNumber.Length - 3));
-                    sb.Append("-");
-                    sb.Append(RoomNumber);
-                    return sb.ToString();
-                }
-                catch
-                {
-                    return "Unavailable";
-                }
+                return _iDNumber;
             }
         }
         /// <summary>

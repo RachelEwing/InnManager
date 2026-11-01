@@ -11,6 +11,10 @@ namespace InnManager.Guests
     /// </summary>
     public class Guest : INotifyPropertyChanged
     {
+        public Guest() {
+            _idGenerator++;
+        }
+        public string GuestName { get => FirstName + " " + LastName; }
         private static int _idGenerator = 1;
         private string _firstName = "";
         public string FirstName { get=>_firstName; set
@@ -64,9 +68,7 @@ namespace InnManager.Guests
         /// <summary>
         /// unique ID for the guest
         /// </summary>
-        public string GuestID { get => _guestID; init {
-                _idGenerator++;
-            } }
+        public string GuestID { get => _guestID; }
         private string _address = "";
         /// <summary>
         /// Address of the guest

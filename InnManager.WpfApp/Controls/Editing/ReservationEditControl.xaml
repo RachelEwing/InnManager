@@ -39,9 +39,9 @@
                     <TextBlock Text="Number of Guests" FontSize="15" Margin="5" FontWeight="Bold"/>
                     <TextBox Width="auto" Name="NumberOfGuestsEditor" Margin="5" Text="{Binding Path = NumberOfGuests, Mode=TwoWay}"/>
                     <TextBlock Text="Status" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="ReservationStatusEditor" Margin="5" Text="{Binding Path = Status, Mode=TwoWay}"/>
+                    <TextBox Width="auto" Name="ReservationStatusEditor" Margin="5" Text="{Binding Path = Status, Mode=OneWay}" IsReadOnly="True"/>
                     <TextBlock Text="Total Amount ($)" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="TotalAmountEditor" Margin="5" Text="{Binding Path = TotalAmount, Mode=TwoWay}"/>
+                    <TextBox Width="auto" Name="TotalAmountEditor" Margin="5" Text="{Binding Path = TotalAmount, Mode=OneWay}" IsReadOnly="True"/>
                 </StackPanel>
             </Grid>
         </Grid>

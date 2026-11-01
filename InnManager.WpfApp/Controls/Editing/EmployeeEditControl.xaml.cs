@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InnManager.Employees;
 
 namespace InnManager.WpfApp.Controls.Editing
 {
@@ -26,11 +27,15 @@ namespace InnManager.WpfApp.Controls.Editing
         public event EventHandler Close;
         public void BackClick(object sender, RoutedEventArgs e)
         {
-            Close?.Invoke(this, EventArgs.Empty);
+            if (Validation()) {
+                Close?.Invoke(this, EventArgs.Empty);
+            }
         }
         public void SaveEmployeeClick(object sender, RoutedEventArgs e)
         {
             if (Validation()) {
+                ((Employee)this.DataContext).Position = (EmployeePosition)PositionEditor.SelectedItem;
+                Close?.Invoke(this, EventArgs.Empty);
             }
         }
         public bool Validation() {

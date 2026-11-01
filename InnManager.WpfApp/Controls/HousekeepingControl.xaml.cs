@@ -27,7 +27,6 @@ namespace InnManager.WpfApp.Controls
         {
             InitializeComponent();
             Edit.Close += OnBackClick;
-            Edit.HotelData = (Hotel)this.DataContext;
         }
         /// <summary>
         /// Creates a new task form and reports whether or not the task was added

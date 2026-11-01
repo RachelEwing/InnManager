@@ -41,7 +41,7 @@
                     <TextBlock Text="ID Type" FontSize="15" Margin="5" FontWeight="Bold"/>
                     <ComboBox Width="auto" Name="IDTypeEditor" Margin="5" SelectedItem="{Binding Path = IDType, Mode=TwoWay}"/>
                     <TextBlock Text="ID Number" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="IDNumberEditor" Margin="5" Text="{Binding Path = GuestID, Mode=TwoWay}"/>
+                    <TextBox Width="auto" Name="IDNumberEditor" Margin="5" Text="{Binding Path = IDNumber, Mode=TwoWay}"/>
                     <CheckBox Name="IsCheckedInEditor" Margin="5" Content="Checked In" FontSize="15" FontWeight="Bold" IsChecked="{Binding Path = IsCheckedIn, Mode=TwoWay}"/>
                 </StackPanel>
             </Grid>

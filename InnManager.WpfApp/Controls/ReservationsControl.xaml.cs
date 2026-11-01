@@ -56,9 +56,9 @@ namespace InnManager.WpfApp.Controls
                 Edit.RoomEditor.ItemsSource = ((Hotel)this.DataContext).Rooms;
                 Edit.RoomEditor.SelectedItem = reservation.Room;
                 Edit.RoomEditor.DisplayMemberPath = "RoomNumber";
-                Edit.GuestNameEditor.ItemsSource = ((Hotel)this.DataContext).Employees;
+                Edit.GuestNameEditor.ItemsSource = ((Hotel)this.DataContext).Guests;
                 Edit.GuestNameEditor.SelectedItem = reservation.Guest;
-                Edit.GuestNameEditor.DisplayMemberPath = "GuestID";
+                Edit.GuestNameEditor.DisplayMemberPath = "GuestName";
             }
             else
             {
@@ -70,7 +70,7 @@ namespace InnManager.WpfApp.Controls
             Main.Visibility = Visibility.Visible;
             Edit.Visibility = Visibility.Hidden;
         }
-        public void DeleteClick(object sender, EventArgs e)
+        public void CancelClick(object sender, EventArgs e)
         {
             if (ReservationDataGrid.SelectedItem == null)
             {
@@ -78,10 +78,10 @@ namespace InnManager.WpfApp.Controls
             }
             else
             {
-                MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete {((Reservation)(ReservationDataGrid.SelectedItem)).ReservationID}", "Delete Reservation?", MessageBoxButton.YesNo);
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to cancel {((Reservation)(ReservationDataGrid.SelectedItem)).ReservationID}", "Cancel Reservation?", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
-                    ((Hotel)this.DataContext).Reservations.Remove(((Reservation)(ReservationDataGrid.SelectedItem)));
+                    (((Reservation)(ReservationDataGrid.SelectedItem))).IsCancelled = true;
                 }
             }
         }

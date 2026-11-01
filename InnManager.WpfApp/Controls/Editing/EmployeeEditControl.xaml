@@ -29,7 +29,7 @@
                     <TextBlock Text="Last Name" FontSize="15" Margin="5" FontWeight="Bold"/>
                     <TextBox Width="auto" Name="LastNameEditor" Margin="5" Text="{Binding Path = LastName, Mode=TwoWay}"/>
                     <TextBlock Text="Position" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <ComboBox Width="auto" Name="PositionEditor" Margin="5" SelectedItem="{Binding Path = Position}"/>
+                    <ComboBox Width="auto" Name="PositionEditor" Margin="5" SelectedItem="{Binding Path = Position, Mode=TwoWay}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="1">

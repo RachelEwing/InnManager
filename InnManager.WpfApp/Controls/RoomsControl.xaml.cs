@@ -77,7 +77,7 @@ namespace InnManager.WpfApp.Controls
             }
             else
             {
-                MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete {((Room)(RoomDataGrid.SelectedItem)).RoomID}", "Delete Room?", MessageBoxButton.YesNo);
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete {((Room)(RoomDataGrid.SelectedItem)).RoomNumber}", "Delete Room?", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
                     ((Hotel)this.DataContext).Rooms.Remove(((Room)(RoomDataGrid.SelectedItem)));

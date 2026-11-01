@@ -40,7 +40,7 @@ namespace InnManager.WpfApp.ModalWindows
             if (Validation()) {
                 Guest guest = (Guest)GuestPicker.SelectedItem;
                 Reservation res = (Reservation)ReservationPicker.SelectedItem;
-                Invoice invoice = new Invoice() { FirstName = guest.FirstName, LastName = guest.LastName, RoomNumber = res.RoomNumber, InvoiceDate = (DateTime)InvoiceDatePicker.SelectedDate, DueDate = (DateTime)DueDatePicker.SelectedDate, IDNumber = guest.IDNumber};
+                Invoice invoice = new Invoice() { FirstName = guest.FirstName, LastName = guest.LastName, RoomNumber = res.RoomNumber, InvoiceDate = (DateTime)InvoiceDatePicker.SelectedDate, DueDate = (DateTime)DueDatePicker.SelectedDate};
                 invoice.BillingRecords.Add(new Charge() {Amount = res.TotalAmount, IsProcessed = true});
                 var data = this.DataContext;
                 if (data is Hotel h)

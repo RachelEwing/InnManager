@@ -27,9 +27,5 @@ namespace InnManager.WpfApp.Controls.Editing
         {
             Close?.Invoke(this, EventArgs.Empty);
         }
-        public void SaveInvoiceClick(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

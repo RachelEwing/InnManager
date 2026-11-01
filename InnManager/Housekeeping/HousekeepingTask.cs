@@ -14,6 +14,7 @@ namespace InnManager.Housekeeping
         public Room Room { get => _room; set {
                 _room = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Room)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomNumber)));
             }
         }       
         /// <summary>
@@ -26,21 +27,13 @@ namespace InnManager.Housekeeping
         public Employee Employee { get => _employee; set {
                 _employee = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Employee)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AssignedStaff)));
             }
         }
-        /// <summary>
-        /// Private field storing the room number.
-        /// </summary>
-        private string _roomNumber = "";
         /// <summary>
         /// RoomNumber of room the task is associated with
         /// </summary>
-        public string RoomNumber { get => _roomNumber; set
-            {
-                _roomNumber = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomNumber)));
-            }
-        }
+        public string RoomNumber { get => Room.RoomNumber;}
         /// <summary>
         /// Description backing field
         /// </summary>
@@ -82,18 +75,9 @@ namespace InnManager.Housekeeping
             }
         }
         /// <summary>
-        /// Assigned staff backing field
-        /// </summary>
-        private string _assignedStaff = "";
-        /// <summary>
         /// Staff assigned to the task
         /// </summary>
-        public string AssignedStaff { get => _assignedStaff; set
-            {
-                _assignedStaff = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AssignedStaff)));
-            }
-        }
+        public string AssignedStaff { get => Employee.FirstName + " " + Employee.LastName; }
         /// <summary>
         /// status property
         /// </summary>

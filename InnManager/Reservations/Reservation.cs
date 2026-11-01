@@ -1,7 +1,8 @@
-﻿using System.ComponentModel;
-using System.Text;
-using InnManager.Guests;
+﻿using InnManager.Guests;
 using InnManager.Rooms;
+using System.ComponentModel;
+using System.Reflection.Emit;
+using System.Text;
 
 namespace InnManager.Reservations
 {
@@ -10,6 +11,12 @@ namespace InnManager.Reservations
     /// </summary>
     public class Reservation : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Initializer, increments ID
+        /// </summary>
+        public Reservation() {
+            _idGenerator++;
+        }
         /// <summary>
         /// Room backing variable
         /// </summary>
@@ -20,6 +27,7 @@ namespace InnManager.Reservations
         public Room Room { get => _room; set {
                 _room = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Room)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomNumber)));
             }
         }
         /// <summary>
@@ -32,18 +40,16 @@ namespace InnManager.Reservations
         public Guest Guest { get => _guest; set {
                 _guest = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Guest)));
-            }}
-        /// <summary>
-        /// Total amount backing field
-        /// </summary>
-        private decimal _totalAmount = 0;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GuestName)));
+            }
+        }
         /// <summary>
         /// How much the reservation costs
         /// </summary>
-        public decimal TotalAmount { get => _totalAmount; set
-            {
-                _totalAmount = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TotalAmount)));
+        public decimal TotalAmount { get{
+                TimeSpan difference = CheckOutDate - CheckInDate;
+                int days = Math.Abs(difference.Days);
+                return days * Room.Rate;
             }
         }
         /// <summary>
@@ -62,35 +68,7 @@ namespace InnManager.Reservations
         /// <summary>
         /// The name of the guest making the reservation
         /// </summary>
-        public string GuestName { get => FirstName + " " + LastName;
-        }
-        /// <summary>
-        /// First Name backing field
-        /// </summary>
-        private string _firstName = "";
-        /// <summary>
-        /// First Name of Guest
-        /// </summary>
-        public string FirstName { get => _firstName; set
-            {
-                _firstName = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(FirstName)));
-            }
-        }
-        /// <summary>
-        /// Last name backing field
-        /// </summary>
-        private string _lastName = "";
-        /// <summary>
-        /// Last Name of guest
-        /// </summary>
-        public string LastName { get => _lastName; set
-            {
-                _lastName = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LastName)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ReservationID)));
-            }
-        }
+        public string GuestName { get => Guest.FirstName + " " + Guest.LastName;}
         /// <summary>
         /// ID number backing
         /// </summary>
@@ -102,22 +80,12 @@ namespace InnManager.Reservations
             {
                 _iDNumber = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IDNumber)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ReservationID)));
             }
         }
         /// <summary>
-        /// Room Number backing
-        /// </summary>
-        private string _roomNumber = "";
-        /// <summary>
         /// room number property
         /// </summary>
-        public string RoomNumber { get => _roomNumber; set
-            {
-                _roomNumber = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RoomNumber)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ReservationID)));
-            }
+        public string RoomNumber { get => Room.RoomNumber;
         }
         /// <summary>
         /// Check in date backing
@@ -130,6 +98,7 @@ namespace InnManager.Reservations
             {
                 _checkInDate = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CheckInDate)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TotalAmount)));
             }
         }
         /// <summary>
@@ -145,6 +114,7 @@ namespace InnManager.Reservations
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CheckOutDate)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCheckedOutOverdue)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TotalAmount)));
             }
         }
         /// <summary>
@@ -190,28 +160,25 @@ namespace InnManager.Reservations
             }
         }
         /// <summary>
+        /// Used to generate ID Number
+        /// </summary>
+        private static int _idGenerator = 1;
+        /// <summary>
         /// Unique number assigned to the reservation
+        /// </summary>
+        private string _reservationID = ("R" + _idGenerator.ToString("D4"));
+        /// <summary>
+        /// unique ID for the guest
         /// </summary>
         public string ReservationID
         {
-            get
-            {
-                try
-                {
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("RES-");
-                    sb.Append(LastName[0]);
-                    sb.Append(LastName[1]);
-                    sb.Append("-");
-                    sb.Append(IDNumber.Substring(IDNumber.Length - 3));
-                    sb.Append("-");
-                    sb.Append(RoomNumber);
-                    return sb.ToString();
-                }
-                catch
-                {
-                    return "Unavailable";
-                }
+            get => _reservationID;
+        }
+        private bool _isCancelled = false;
+        public bool IsCancelled { get => _isCancelled; set {
+                _isCancelled = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCancelled)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
             }
         }
         /// <summary>
@@ -232,6 +199,7 @@ namespace InnManager.Reservations
         {
             get
             {
+                if (IsCancelled) return "Cancelled";
                 if (IsCheckedOutOverdue)
                 {
                     return "Overdue";

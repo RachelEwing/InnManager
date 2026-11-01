@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InnManager.Billing;
 
 namespace InnManager.WpfApp.Controls.Editing
 {
@@ -29,7 +30,8 @@ namespace InnManager.WpfApp.Controls.Editing
         }
         public void ConfirmClick(object sender, RoutedEventArgs e)
         {
-
+            ((Payment)this.DataContext).IsRefunded = true;
+            Close?.Invoke(this, EventArgs.Empty);
         }
     }
 }

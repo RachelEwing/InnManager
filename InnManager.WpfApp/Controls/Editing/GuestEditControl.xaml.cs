@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InnManager.Enums;
+using InnManager.Guests;
 
 namespace InnManager.WpfApp.Controls.Editing
 {
@@ -27,11 +28,52 @@ namespace InnManager.WpfApp.Controls.Editing
         public event EventHandler Close;
         public void BackClick(object sender, RoutedEventArgs e)
         {
-            Close?.Invoke(this, EventArgs.Empty);
+            if (Validation()) {
+                Close?.Invoke(this, EventArgs.Empty);
+            }
         }
         public void SaveGuestClick(object sender, RoutedEventArgs e)
         {
-
+            if (Validation())
+            {
+                ((Guest)this.DataContext).IDType = (IDType)IDTypeEditor.SelectedItem;
+                Close?.Invoke(this, EventArgs.Empty);
+            }
+        }
+        public bool Validation()
+        {
+            bool valid = true;
+            if (FirstNameEditor.Text.Length < 1)
+            {
+                valid = false;
+                MessageBox.Show("First Name cannot be empty.");
+            }
+            if (LastNameEditor.Text.Length < 2)
+            {
+                valid = false;
+                MessageBox.Show("Last Name cannot be that short.");
+            }
+            if (EmailEditor.Text.Length < 1)
+            {
+                valid = false;
+                MessageBox.Show("Email cannot be empty.");
+            }
+            if (PhoneEditor.Text.Length < 1)
+            {
+                valid = false;
+                MessageBox.Show("Phone Number cannot be empty.");
+            }
+            if (AddressEditor.Text.Length < 1)
+            {
+                valid = false;
+                MessageBox.Show("Address cannot be empty.");
+            }
+            if (IDNumberEditor.Text.Length < 1)
+            {
+                valid = false;
+                MessageBox.Show("ID Number cannot be empty.");
+            }
+            return valid;
         }
     }
 }

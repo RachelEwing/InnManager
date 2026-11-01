@@ -12,6 +12,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InnManager.Hotels;
 using InnManager.Housekeeping;
+using InnManager.Rooms;
+using InnManager.Employees;
 
 namespace InnManager.WpfApp.Controls.Editing
 {
@@ -25,21 +27,31 @@ namespace InnManager.WpfApp.Controls.Editing
             InitializeComponent();
         }
 
-        public DependencyProperty HotelProperty = DependencyProperty.Register(nameof(Hotel), typeof(Hotel), typeof(HousekeepingEditControl));
-
-        public Hotel HotelData {
-            get => (Hotel)GetValue(HotelProperty);
-            set => SetValue(HotelProperty, value);
-        }
-
         public event EventHandler Close;
         public void BackClick(object sender, RoutedEventArgs e)
         {
-            Close?.Invoke(this, EventArgs.Empty);
+            if (Validation()) {
+                Close?.Invoke(this, EventArgs.Empty);
+            }
         }
         public void SaveTaskClick(object sender, RoutedEventArgs e)
         {
-
+            if (Validation())
+            {
+                ((HousekeepingTask)this.DataContext).Room = (Room)(RoomNumberEditor.SelectedItem);
+                ((HousekeepingTask)this.DataContext).Employee = (Employee)(AssignedStaffEditor.SelectedItem);
+                Close?.Invoke(this, EventArgs.Empty);
+            }
+        }
+        public bool Validation()
+        {
+            bool valid = true;
+            if (DescriptionEditor.Text.Length < 1)
+            {
+                valid = false;
+                MessageBox.Show("Description cannot be empty.");
+            }
+            return valid;
         }
     }
 }
