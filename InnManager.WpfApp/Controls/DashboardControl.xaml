@@ -39,11 +39,6 @@
         </Grid>
         <Grid Grid.Row="2" Background="Lavender">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
                 <Grid Grid.Column="0">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -53,39 +48,20 @@
                         </Grid.RowDefinitions>
                         <Border Grid.Row="0" Background="Lavender">
                             <Grid>
-                                <TextBlock Grid.Column="0" FontSize="35" FontWeight="Bold" Margin="5">Recent Reservations</TextBlock>
+                                <TextBlock FontSize="35" FontWeight="Bold" Margin="5">Recent Reservations</TextBlock>
                             </Grid>
                         </Border>
                         <Grid Grid.Row=" 1">
                             <Grid>
-                                <WrapPanel>
-                                    <TextBlock Text="Guest" Margin="5" FontSize=" 20" FontWeight="Bold" Height="25" VerticalAlignment="Center" TextAlignment="Center"/>
-                                    <TextBlock Text="Room" Margin="5" FontSize=" 20" FontWeight="Bold" Height="25" VerticalAlignment="Center" TextAlignment="Center"/>
-                                    <TextBlock Text="Check-In" Margin="5" FontSize=" 20" FontWeight="Bold" Height="25" VerticalAlignment="Center" TextAlignment="Center"/>
-                                    <TextBlock Text="Check-Out" Margin="5" FontSize=" 20" FontWeight="Bold" Height="25" VerticalAlignment="Center" TextAlignment="Center"/>
-                                    <TextBlock Text="Status" Margin="5" FontSize=" 20" FontWeight="Bold" Height="25" VerticalAlignment="Center" TextAlignment="Center"/>
-                                </WrapPanel>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Grid>
-                <Grid Grid.Column="1">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height = "55" />
-                            <RowDefinition Height = "*"/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <TextBlock Grid.Column="0" FontSize="35" FontWeight="Bold" Margin="5">Room Status</TextBlock>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <Grid>
-                                <StackPanel>
-                                    <TextBlock Text="Available" Margin="5" FontSize=" 20" FontWeight="Bold" Height="25" VerticalAlignment="Center" TextAlignment="Left"/>
-                                    <TextBlock Text="Occupied" Margin="5" FontSize=" 20" FontWeight="Bold" Height="25" VerticalAlignment="Center" TextAlignment="Left"/>
-                                    <TextBlock Text="Out of Service" Margin="5" FontSize=" 20" FontWeight="Bold" Height="25" VerticalAlignment="Center" TextAlignment="Left"/>
-                                    <TextBlock Text="Maintenance" Margin="5" FontSize=" 20" FontWeight="Bold" Height="25" VerticalAlignment="Center" TextAlignment="Left"/>
-                                </StackPanel>
+                                <DataGrid ItemsSource="{Binding Path= Reservations, Mode=OneWay}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Name="ReservationDataGrid" IsReadOnly="True">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Guest" Binding ="{Binding Path = GuestName}"/>
+                                        <DataGridTextColumn Header="Room" Binding ="{Binding Path = RoomNumber}"/>
+                                        <DataGridTextColumn Header="Check-In" Binding ="{Binding Path = CheckInDate}"/>
+                                        <DataGridTextColumn Header="Check-Out" Binding ="{Binding Path = CheckOutDate}"/>
+                                        <DataGridTextColumn Header="Status" Binding ="{Binding Path = Status}"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
                             </Grid>
                         </Grid>
                     </Grid>
