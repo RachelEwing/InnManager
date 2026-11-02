@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InnManager.Guests;
 using InnManager.Hotels;
+using InnManager.Reservations;
 
 namespace InnManager.WpfApp.Controls
 {
@@ -74,6 +75,18 @@ namespace InnManager.WpfApp.Controls
                 MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete {((Guest)(GuestDataGrid.SelectedItem)).GuestID}", "Delete Guest?", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
+                    Guest g = ((Guest)(GuestDataGrid.SelectedItem));
+                    try
+                    {
+                        foreach (Reservation r in ((Hotel)this.DataContext).Reservations)
+                        {
+                            if (r.Guest == g)
+                            {
+                                ((Hotel)this.DataContext).Reservations.Remove(r);
+                            }
+                        }
+                    }
+                    catch { }
                     ((Hotel)this.DataContext).Guests.Remove(((Guest)(GuestDataGrid.SelectedItem)));
                 }
             }

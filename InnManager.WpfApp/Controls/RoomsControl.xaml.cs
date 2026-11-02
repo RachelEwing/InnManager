@@ -2,10 +2,13 @@
 using InnManager.Enums;
 using InnManager.Guests;
 using InnManager.Hotels;
+using InnManager.Housekeeping;
+using InnManager.Reservations;
 using InnManager.Rooms;
 using InnManager.WpfApp.ModalWindows;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -80,7 +83,24 @@ namespace InnManager.WpfApp.Controls
                 MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete {((Room)(RoomDataGrid.SelectedItem)).RoomNumber}", "Delete Room?", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
-                    ((Hotel)this.DataContext).Rooms.Remove(((Room)(RoomDataGrid.SelectedItem)));
+                    Room r = ((Room)(RoomDataGrid.SelectedItem));
+                    try {
+                        foreach (Reservation res in ((Hotel)this.DataContext).Reservations)
+                        {
+                            if (res.Room == r)
+                            {
+                                ((Hotel)this.DataContext).Reservations.Remove(res);
+                            }
+                        }
+                        foreach (HousekeepingTask h in ((Hotel)this.DataContext).HouseKeepingTasks)
+                        {
+                            if (h.Room == r)
+                            {
+                                ((Hotel)this.DataContext).HouseKeepingTasks.Remove(h);
+                            }
+                        }
+                    } catch{ }
+                    ((Hotel)this.DataContext).Rooms.Remove(r);
                 }
             }
         }
