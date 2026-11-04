@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="InnManager.WpfApp.Controls.Reports.ReservationReportControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InnManager.WpfApp.Controls.Reports"
+             mc:Ignorable="d" 
+             d:DesignHeight="320" d:DesignWidth="795">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="Azure">
+            <TextBlock Text="Reservation Report" FontWeight="Bold" FontSize="30" Margin="5"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <WrapPanel Orientation="Horizontal" Margin="5" VerticalAlignment="Top">
+                <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
+                    <StackPanel>
+                        <TextBlock Text="Total Reservations" Width="140" TextAlignment="Center" FontWeight="Bold"/>
+                        <TextBlock Text="25" Name="TotalReservationsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                    </StackPanel>
+                </Border>
+                <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
+                    <StackPanel>
+                        <TextBlock Text="Available Rooms" Width="140" TextAlignment="Center" FontWeight="Bold"/>
+                        <TextBlock Text="25" Name="AvailableRoomsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                    </StackPanel>
+                </Border>
+                <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
+                    <StackPanel>
+                        <TextBlock Text="Occupied Rooms" Width="140" TextAlignment="Center" FontWeight="Bold"/>
+                        <TextBlock Text="25" Name="OccupiedRoomsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                    </StackPanel>
+                </Border>
+                <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
+                    <StackPanel>
+                        <TextBlock Text="Occupancy Rate" Width="140" TextAlignment="Center" FontWeight="Bold"/>
+                        <TextBlock Text="25" Name="OccupancyRateText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                    </StackPanel>
+                </Border>
+                <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
+                    <StackPanel>
+                        <TextBlock Text="Occupancy Rate" Width="140" TextAlignment="Center" FontWeight="Bold"/>
+                        <TextBlock Text="25" Name="PendingReservationsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                    </StackPanel>
+                </Border>
+                <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
+                    <StackPanel>
+                        <TextBlock Text="Occupancy Rate" Width="140" TextAlignment="Center" FontWeight="Bold"/>
+                        <TextBlock Text="25" Name="CancelledReservationsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                    </StackPanel>
+                </Border>
+            </WrapPanel>
+        </Grid>
+    </Grid>
+</UserControl>
