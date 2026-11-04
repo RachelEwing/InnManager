@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InnManager.WpfApp.Controls.Reports;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,59 @@ namespace InnManager.WpfApp.Controls
         public ReportsControl()
         {
             InitializeComponent();
+        }
+        public void OccupancyClick(object sender, RoutedEventArgs e) {
+            Occupancy.Visibility = Visibility.Visible;
+            Revenue.Visibility = Visibility.Hidden;
+            Guest.Visibility = Visibility.Hidden;
+            Housekeeping.Visibility = Visibility.Hidden;
+            Reservation.Visibility = Visibility.Hidden;
+            Employee.Visibility = Visibility.Hidden;
+        }
+        public void RevenueClick(object sender, RoutedEventArgs e)
+        {
+            Occupancy.Visibility = Visibility.Hidden;
+            Revenue.Visibility = Visibility.Visible;
+            Guest.Visibility = Visibility.Hidden;
+            Housekeeping.Visibility = Visibility.Hidden;
+            Reservation.Visibility = Visibility.Hidden;
+            Employee.Visibility = Visibility.Hidden;
+        }
+        public void GuestClick(object sender, RoutedEventArgs e)
+        {
+            Occupancy.Visibility = Visibility.Hidden;
+            Revenue.Visibility = Visibility.Hidden;
+            Guest.Visibility = Visibility.Visible;
+            Housekeeping.Visibility = Visibility.Hidden;
+            Reservation.Visibility = Visibility.Hidden;
+            Employee.Visibility = Visibility.Hidden;
+        }
+        public void HousekeepingClick(object sender, RoutedEventArgs e)
+        {
+            Occupancy.Visibility = Visibility.Hidden;
+            Revenue.Visibility = Visibility.Hidden;
+            Guest.Visibility = Visibility.Hidden;
+            Housekeeping.Visibility = Visibility.Visible;
+            Reservation.Visibility = Visibility.Hidden;
+            Employee.Visibility = Visibility.Hidden;
+        }
+        public void ReservationClick(object sender, RoutedEventArgs e)
+        {
+            Occupancy.Visibility = Visibility.Hidden;
+            Revenue.Visibility = Visibility.Hidden;
+            Guest.Visibility = Visibility.Hidden;
+            Housekeeping.Visibility = Visibility.Hidden;
+            Reservation.Visibility = Visibility.Visible;
+            Employee.Visibility = Visibility.Hidden;
+        }
+        public void EmployeeClick(object sender, RoutedEventArgs e)
+        {
+            Occupancy.Visibility = Visibility.Hidden;
+            Revenue.Visibility = Visibility.Hidden;
+            Guest.Visibility = Visibility.Hidden;
+            Housekeeping.Visibility = Visibility.Hidden;
+            Reservation.Visibility = Visibility.Hidden;
+            Employee.Visibility = Visibility.Visible;
         }
     }
 }

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InnManager.WpfApp.Controls"
+             xmlns:local2="clr-namespace:InnManager.WpfApp.Controls.Reports"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -24,15 +25,23 @@
                 </Grid.ColumnDefinitions>
                 <Border Grid.Column="0" VerticalAlignment="Center">
                     <WrapPanel>
-                        <Button Content="  Occupancy Report  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                        <Button Content="  Revenue Reports  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                        <Button Content="  Guest Report  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                        <Button Content="  Housekeeping Reports  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                        <Button Content="  Reservation Report  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
-                        <Button Content="  Employee Reports  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
+                        <Button Content="  Occupancy Report  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="OccupancyClick"/>
+                        <Button Content="  Revenue Reports  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="RevenueClick"/>
+                        <Button Content="  Guest Report  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="GuestClick"/>
+                        <Button Content="  Housekeeping Reports  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="HousekeepingClick"/>
+                        <Button Content="  Reservation Report  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="ReservationClick"/>
+                        <Button Content="  Employee Reports  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="EmployeeClick"/>
                     </WrapPanel>
                 </Border>
             </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <local2:OccupancyReportControl x:Name="Occupancy" Visibility="Hidden"/>
+            <local2:RevenueReportControl x:Name="Revenue" Visibility="Hidden"/>
+            <local2:GuestReportControl x:Name="Guest" Visibility="Hidden"/>
+            <local2:HousekeepingReportControl x:Name="Housekeeping" Visibility="Hidden"/>
+            <local2:ReservationReportControl x:Name="Reservation" Visibility="Hidden"/>
+            <local2:EmployeeReportControl x:Name="Employee" Visibility="Hidden"/>
         </Grid>
     </Grid>
 </UserControl>
