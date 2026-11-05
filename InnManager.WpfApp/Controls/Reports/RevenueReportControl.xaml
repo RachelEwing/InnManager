@@ -31,12 +31,12 @@
             </Grid>
             <Grid Grid.Column="1">
                 <StackPanel Margin="5">
-                    <TextBlock Text="Total Room Charges:" FontSize="15" Margin="5"/>
-                    <TextBlock Text="Total Service Charges:" FontSize="15" Margin="5"/>
-                    <TextBlock Text="Total Tax:" FontSize="15" Margin="5"/>
-                    <TextBlock Text="Total Invoice Amount:" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBlock Text="Total Paid Amount:" FontSize="15" Margin="5"/>
-                    <TextBlock Text="Outstanding Balance:" FontSize="15" Margin="5" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Path = TotalRoomCharges, Mode=OneWay}" FontSize="15" Margin="5"/>
+                    <TextBlock Text="{Binding Path = TotalServiceCharges, Mode=OneWay}" FontSize="15" Margin="5"/>
+                    <TextBlock Text="{Binding Path = TotalTax, Mode=OneWay}" FontSize="15" Margin="5"/>
+                    <TextBlock Text="{Binding Path = TotalInvoiceAmount, Mode=OneWay}" FontSize="15" Margin="5" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Path = TotalPaidAmount, Mode=OneWay}" FontSize="15" Margin="5"/>
+                    <TextBlock Text="{Binding Path = OutstandingBalance, Mode=OneWay}" FontSize="15" Margin="5" FontWeight="Bold"/>
                 </StackPanel>
             </Grid>
         </Grid>

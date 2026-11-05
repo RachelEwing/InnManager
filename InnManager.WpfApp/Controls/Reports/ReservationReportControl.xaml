@@ -19,37 +19,37 @@
                 <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
                     <StackPanel>
                         <TextBlock Text="Total Reservations" Width="140" TextAlignment="Center" FontWeight="Bold"/>
-                        <TextBlock Text="25" Name="TotalReservationsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                        <TextBlock Text="{Binding Path = TotalReservations, Mode=OneWay}" Name="TotalReservationsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
                     </StackPanel>
                 </Border>
                 <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
                     <StackPanel>
-                        <TextBlock Text="Available Rooms" Width="140" TextAlignment="Center" FontWeight="Bold"/>
-                        <TextBlock Text="25" Name="AvailableRoomsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                        <TextBlock Text="Checked-Out Reservations" Width="140" TextAlignment="Center" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Path = CheckedOutReservations, Mode=OneWay}" Name="AvailableRoomsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
                     </StackPanel>
                 </Border>
                 <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
                     <StackPanel>
-                        <TextBlock Text="Occupied Rooms" Width="140" TextAlignment="Center" FontWeight="Bold"/>
-                        <TextBlock Text="25" Name="OccupiedRoomsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                        <TextBlock Text="Overdue Reservations" Width="140" TextAlignment="Center" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Path = OverdueReservations, Mode=OneWay}" Name="OccupiedRoomsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
                     </StackPanel>
                 </Border>
                 <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
                     <StackPanel>
-                        <TextBlock Text="Occupancy Rate" Width="140" TextAlignment="Center" FontWeight="Bold"/>
-                        <TextBlock Text="25" Name="OccupancyRateText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                        <TextBlock Text="Confirmed Reservations" Width="140" TextAlignment="Center" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Path = ConfirmedReservations, Mode=OneWay}" Name="OccupancyRateText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
                     </StackPanel>
                 </Border>
                 <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
                     <StackPanel>
-                        <TextBlock Text="Occupancy Rate" Width="140" TextAlignment="Center" FontWeight="Bold"/>
-                        <TextBlock Text="25" Name="PendingReservationsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                        <TextBlock Text="Pending Reservations" Width="140" TextAlignment="Center" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Path = PendingReservations, Mode=OneWay}" Name="PendingReservationsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
                     </StackPanel>
                 </Border>
                 <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
                     <StackPanel>
-                        <TextBlock Text="Occupancy Rate" Width="140" TextAlignment="Center" FontWeight="Bold"/>
-                        <TextBlock Text="25" Name="CancelledReservationsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                        <TextBlock Text="Cancelled Reservations" Width="140" TextAlignment="Center" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Path = CancelledReservations, Mode=OneWay}" Name="CancelledReservationsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
                     </StackPanel>
                 </Border>
             </WrapPanel>

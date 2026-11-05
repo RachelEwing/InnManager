@@ -19,25 +19,19 @@
                 <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
                     <StackPanel>
                         <TextBlock Text="Total Tasks" Width="120" TextAlignment="Center" FontWeight="Bold"/>
-                        <TextBlock Text="25" Name="TotalTasksText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
-                    </StackPanel>
-                </Border>
-                <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
-                    <StackPanel>
-                        <TextBlock Text="Scheduled Tasks" Width="120" TextAlignment="Center" FontWeight="Bold"/>
-                        <TextBlock Text="25" Name="ScheduledTasksText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
-                    </StackPanel>
-                </Border>
-                <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
-                    <StackPanel>
-                        <TextBlock Text="In-Progress Tasks" Width="120" TextAlignment="Center" FontWeight="Bold"/>
-                        <TextBlock Text="25" Name="InProgressTasksText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                        <TextBlock Text="{Binding Path = TotalTasks, Mode=OneWay}" Name="TotalTasksText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
                     </StackPanel>
                 </Border>
                 <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
                     <StackPanel>
                         <TextBlock Text="Completed Tasks" Width="120" TextAlignment="Center" FontWeight="Bold"/>
-                        <TextBlock Text="25" Name="CompletedTasksText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                        <TextBlock Text="{Binding Path = CompletedTasks, Mode=OneWay}" Name="CompletedTasksText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                    </StackPanel>
+                </Border>
+                <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
+                    <StackPanel>
+                        <TextBlock Text="Uncompleted Tasks" Width="120" TextAlignment="Center" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Path = UncompletedTasks, Mode=OneWay}" Name="UncompletedTasksText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
                     </StackPanel>
                 </Border>
             </StackPanel>

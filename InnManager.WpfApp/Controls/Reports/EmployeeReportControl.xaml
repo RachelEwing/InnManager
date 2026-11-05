@@ -19,19 +19,19 @@
                 <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
                     <StackPanel>
                         <TextBlock Text="Total Employees" Width="120" TextAlignment="Center" FontWeight="Bold"/>
-                        <TextBlock Text="25" Name="TotalEmployeesText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                        <TextBlock Text="{Binding Path = TotalEmployees, Mode=OneWay}" Name="TotalEmployeesText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
                     </StackPanel>
                 </Border>
                 <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
                     <StackPanel>
                         <TextBlock Text="Active Employees" Width="120" TextAlignment="Center" FontWeight="Bold"/>
-                        <TextBlock Text="25" Name="ActiveEmployeesText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                        <TextBlock Text="{Binding Path = ActiveEmployees, Mode=OneWay}" Name="ActiveEmployeesText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
                     </StackPanel>
                 </Border>
                 <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
                     <StackPanel>
                         <TextBlock Text="Inactive Employees" Width="120" TextAlignment="Center" FontWeight="Bold"/>
-                        <TextBlock Text="25" Name="InactiveEmployeesText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                        <TextBlock Text="{Binding Path = InactiveEmployees, Mode=OneWay}" Name="InactiveEmployeesText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
                     </StackPanel>
                 </Border>
             </StackPanel>

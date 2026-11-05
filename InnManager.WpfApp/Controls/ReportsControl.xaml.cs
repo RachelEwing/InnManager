@@ -1,4 +1,6 @@
-﻿using InnManager.WpfApp.Controls.Reports;
+﻿using InnManager.Hotels;
+using InnManager.WpfApp.Controls.Reports;
+using InnManager.WpfApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,9 +21,10 @@ namespace InnManager.WpfApp.Controls
     /// </summary>
     public partial class ReportsControl : UserControl
     {
-        public ReportsControl()
+        public ReportsControl(Hotel h)
         {
             InitializeComponent();
+            this.DataContext = new HotelReportViewModel(h);
         }
         public void OccupancyClick(object sender, RoutedEventArgs e) {
             Occupancy.Visibility = Visibility.Visible;

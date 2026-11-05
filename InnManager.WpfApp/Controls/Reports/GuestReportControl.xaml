@@ -19,19 +19,19 @@
                 <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
                     <StackPanel>
                         <TextBlock Text="Total Guests" Width="140" TextAlignment="Center" FontWeight="Bold"/>
-                        <TextBlock Text="25" Name="TotalGuestsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                        <TextBlock Text="{Binding Path = TotalGuests, Mode=OneWay}" Name="TotalGuestsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
                     </StackPanel>
                 </Border>
                 <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
                     <StackPanel>
                         <TextBlock Text="Checked-In Guests" Width="140" TextAlignment="Center" FontWeight="Bold"/>
-                        <TextBlock Text="25" Name="AvailableRoomsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                        <TextBlock Text="{Binding Path = CheckedInGuests, Mode=OneWay}" Name="AvailableRoomsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
                     </StackPanel>
                 </Border>
                 <Border BorderThickness="1" BorderBrush="SkyBlue" Height="50" Margin="5">
                     <StackPanel>
                         <TextBlock Text="Guests Not Checked-In" Width="140" TextAlignment="Center" FontWeight="Bold"/>
-                        <TextBlock Text="25" Name="OccupiedRoomsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
+                        <TextBlock Text="{Binding Path = NotCheckedInGuests, Mode=OneWay}" Name="OccupiedRoomsText" Width="90" TextAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="Blue"/>
                     </StackPanel>
                 </Border>
             </StackPanel>

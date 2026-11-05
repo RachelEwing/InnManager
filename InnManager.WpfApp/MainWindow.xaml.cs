@@ -123,7 +123,7 @@ namespace InnManager.WpfApp
         public void ReportsNavClick(object sender, RoutedEventArgs e)
         {
             DisplayGrid.Children.Clear();
-            DisplayGrid.Children.Add(new ReportsControl());
+            DisplayGrid.Children.Add(new ReportsControl((Hotel)this.DataContext));
         }
         /// <summary>
         /// Displays Settings Panel when the Settings navigation is clicked

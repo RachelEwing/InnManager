@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Text;
 using System.Collections.ObjectModel;
+using InnManager.Services;
+using System.Linq;
 
 namespace InnManager.Billing
 {
@@ -12,6 +14,14 @@ namespace InnManager.Billing
         public Invoice() {
             _idGenerator++;
         }
+        /// <summary>
+        /// The services added to the invoice
+        /// </summary>
+        public ObservableCollection<Service> Services = new ObservableCollection<Service>();
+        /// <summary>
+        /// The total charge for the services added to the invoice
+        /// </summary>
+        public decimal TotalServices { get => Services.Sum(service => service.Price); }
         /// <summary>
         /// Generates ID
         /// </summary>

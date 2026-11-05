@@ -12,6 +12,10 @@ namespace InnManager.Hotels
 {
     public class Hotel
     {
+        /// <summary>
+        /// The tax rate that applies to this hotel
+        /// </summary>
+        public decimal TaxRate;
         //name of hotel
         public string Name { get; init; }
         //type of hotel
