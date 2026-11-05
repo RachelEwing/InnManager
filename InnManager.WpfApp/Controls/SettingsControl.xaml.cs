@@ -22,5 +22,22 @@ namespace InnManager.WpfApp.Controls
         {
             InitializeComponent();
         }
+        public void InfoClick(object sender,RoutedEventArgs e) {
+            Info.Visibility = Visibility.Visible;
+            RB.Visibility = Visibility.Hidden;
+            Account.Visibility = Visibility.Hidden;
+        }
+        public void RBClick(object sender, RoutedEventArgs e)
+        {
+            Info.Visibility = Visibility.Hidden;
+            RB.Visibility = Visibility.Visible;
+            Account.Visibility = Visibility.Hidden;
+        }
+        public void AccountClick(object sender, RoutedEventArgs e)
+        {
+            Info.Visibility = Visibility.Hidden;
+            RB.Visibility = Visibility.Hidden;
+            Account.Visibility = Visibility.Visible;
+        }
     }
 }

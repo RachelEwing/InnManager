@@ -8,12 +8,12 @@
              d:DesignHeight="320" d:DesignWidth="795">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Background="Azure">
-            <TextBlock Text="Reservation and Billing" FontWeight="Bold" FontSize="30" Margin="5"/>
+            <TextBlock Text="Reservation and Billing" FontWeight="Bold" FontSize="20" Margin="5"/>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
