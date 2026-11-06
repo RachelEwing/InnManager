@@ -35,12 +35,12 @@
             </Grid>
             <Grid Grid.Column="1">
                 <StackPanel Margin="5">
-                    <TextBox Text="Hotel Name:" FontSize="15" Margin="4"/>
-                    <ComboBox Text="Hotel Type:" FontSize="15" Margin="4"/>
-                    <TextBox Text="Address:" FontSize="15" Margin="4"/>
-                    <TextBox Text="City:" FontSize="15" Margin="4"/>
-                    <TextBox Text="State/Province:" FontSize="15" Margin="4"/>
-                    <TextBox Text="Postal Code:" FontSize="15" Margin="4"/>
+                    <TextBox Text="{Binding Path = Name, Mode=OneWay}" FontSize="15" Margin="4" Name="HotelNameText"/>
+                    <ComboBox SelectedItem="{Binding Path = Type, Mode=OneWay}" FontSize="15" Margin="4" Name="HotelTypePicker"/>
+                    <TextBox Text="{Binding Path = Address, Mode=OneWay}" FontSize="15" Margin="4" Name="AddressText"/>
+                    <TextBox Text="{Binding Path = City, Mode=OneWay}" FontSize="15" Margin="4" Name="CityText"/>
+                    <TextBox Text="{Binding Path = StateProvice, Mode=OneWay}" FontSize="15" Margin="4" Name="StateProvinceText"/>
+                    <TextBox Text="{Binding Path = PostalCode, Mode=OneWay}" FontSize="15" Margin="4" Name="PostalCodeText"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="2">
@@ -53,10 +53,10 @@
             </Grid>
             <Grid Grid.Column="3">
                 <StackPanel Margin="5">
-                    <TextBox Text="Hotel Name:" FontSize="15" Margin="4"/>
-                    <TextBox Text="Hotel Type:" FontSize="15" Margin="4"/>
-                    <TextBox Text="Address:" FontSize="15" Margin="4"/>
-                    <TextBox Text="City:" FontSize="15" Margin="4" Height="90"/>
+                    <TextBox Text="{Binding Path = PhoneNumber, Mode=OneWay}" FontSize="15" Margin="4" Name="PhoneNumberText"/>
+                    <TextBox Text="{Binding Path = Email, Mode=OneWay}" FontSize="15" Margin="4" Name="EmailText"/>
+                    <TextBox Text="{Binding Path = Website, Mode=OneWay}" FontSize="15" Margin="4" Name="WebsiteText"/>
+                    <TextBox Text="{Binding Path = Description, Mode=OneWay}" FontSize="15" Margin="4" Height="90" Name="DescriptionText"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="4">
@@ -68,8 +68,8 @@
         </Grid>
         <Grid Grid.Row="2" Background="Azure">
             <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
-                <Button Content="Cancel" Height="30" Width="80" FontWeight="Bold" Background="White" Margin="5"/>
-                <Button Content="Save Changes" Height="30" Width="110" FontWeight="Bold" Background="Blue" Foreground="White" Margin="5"/>
+                <Button Content="Cancel" Height="30" Width="80" FontWeight="Bold" Background="White" Margin="5" Click="CancelClick"/>
+                <Button Content="Save Changes" Height="30" Width="110" FontWeight="Bold" Background="Blue" Foreground="White" Margin="5" Click="SaveClick"/>
             </StackPanel>
         </Grid>
     </Grid>

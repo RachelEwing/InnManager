@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InnManager.Enums;
+using InnManager.Hotels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -22,7 +24,7 @@ namespace InnManager.WpfApp.Controls
         {
             InitializeComponent();
         }
-        public void InfoClick(object sender,RoutedEventArgs e) {
+        public void InfoClick(object sender, RoutedEventArgs e) {
             Info.Visibility = Visibility.Visible;
             RB.Visibility = Visibility.Hidden;
             Account.Visibility = Visibility.Hidden;
@@ -32,6 +34,8 @@ namespace InnManager.WpfApp.Controls
             Info.Visibility = Visibility.Hidden;
             RB.Visibility = Visibility.Visible;
             Account.Visibility = Visibility.Hidden;
+            RB.CheckInPicker.SelectedItem = ((Hotel)this.DataContext).CheckInTime;
+            RB.CheckOutPicker.SelectedItem = ((Hotel)this.DataContext).CheckOutTime;
         }
         public void AccountClick(object sender, RoutedEventArgs e)
         {

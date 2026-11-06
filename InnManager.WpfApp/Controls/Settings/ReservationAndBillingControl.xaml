@@ -30,9 +30,9 @@
             </Grid>
             <Grid Grid.Column="1">
                 <StackPanel Margin="5">
-                    <TextBox  FontSize="15" Margin="4"/>
-                    <ComboBox  FontSize="15" Margin="4"/>
-                    <ComboBox  FontSize="15" Margin="4"/>
+                    <TextBox  FontSize="15" Margin="4" Name="TaxRateText"/>
+                    <ComboBox  FontSize="15" Margin="4" Name="CheckInPicker"/>
+                    <ComboBox  FontSize="15" Margin="4" Name="CheckOutPicker"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="2">
@@ -43,8 +43,8 @@
         </Grid>
         <Grid Grid.Row="2" Background="Azure">
             <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
-                <Button Content="Cancel" Height="30" Width="80" FontWeight="Bold" Background="White" Margin="5"/>
-                <Button Content="Save Changes" Height="30" Width="110" FontWeight="Bold" Background="Blue" Foreground="White" Margin="5"/>
+                <Button Content="Cancel" Height="30" Width="80" FontWeight="Bold" Background="White" Margin="5" Click="CancelClick"/>
+                <Button Content="Save Changes" Height="30" Width="110" FontWeight="Bold" Background="Blue" Foreground="White" Margin="5" Click="SaveClick"/>
             </StackPanel>
         </Grid>
     </Grid>

@@ -6,6 +6,7 @@ using InnManager.Housekeeping;
 using InnManager.Reservations;
 using InnManager.Rooms;
 using InnManager.Services;
+using Microsoft.VisualBasic;
 using System.Collections.ObjectModel;
 
 namespace InnManager.Hotels
@@ -13,13 +14,33 @@ namespace InnManager.Hotels
     public class Hotel
     {
         /// <summary>
+        /// The default time for checking in
+        /// </summary>
+        public string CheckInTime = "9:00am";
+        /// <summary>
+        /// The default time for checking out
+        /// </summary>
+        public string CheckOutTime = "5:00pm";
+        /// <summary>
+        /// The account associated with the hotel
+        /// </summary>
+        public Account Account { get; set; } = new Account();
+        /// <summary>
         /// The tax rate that applies to this hotel
         /// </summary>
         public decimal TaxRate;
         //name of hotel
-        public string Name { get; init; }
+        public string Name { get; set; }
         //type of hotel
-        public HotelType Type { get; init; }
+        public HotelType Type { get; set; } = HotelType.Standard;
+        public string Address { get; set; } = "";
+        public string City { get; set; } = "";
+        public string StateProvince { get; set; } = "";
+        public string PostalCode { get; set; } = "";
+        public string PhoneNumber { get; set; } = "";
+        public string EmailAddress { get; set; } = "";
+        public string Website { get; set; } = "";
+        public string Description { get; set; } = "";
         //list of rooms in the hotel
         public ObservableCollection<Room> Rooms { get; } = new ObservableCollection<Room>();
         //list of guests
