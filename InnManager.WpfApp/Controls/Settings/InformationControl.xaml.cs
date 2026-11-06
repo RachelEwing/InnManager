@@ -41,17 +41,69 @@ namespace InnManager.WpfApp.Controls.Settings
         }
         public void SaveClick(object sender, RoutedEventArgs e)
         {
-            Hotel h = (Hotel)this.DataContext;
-            h.Name = HotelNameText.Text;
-            h.Type = (HotelType)HotelTypePicker.SelectedItem;
-            h.Address = AddressText.Text;
-            h.City = CityText.Text;
-            h.StateProvince = StateProvinceText.Text;
-            h.PostalCode = PostalCodeText.Text;
-            h.PhoneNumber = PhoneNumberText.Text;
-            h.EmailAddress = EmailText.Text;
-            h.Website = WebsiteText.Text;
-            h.Description = DescriptionText.Text;
+            if (Validation()) {
+                Hotel h = (Hotel)this.DataContext;
+                h.Name = HotelNameText.Text;
+                h.Type = (HotelType)HotelTypePicker.SelectedItem;
+                h.Address = AddressText.Text;
+                h.City = CityText.Text;
+                h.StateProvince = StateProvinceText.Text;
+                h.PostalCode = PostalCodeText.Text;
+                h.PhoneNumber = PhoneNumberText.Text;
+                h.EmailAddress = EmailText.Text;
+                h.Website = WebsiteText.Text;
+                h.Description = DescriptionText.Text;
+            }
+        }
+        public bool Validation()
+        {
+            bool valid = true;
+            if (HotelNameText.Text == "")
+            {
+                MessageBox.Show("Hotel Name Cannot be Empty");
+                valid = false;
+            }
+            if (AddressText.Text == "")
+            {
+                MessageBox.Show("Address Cannot be Empty");
+                valid = false;
+            }
+            if (CityText.Text == "")
+            {
+                MessageBox.Show("City Cannot be Empty");
+                valid = false;
+            }
+            if (StateProvinceText.Text == "")
+            {
+                MessageBox.Show("State/Province Cannot be Empty");
+                valid = false;
+            }
+            if (PostalCodeText.Text == "")
+            {
+                MessageBox.Show("Postal Code Cannot be Empty");
+                valid = false;
+            }
+            if (EmailText.Text == "")
+            {
+                MessageBox.Show("Email Cannot be Empty");
+                valid = false;
+            }
+            if (PhoneNumberText.Text == "")
+            {
+                MessageBox.Show("Phone Number Cannot be Empty");
+                valid = false;
+            }
+            if (WebsiteText.Text == "")
+            {
+                MessageBox.Show("Website Cannot be Empty");
+                valid = false;
+            }
+            if (DescriptionText.Text == "")
+            {
+                MessageBox.Show("Description Cannot be Empty");
+                valid = false;
+            }
+            return valid;
         }
     }
 }

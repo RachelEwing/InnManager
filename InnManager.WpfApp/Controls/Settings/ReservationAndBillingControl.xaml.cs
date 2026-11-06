@@ -36,11 +36,49 @@ namespace InnManager.WpfApp.Controls.Settings
         }
         public void SaveClick(object sender, RoutedEventArgs e)
         {
-            Hotel h = (Hotel)this.DataContext;
-            bool a = !decimal.TryParse(TaxRateText.Text, out decimal tax);
-            h.TaxRate = tax;
-            h.CheckInTime = CheckInPicker.SelectedItem.ToString();
-            h.CheckOutTime = CheckOutPicker.SelectedItem.ToString();
+            if (Validation()) {
+                Hotel h = (Hotel)this.DataContext;
+                bool a = !double.TryParse(TaxRateText.Text, out double tax);
+                h.TaxRate = tax;
+                h.CheckInTime = CheckInPicker.SelectedItem.ToString();
+                h.CheckOutTime = CheckOutPicker.SelectedItem.ToString();
+            }
+        }
+        public bool Validation()
+        {
+            bool valid = true;
+            if (!double.TryParse(TaxRateText.Text, out double tax))
+            {
+                MessageBox.Show(
+                  "Tax Rate must be a valid number.",
+                  "Invalid Tax Rate",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Warning);
+
+                valid = false;
+            }
+
+            if (tax < 0)
+            {
+                MessageBox.Show(
+                  "Tax Cannot be negative",
+                  "Invalid Tax Rate",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Warning);
+
+                valid = false;
+            }
+            if (tax > 100) //This part's just for fun.  :)
+            {
+                MessageBox.Show(
+                  "You can't be serious.",
+                  "Invalid Tax Rate",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Warning);
+
+                valid = false;
+            }
+            return valid;
         }
     }
 }

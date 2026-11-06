@@ -33,12 +33,42 @@ namespace InnManager.WpfApp.Controls.Settings
             DepartmentText.Text = h.Account.Department;
         }
         public void SaveClick(object sender, RoutedEventArgs e) {
-            Hotel h = (Hotel)this.DataContext;
-            h.Account.DisplayName = DisplayNameText.Text;
-            h.Account.Email = EmailText.Text;
-            h.Account.PhoneNumber = PhoneNumberText.Text;
-            h.Account.Position = PositionText.Text;
-            h.Account.Department = DepartmentText.Text;
+            if (Validation()) {
+                Hotel h = (Hotel)this.DataContext;
+                h.Account.DisplayName = DisplayNameText.Text;
+                h.Account.Email = EmailText.Text;
+                h.Account.PhoneNumber = PhoneNumberText.Text;
+                h.Account.Position = PositionText.Text;
+                h.Account.Department = DepartmentText.Text;
+            }
+        }
+        public bool Validation() {
+            bool valid = true;
+            if (DisplayNameText.Text == "") {
+                MessageBox.Show("Display Name Cannot be Empty");
+                valid = false;
+            }
+            if (EmailText.Text == "")
+            {
+                MessageBox.Show("Email Cannot be Empty");
+                valid = false;
+            }
+            if (PhoneNumberText.Text == "")
+            {
+                MessageBox.Show("Phone Number Cannot be Empty");
+                valid = false;
+            }
+            if (PositionText.Text == "")
+            {
+                MessageBox.Show("Position Cannot be Empty");
+                valid = false;
+            }
+            if (DepartmentText.Text == "")
+            {
+                MessageBox.Show("Department Cannot be Empty");
+                valid = false;
+            }
+            return valid;
         }
     }
 }

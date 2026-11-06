@@ -28,7 +28,7 @@ namespace InnManager.Hotels
         /// <summary>
         /// The tax rate that applies to this hotel
         /// </summary>
-        public decimal TaxRate;
+        public double TaxRate { get; set; } = 6.5;
         //name of hotel
         public string Name { get; set; }
         //type of hotel
