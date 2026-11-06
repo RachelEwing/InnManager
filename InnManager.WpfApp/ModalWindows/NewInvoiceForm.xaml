@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InnManager.WpfApp.ModalWindows"
         mc:Ignorable="d"
-        Title="New Invoice Form" Height="250" Width="200">
+        Title="New Invoice Form" Height="400" Width="300">
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
@@ -29,6 +29,14 @@
                 <Button Content="Create Invoice" Width="auto" Margin="5" Click="AddInvoiceClick"/>
                 <Button Content="Cancel" Width="auto" Margin="5" Click="CancelClick"/>
             </StackPanel>
+            <TextBlock Text="Services:"/>
+            <DataGrid ItemsSource="{Binding Path=Services}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Name="ServiceDataGrid">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn x:Name="Checkboxes"/>
+                    <DataGridTextColumn Header="Service Name:" Binding="{Binding Path = ServiceName}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Price:" Binding="{Binding Path = Price}" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
     </Grid>
 </Window>

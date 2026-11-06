@@ -34,8 +34,8 @@ namespace InnManager.WpfApp.Controls
             Info.Visibility = Visibility.Hidden;
             RB.Visibility = Visibility.Visible;
             Account.Visibility = Visibility.Hidden;
-            RB.CheckInPicker.SelectedItem = ((Hotel)this.DataContext).CheckInTime;
-            RB.CheckOutPicker.SelectedItem = ((Hotel)this.DataContext).CheckOutTime;
+            RB.CheckInPicker.SelectedIndex = ((Hotel)this.DataContext).CheckInTime;
+            RB.CheckOutPicker.SelectedIndex = ((Hotel)this.DataContext).CheckOutTime;
         }
         public void AccountClick(object sender, RoutedEventArgs e)
         {

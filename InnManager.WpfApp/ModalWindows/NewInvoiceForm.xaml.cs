@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using InnManager.Guests;
 using InnManager.Reservations;
+using InnManager.Services;
 
 namespace InnManager.WpfApp.ModalWindows
 {
@@ -45,6 +46,17 @@ namespace InnManager.WpfApp.ModalWindows
                 var data = this.DataContext;
                 if (data is Hotel h)
                 {
+                    /*
+                    foreach (Service s in h.Services) {
+                        if (ServiceDataGrid.) {
+                            invoice.Services.Add(s);
+                        }
+                    }
+                    decimal ServicePrice = invoice.Services.Sum(service => service.Price);
+                    int ServicesAdded = invoice.Services.Count();
+                    MessageBox.Show($"Service Price Added:{ServicePrice}");
+                    MessageBox.Show($"Services Added:{ServicesAdded}");
+                    */
                     h.Invoices.Add(invoice);
                 }
                 DialogResult = true;

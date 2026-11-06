@@ -119,7 +119,7 @@ namespace InnManager.Billing
         /// <summary>
         /// Adds up all processed charges
         /// </summary>
-        public decimal TotalCharges
+        public decimal TotalRoomCost
         {
             get
             {
@@ -137,6 +137,7 @@ namespace InnManager.Billing
                 return totalCharges;
             }
         }
+        public decimal TotalCharges { get => TotalRoomCost + TotalServices; }
         /// <summary>
         /// Adds up all processed payments
         /// </summary>

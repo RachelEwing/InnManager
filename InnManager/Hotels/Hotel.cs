@@ -16,11 +16,11 @@ namespace InnManager.Hotels
         /// <summary>
         /// The default time for checking in
         /// </summary>
-        public string CheckInTime = "9:00am";
+        public int CheckInTime { get; set; } = 9;
         /// <summary>
         /// The default time for checking out
         /// </summary>
-        public string CheckOutTime = "5:00pm";
+        public int CheckOutTime { get; set; } = 17;
         /// <summary>
         /// The account associated with the hotel
         /// </summary>
@@ -47,6 +47,20 @@ namespace InnManager.Hotels
         public ObservableCollection<Guest> Guests { get; } = new ObservableCollection<Guest>();
         //list of reservations
         public ObservableCollection<Reservation> Reservations { get; } = new ObservableCollection<Reservation>();
+        public ObservableCollection<Reservation> RecentReservations { get {
+                if (Reservations.Count > 5)
+                {
+                    int index = Reservations.Count;
+                    return new ObservableCollection<Reservation> { Reservations[index-1], Reservations[index-2], Reservations[index-3], Reservations[index-4], Reservations[index-5] };
+                }
+                else {
+                    ObservableCollection<Reservation> res = new ObservableCollection<Reservation>();
+                    for (int i = (Reservations.Count-1); i > 0; i--) {
+                        res.Add(Reservations[i]);
+                    }
+                    return res;
+                }
+            } }
         //list of services
         public ObservableCollection<Service> Services { get; } = new ObservableCollection<Service>();
         //list of invoices

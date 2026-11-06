@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using InnManager.Guests;
 using InnManager.Rooms;
+using Microsoft.VisualBasic;
 
 namespace InnManager.WpfApp.ModalWindows
 {
@@ -45,12 +46,14 @@ namespace InnManager.WpfApp.ModalWindows
                 Guest guest = (Guest)GuestPicker.SelectedItem;
                 Room room = (Room)RoomPicker.SelectedItem;
                 bool a = !int.TryParse(NumberOfGuestsText.Text, out int capacity);
-                Reservation reservation = new Reservation() {CheckInDate = (DateTime)CheckInDatePicker.SelectedDate, CheckOutDate = (DateTime)CheckOutDatePicker.SelectedDate, Status = StatusPicker.SelectedItem.ToString(), NumberOfGuests = capacity, IDNumber = guest.IDNumber, Room = (Room)RoomPicker.SelectedItem, Guest = (Guest)GuestPicker.SelectedItem};
+                Hotel h = (Hotel)this.DataContext;
+                DateTime ci1 = (DateTime)CheckInDatePicker.SelectedDate;
+                DateTime ci2 = new DateTime(ci1.Year, ci1.Month, ci1.Day, h.CheckInTime, 0, 0);
+                DateTime co1 = (DateTime)CheckOutDatePicker.SelectedDate;
+                DateTime co2 = new DateTime(co1.Year, co1.Month, co1.Day, h.CheckOutTime, 0, 0);
+                Reservation reservation = new Reservation() {CheckInDate = ci2, CheckOutDate = co2, Status = StatusPicker.SelectedItem.ToString(), NumberOfGuests = capacity, IDNumber = guest.IDNumber, Room = (Room)RoomPicker.SelectedItem, Guest = (Guest)GuestPicker.SelectedItem};
                 var data = this.DataContext;
-                if (data is Hotel h)
-                {
-                    h.Reservations.Add(reservation);
-                }
+                h.Reservations.Add(reservation);
                 DialogResult = true;
                 this.Close();
             }

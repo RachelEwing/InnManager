@@ -30,7 +30,7 @@ namespace InnManager.WpfApp.ViewModels
         #region Revenue Report Data
         public decimal TotalRoomCharges { get => _hotel.Invoices.Sum(invoice => invoice.TotalCharges); }
         public decimal TotalServiceCharges { get => _hotel.Invoices.Sum(invoice => invoice.TotalServices); }
-        public decimal TotalTax { get => _hotel.TaxRate * (TotalRoomCharges + TotalServiceCharges); }
+        public decimal TotalTax { get => (((decimal)_hotel.TaxRate) * (TotalRoomCharges + TotalServiceCharges)); }
         public decimal TotalInvoiceAmount { get => TotalRoomCharges + TotalServiceCharges + TotalTax; }
         public decimal TotalPaidAmount { get => _hotel.Invoices.Sum(invoice => invoice.TotalPaymentsPos); }
         public decimal OutstandingBalance { get => TotalInvoiceAmount - TotalPaidAmount; }
