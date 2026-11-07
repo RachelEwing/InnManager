@@ -11,17 +11,22 @@ namespace InnManager.Billing
     /// </summary>
     public class Invoice : INotifyPropertyChanged
     {
+        public int NumberOfNights { get; set; }
+        public decimal NightlyRate { get; set; }
+        public decimal GrandTotal { get => TotalCharges + TotalTax; }
+        public double TaxRate { get; set; }
+        public decimal TotalTax { get => Math.Round((TotalCharges * (decimal)(TaxRate/100)),2); }
         public Invoice() {
             _idGenerator++;
         }
         /// <summary>
         /// The services added to the invoice
         /// </summary>
-        public ObservableCollection<Service> Services = new ObservableCollection<Service>();
+        public ObservableCollection<Service> UsedServices { get; } = new ObservableCollection<Service>();
         /// <summary>
         /// The total charge for the services added to the invoice
         /// </summary>
-        public decimal TotalServices { get => Services.Sum(service => service.Price); }
+        public decimal TotalServices { get => UsedServices.Sum(service => service.Price); }
         /// <summary>
         /// Generates ID
         /// </summary>

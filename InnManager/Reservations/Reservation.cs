@@ -43,13 +43,16 @@ namespace InnManager.Reservations
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GuestName)));
             }
         }
+        public int NumberOfNights { get {
+                TimeSpan difference = CheckOutDate - CheckInDate;
+                int days = Math.Abs(difference.Days);
+                return days;
+            } }
         /// <summary>
         /// How much the reservation costs
         /// </summary>
         public decimal TotalAmount { get{
-                TimeSpan difference = CheckOutDate - CheckInDate;
-                int days = Math.Abs(difference.Days);
-                return days * Room.Rate;
+                return NumberOfNights * Room.Rate;
             }
         }
         /// <summary>

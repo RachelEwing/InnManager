@@ -28,9 +28,9 @@ namespace InnManager.WpfApp.ViewModels
             } }
         #endregion
         #region Revenue Report Data
-        public decimal TotalRoomCharges { get => _hotel.Invoices.Sum(invoice => invoice.TotalCharges); }
+        public decimal TotalRoomCharges { get => _hotel.Invoices.Sum(invoice => invoice.TotalRoomCost); }
         public decimal TotalServiceCharges { get => _hotel.Invoices.Sum(invoice => invoice.TotalServices); }
-        public decimal TotalTax { get => (((decimal)_hotel.TaxRate) * (TotalRoomCharges + TotalServiceCharges)); }
+        public decimal TotalTax { get => _hotel.Invoices.Sum(invoice => invoice.TotalTax); }
         public decimal TotalInvoiceAmount { get => TotalRoomCharges + TotalServiceCharges + TotalTax; }
         public decimal TotalPaidAmount { get => _hotel.Invoices.Sum(invoice => invoice.TotalPaymentsPos); }
         public decimal OutstandingBalance { get => TotalInvoiceAmount - TotalPaidAmount; }

@@ -41,21 +41,17 @@ namespace InnManager.WpfApp.ModalWindows
             if (Validation()) {
                 Guest guest = (Guest)GuestPicker.SelectedItem;
                 Reservation res = (Reservation)ReservationPicker.SelectedItem;
-                Invoice invoice = new Invoice() { FirstName = guest.FirstName, LastName = guest.LastName, RoomNumber = res.RoomNumber, InvoiceDate = (DateTime)InvoiceDatePicker.SelectedDate, DueDate = (DateTime)DueDatePicker.SelectedDate};
+                Invoice invoice = new Invoice() { FirstName = guest.FirstName, LastName = guest.LastName, RoomNumber = res.RoomNumber, InvoiceDate = (DateTime)InvoiceDatePicker.SelectedDate, DueDate = (DateTime)DueDatePicker.SelectedDate, TaxRate = ((Hotel)this.DataContext).TaxRate, NightlyRate = res.Room.Rate, NumberOfNights = res.NumberOfNights};
                 invoice.BillingRecords.Add(new Charge() {Amount = res.TotalAmount, IsProcessed = true});
                 var data = this.DataContext;
                 if (data is Hotel h)
                 {
                     foreach (Service s in h.Services) {
                         if (s.IsSelected) {
-                            invoice.Services.Add(s);
+                            invoice.UsedServices.Add(s);
                             s.IsSelected = false;
                         }
                     }
-                    decimal ServicePrice = invoice.Services.Sum(service => service.Price);
-                    int ServicesAdded = invoice.Services.Count();
-                    MessageBox.Show($"Service Price Added:{ServicePrice}");
-                    MessageBox.Show($"Services Added:{ServicesAdded}");
                     h.Invoices.Add(invoice);
                 }
                 DialogResult = true;

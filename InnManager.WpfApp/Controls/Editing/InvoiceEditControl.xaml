@@ -8,46 +8,114 @@
              d:DesignHeight="395" d:DesignWidth="640">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height ="60"/>
+            <RowDefinition Height ="40"/>
             <RowDefinition Height ="*"/>
-            <RowDefinition Height ="55"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height ="40"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Background="LightSteelBlue">
-            <TextBlock Text="Invoice Details" FontSize="40" Margin="10, 0, 10, 0"/>
+            <TextBlock Text="Invoice Details" FontSize="30" Margin="10, 0, 10, 0"/>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width ="*"/>
+                <ColumnDefinition Width ="2*"/>
                 <ColumnDefinition Width ="*"/>
+                <ColumnDefinition Width ="2*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <StackPanel Margin="10">
-                    <TextBlock Text="Invoice #" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="InvoiceNumberDisplay" Margin="5" Text="{Binding Path = IDNumber, Mode=OneWay}" IsReadOnly="True"/>
-                    <TextBlock Text="Guest Name" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="GuestNameDisplay" Margin="5" Text="{Binding Path = GuestName, Mode=OneWay}" IsReadOnly="True"/>
-                    <TextBlock Text="Room Number" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="RoomNumberDisplay" Margin="5" Text="{Binding Path = RoomNumber, Mode=OneWay}" IsReadOnly="True"/>
-                    <TextBlock Text="Invoice Date" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="InvoiceDateDisplay" Margin="5" Text="{Binding Path = InvoiceDate, Mode=OneWay}" IsReadOnly="True"/>
+                <StackPanel Margin="3">
+                    <TextBlock Text="Invoice #" FontSize="10" Margin="4" FontWeight="Bold"/>
+                    <TextBlock Text="Guest Name" FontSize="10" Margin="4" FontWeight="Bold"/>
+                    <TextBlock Text="Room Number" FontSize="10" Margin="4" FontWeight="Bold"/>
+                    <TextBlock Text="Invoice Date" FontSize="10" Margin="4" FontWeight="Bold"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="1">
-                <StackPanel Margin="10">
-                    <TextBlock Text="Due Date" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="DueDateDisplay" Margin="5" Text="{Binding Path = DueDate, Mode=OneWay}" IsReadOnly="True"/>
-                    <TextBlock Text="Total Amount ($)" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="TotalAmountDisplay" Margin="5" Text="{Binding Path = TotalCharges, Mode=OneWay}" IsReadOnly="True"/>
-                    <TextBlock Text="Paid Amount ($)" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="PaidAmountDisplay" Margin="5" Text="{Binding Path = TotalPaymentsPos, Mode=OneWay}" IsReadOnly="True"/>
-                    <TextBlock Text="Status" FontSize="15" Margin="5" FontWeight="Bold"/>
-                    <TextBox Width="auto" Name="StatusDisplay" Margin="5" Text="{Binding Path = Status, Mode=OneWay}" IsReadOnly="True"/>
+                <StackPanel Margin="3">
+                    <TextBox Width="auto" Name="InvoiceNumberDisplay" Margin="3" Text="{Binding Path = IDNumber, Mode=OneWay}" IsReadOnly="True" FontSize="10"/>
+                    <TextBox Width="auto" Name="GuestNameDisplay" Margin="3" Text="{Binding Path = GuestName, Mode=OneWay}" IsReadOnly="True" FontSize="10"/>
+                    <TextBox Width="auto" Name="RoomNumberDisplay" Margin="3" Text="{Binding Path = RoomNumber, Mode=OneWay}" IsReadOnly="True" FontSize="10"/>
+                    <TextBox Width="auto" Name="InvoiceDateDisplay" Margin="3" Text="{Binding Path = InvoiceDate, Mode=OneWay}" IsReadOnly="True" FontSize="10"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="2">
+                <StackPanel Margin="3">
+                    <TextBlock Text="Due Date" FontSize="10" Margin="4" FontWeight="Bold"/>
+                    <TextBlock Text="Total Amount ($)" FontSize="10" Margin="4" FontWeight="Bold"/>
+                    <TextBlock Text="Paid Amount ($)" FontSize="10" Margin="4" FontWeight="Bold"/>
+                    <TextBlock Text="Status" FontSize="10" Margin="4" FontWeight="Bold"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="3">
+                <StackPanel Margin="3">
+                    <TextBox Width="auto" Name="DueDateDisplay" Margin="3" Text="{Binding Path = DueDate, Mode=OneWay}" IsReadOnly="True" FontSize="10"/>
+                    <TextBox Width="auto" Name="TotalAmountDisplay" Margin="3" Text="{Binding Path = TotalCharges, Mode=OneWay}" IsReadOnly="True" FontSize="10"/>
+                    <TextBox Width="auto" Name="PaidAmountDisplay" Margin="3" Text="{Binding Path = TotalPaymentsPos, Mode=OneWay}" IsReadOnly="True" FontSize="10"/>
+                    <TextBox Width="auto" Name="StatusDisplay" Margin="3" Text="{Binding Path = Status, Mode=OneWay}" IsReadOnly="True" FontSize="10"/>
                 </StackPanel>
             </Grid>
         </Grid>
-        <Grid Grid.Row="2" Background="LightSteelBlue">
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel>
+                    <TextBlock Background="LightSteelBlue" Text="Used Services:" FontSize="15"/>
+                    <DataGrid ItemsSource="{Binding Path = UsedServices, Mode=OneWay}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Name="ServiceDataGrid" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Service Name" Binding ="{Binding Path = ServiceName}"/>
+                            <DataGridTextColumn Header="Category" Binding ="{Binding Path = Category}"/>
+                            <DataGridTextColumn Header="Price ($)" Binding ="{Binding Path = Price}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <StackPanel>
+                    <TextBlock Background="LightSteelBlue" Text="Room Charge:" FontSize="15"/>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel>
+                            <TextBlock Text="Number of Nights:  " FontSize="10" Margin="4" FontWeight="Bold"/>
+                            <TextBlock Text="Nightly Rate:  " FontSize="10" Margin="4" FontWeight="Bold"/>
+                            <TextBlock Text="Room Charge:  " FontSize="10" Margin="4" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right">
+                            <TextBlock Text="{Binding Path=NumberOfNights}" FontSize="10" Margin="4" FontWeight="Bold" TextAlignment="Right"/>
+                            <TextBlock Text="{Binding Path=NightlyRate}" FontSize="10" Margin="4" FontWeight="Bold" TextAlignment="Right"/>
+                            <TextBlock Text="{Binding Path=TotalRoomCost}" FontSize="10" Margin="4" FontWeight="Bold" TextAlignment="Right"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="2">
+                <StackPanel>
+                    <TextBlock Background="LightSteelBlue" Text="Invoice Summary:" FontSize="15"/>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel>
+                            <TextBlock Text="Room Charge:  " FontSize="10" Margin="4" FontWeight="Bold"/>
+                            <TextBlock Text="Service Charge:  " FontSize="10" Margin="4" FontWeight="Bold"/>
+                            <TextBlock Text="Subtotal:  " FontSize="10" Margin="4" FontWeight="Bold"/>
+                            <TextBlock Text="Tax:  " FontSize="10" Margin="4" FontWeight="Bold"/>
+                            <TextBlock Text="Total Amount:  " FontSize="10" Margin="4" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right">
+                            <TextBlock Text="{Binding Path=TotalRoomCost}" FontSize="10" Margin="4" FontWeight="Bold" TextAlignment="Right"/>
+                            <TextBlock Text="{Binding Path=TotalServices}" FontSize="10" Margin="4" FontWeight="Bold" TextAlignment="Right"/>
+                            <TextBlock Text="{Binding Path=TotalCharges}" FontSize="10" Margin="4" FontWeight="Bold" TextAlignment="Right"/>
+                            <TextBlock Text="{Binding Path=TotalTax}" FontSize="10" Margin="4" FontWeight="Bold" TextAlignment="Right"/>
+                            <TextBlock Text="{Binding Path=GrandTotal}" FontSize="10" Margin="4" FontWeight="Bold" TextAlignment="Right"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3" Background="LightSteelBlue">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Content="Back to Invoices" Height="35" Width="120" Margin="10" Background="LightSteelBlue" Click="BackClick" FontWeight="Bold"/>
+                <Button Content="Back to Invoices" Height="25" Width="120" Margin="5" Background="LightSteelBlue" Click="BackClick" FontWeight="Bold"/>
             </StackPanel>
         </Grid>
     </Grid>
