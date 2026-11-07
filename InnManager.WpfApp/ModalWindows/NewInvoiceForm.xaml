@@ -32,7 +32,7 @@
             <TextBlock Text="Services:"/>
             <DataGrid ItemsSource="{Binding Path=Services}" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Name="ServiceDataGrid">
                 <DataGrid.Columns>
-                    <DataGridCheckBoxColumn x:Name="Checkboxes"/>
+                    <DataGridCheckBoxColumn x:Name="Checkboxes" Binding="{Binding Path = IsSelected, Mode=TwoWay}"/>
                     <DataGridTextColumn Header="Service Name:" Binding="{Binding Path = ServiceName}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Price:" Binding="{Binding Path = Price}" IsReadOnly="True"/>
                 </DataGrid.Columns>

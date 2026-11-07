@@ -11,6 +11,10 @@ namespace InnManager.Services
     public class Service : INotifyPropertyChanged
     {
         /// <summary>
+        /// A bool used to databind and add the correct services to corresponding invoices
+        /// </summary>
+        public bool IsSelected { get; set; } = false;
+        /// <summary>
         /// Backing field for service name
         /// </summary>
         private string _serviceName = "";

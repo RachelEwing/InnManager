@@ -46,17 +46,16 @@ namespace InnManager.WpfApp.ModalWindows
                 var data = this.DataContext;
                 if (data is Hotel h)
                 {
-                    /*
                     foreach (Service s in h.Services) {
-                        if (ServiceDataGrid.) {
+                        if (s.IsSelected) {
                             invoice.Services.Add(s);
+                            s.IsSelected = false;
                         }
                     }
                     decimal ServicePrice = invoice.Services.Sum(service => service.Price);
                     int ServicesAdded = invoice.Services.Count();
                     MessageBox.Show($"Service Price Added:{ServicePrice}");
                     MessageBox.Show($"Services Added:{ServicesAdded}");
-                    */
                     h.Invoices.Add(invoice);
                 }
                 DialogResult = true;
