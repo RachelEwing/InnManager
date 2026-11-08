@@ -27,6 +27,7 @@ namespace InnManager.WpfApp.Controls.Editing
         public void BackClick(object sender, RoutedEventArgs e)
         {
             Close?.Invoke(this, EventArgs.Empty);
+            this.Visibility = Visibility.Hidden;
         }
         public void ConfirmClick(object sender, RoutedEventArgs e)
         {

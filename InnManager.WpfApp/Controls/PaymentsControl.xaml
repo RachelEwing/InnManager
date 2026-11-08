@@ -35,7 +35,7 @@
                         <WrapPanel>
                             <Button Content="  + New Payment  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="NewPaymentClick"/>
                             <Button Content="  View  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="ViewClick"/>
-                            <Button Content="  Receipt  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White"/>
+                            <Button Content="  Receipt  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="ReceiptClick"/>
                             <Button Content="  Refund  " Height="25" Margin="5" FontWeight="Bold" FontSize="15" Background =" White" Click="RefundClick"/>
                         </WrapPanel>
                     </Border>
@@ -65,5 +65,7 @@
             </Grid>
         </Grid>
         <local2:PaymentEditControl x:Name="Edit" Visibility="Hidden" />
+        <Grid Grid.Row="2" Name="Receipt">
+        </Grid>
     </Grid>
 </UserControl>

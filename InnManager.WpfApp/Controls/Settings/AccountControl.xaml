@@ -42,7 +42,7 @@
             </Grid>
             <Grid Grid.Column="3">
                 <StackPanel Margin="5">
-                    <TextBlock Height="140" Width="140" Margin="5"/>
+                    <Image Height="140" Width="140" Margin="5" Source="/Controls/Settings/Pictures/profile.png"/>
                     <Button Content="Change Photo" Width="90" Background="White"/>
                 </StackPanel>
             </Grid>

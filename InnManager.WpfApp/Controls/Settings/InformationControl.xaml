@@ -61,7 +61,7 @@
             </Grid>
             <Grid Grid.Column="4">
                 <StackPanel Margin="5" VerticalAlignment="Center">
-                    <TextBlock Height="140" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Height="140" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Controls/Settings/Pictures/Hotel.png"/>
                     <Button Content="Change Image" Width="120" Background="White"/>
                 </StackPanel>
             </Grid>

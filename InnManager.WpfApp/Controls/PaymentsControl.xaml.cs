@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InnManager.Billing;
+using InnManager.Hotels;
 
 namespace InnManager.WpfApp.Controls
 {
@@ -61,6 +62,7 @@ namespace InnManager.WpfApp.Controls
         {
             Main.Visibility = Visibility.Visible;
             Edit.Visibility = Visibility.Hidden;
+            Receipt.Children.Clear();
         }
         public void RefundClick(object sender, EventArgs e)
         {
@@ -75,6 +77,22 @@ namespace InnManager.WpfApp.Controls
                 {
                     (((Payment)(PaymentDataGrid.SelectedItem))).IsRefunded = true;
                 }
+            }
+        }
+        public void ReceiptClick(object sender, EventArgs e) {
+            if (PaymentDataGrid.SelectedItem == null)
+            {
+                MessageBox.Show("No payment is selected");
+            }
+            else {
+                Main.Visibility = Visibility.Hidden;
+                Edit.Visibility = Visibility.Hidden;
+                Hotel h = (Hotel)this.DataContext;
+                Payment p = (Payment)PaymentDataGrid.SelectedItem;
+                PaymentReceiptControl r = new PaymentReceiptControl(h, p);
+                r.Close += OnBackClick;
+                Receipt.Children.Add(r);
+                Receipt.Visibility = Visibility.Visible;
             }
         }
     }
