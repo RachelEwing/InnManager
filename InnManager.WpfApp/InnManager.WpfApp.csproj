@@ -9,6 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Controls\Settings\Pictures\Hotel.png" />
+    <None Remove="Controls\Settings\Pictures\profile.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\InnManager\InnManager.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Controls\Settings\Pictures\Hotel.png" />
+    <Resource Include="Controls\Settings\Pictures\profile.png" />
   </ItemGroup>
 </Project>

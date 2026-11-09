@@ -30,7 +30,7 @@ namespace InnManager.WpfApp.ViewModels
         public string PaymentMethod { get => (_payment.PaymentMethod).ToString(); }
         public string Status { get => _payment.Invoice.Status; }
         public void Generate() {
-            string filepath = ($"receipt_{PaymentReference}_{PaymentDate:yyyy-MM-dd_HH-mm-ss}.html");
+            string filepath = ($"receipt_{PaymentReference}_{_payment.Date:yyyy-MM-dd_HH-mm-ss}.html");
             StringBuilder sb = new StringBuilder();
             sb.Append("<!DOCTYPE html>");
             sb.Append("<html>");
@@ -59,8 +59,8 @@ namespace InnManager.WpfApp.ViewModels
                 File.WriteAllText(filepath, content);
                 MessageBox.Show("Receipt generated");
             }
-            catch {
-                MessageBox.Show("There was an error in generating your receipt.");
+            catch (Exception ex){
+                MessageBox.Show($"There was an error in generating your receipt.{ex.Message}");
             }
         }
     }
