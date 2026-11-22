@@ -1,0 +1,107 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to InnManager</h1>
+    <p>Welcome to the InnManager Hotel Administration Website. This application provides an overview of hotel rooms, guest information, reservations, and housekeeping operations.</p>
+</div>
+<h2 id="rooms", class="header">Rooms</h2>
+<table border="2" cellpadding="10" style="background:aliceblue">
+    <thead>
+        <tr>
+            <th>Room Number</th>
+            <th>Room Type</th>
+            <th>Nightly Rate</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Model.Rooms)
+        {
+            <tr>
+                <td>@room.RoomNumber</td>
+                <td>@room.RoomType</td>
+                <td>@room.Rate</td>
+                <td>@room.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h2 id="reservations", class="header">Reservations</h2>
+<table border="2" cellpadding="10" style="background:aliceblue">
+    <thead>
+        <tr>
+            <th>Reservation ID</th>
+            <th>Guest</th>
+            <th>Room</th>
+            <th>Check-In</th>
+            <th>Check-Out</th>
+            <th>Total Amount</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var res in Model.Reservations)
+        {
+            <tr>
+                <td>@res.ReservationID</td>
+                <td>@res.GuestName</td>
+                <td>@res.RoomNumber</td>
+                <td>@res.CheckInDate</td>
+                <td>@res.CheckOutDate</td>
+                <td>@res.TotalAmount</td>
+                <td>@res.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h2 id="guests", class="header">Guests</h2>
+<table border="2" cellpadding="10" style="background:aliceblue">
+    <thead>
+        <tr>
+            <th>Guest ID</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var guest in Model.Guests)
+        {
+            <tr>
+                <td>@guest.GuestID</td>
+                <td>@guest.FirstName @guest.LastName</td>
+                <td>@guest.Email</td>
+                <td>@guest.PhoneNumber</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h2 id="housekeeping", class="header">Housekeeping</h2>
+<table border="2" cellpadding="10" style="background:aliceblue">
+    <thead>
+        <tr>
+            <th>Task ID</th>
+            <th>Room</th>
+            <th>Assigned Employee</th>
+            <th>Scheduled Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model.Housekeeping)
+        {
+            <tr>
+                <td>@task.TaskID</td>
+                <td>@task.RoomNumber</td>
+                <td>@task.AssignedStaff</td>
+                <td>@task.ScheduledDate</td>
+                <td>@task.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -2,4 +2,5 @@
   <Project Path="InnManager.WpfApp/InnManager.WpfApp.csproj" />
   <Project Path="InnManager/InnManager.csproj" Id="6d8b20d9-cea3-411f-8483-cc07fb29ffbe" />
   <Project Path="InnManagerUnitTests/InnManagerUnitTests.csproj" Id="2c088719-0d3c-4842-b4ae-1baa60153af7" />
+  <Project Path="InnManagerWebsite/InnManagerWebsite.csproj" Id="f195703f-7f68-4685-9455-f7adc8b8899f" />
 </Solution>

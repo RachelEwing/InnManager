@@ -1,7 +1,8 @@
-﻿using InnManager.Enums;
-using System.ComponentModel;
-using InnManager.Employees;
+﻿using InnManager.Employees;
+using InnManager.Enums;
 using InnManager.Rooms;
+using System.ComponentModel;
+using System.Reflection.Emit;
 
 namespace InnManager.Housekeeping
 {
@@ -10,7 +11,16 @@ namespace InnManager.Housekeeping
     /// </summary>
     public class HousekeepingTask : INotifyPropertyChanged
     {
+        public HousekeepingTask()
+        {
+            _idGenerator++;
+        }
+        private static int _idGenerator = 1;
+        private string _taskID = ("T" + _idGenerator.ToString("D4"));
+
         private Room _room;
+        public string TaskID { get => _taskID; }
+
         public Room Room { get => _room; set {
                 _room = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Room)));
